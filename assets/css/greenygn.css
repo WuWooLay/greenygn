@@ -115,4 +115,12 @@ body {
 .TeamImage > img {
     width: 100%;
 }
+.TeamImage .ImageContainer {
+    border-radius: 2px;
+    min-height: 200px;
+    background-color: #f3f3f3;
+}
+.TeamImage .ImageNeedBg {
+    width: 100%;
+}
 /* Team User View End */

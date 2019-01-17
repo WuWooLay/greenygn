@@ -13,17 +13,38 @@
 ?>
 
 <!-- Forum Container Start -->
-<div class="container-fluid mt-3">
+<div class="container mt-3">
+
+    <div class="row justify-content-end">
+        <div class="col-md-2">
+            <div class="input-group mb-3">
+                
+                <input type="text" class="form-control" value="1">
+               
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button" id="button-addon2">
+                        / 2
+                    </button>
+                </div>
+
+            </div>
+        </div>
+       
+    </div>
+
+
     <div class="card-columns">
 
         <?php 
             for($i = 0 ; $i < 10; $i++) {
         ?>
+
             <div class="card">
                 <img class="card-img-top" src="https://readmal.com/images/team/lwinmoepaing.jpg" alt="Card image cap">
                 <div class="card-body">
                 <h5 class="card-title">Card title that wraps to a new line</h5>
                 <p class="card-text">
+                   
                     This is a longer card with supporting text 
                     below as a natural lead-in to additional content. 
                     This content is a little bit longer.
@@ -32,19 +53,11 @@
                 </p>
                 </div>
             </div>
-            <div class="card p-3">
-                <blockquote class="blockquote mb-0 card-body">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                <footer class="blockquote-footer">
-                    <small class="text-muted">
-                    Someone famous in <cite title="Source Title">Source Title</cite>
-                    </small>
-                </footer>
-                </blockquote>
-            </div>
+
         <?php      
             }
         ?>
+
     </div>
 </div>
 <!-- Forum Container End -->
