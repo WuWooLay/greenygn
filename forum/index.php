@@ -22,8 +22,8 @@
                 <input type="text" class="form-control" value="1">
                
                 <div class="input-group-append">
-                    <button class="btn btn-outline-secondary" type="button" id="button-addon2">
-                        / 2
+                    <button class="btn btn-outline-primary" type="button" id="button-addon2">
+                        / 2 Go
                     </button>
                 </div>
 
@@ -33,14 +33,15 @@
     </div>
 
 
+    <!-- All FOrum List -->
     <div class="card-columns">
 
         <?php 
-            for($i = 0 ; $i < 10; $i++) {
+            for($i = 0 ; $i < 8; $i++) {
         ?>
 
             <div class="card">
-                <img class="card-img-top" src="https://readmal.com/images/team/lwinmoepaing.jpg" alt="Card image cap">
+                <img class="card-img-top" src="/assets/images/logo/greenygn_animate.svg" alt="Card image cap">
                 <div class="card-body">
                 <h5 class="card-title">Card title that wraps to a new line</h5>
                 <p class="card-text">
@@ -59,6 +60,8 @@
         ?>
 
     </div>
+    <!-- All Forum List End -->
+
 </div>
 <!-- Forum Container End -->
 

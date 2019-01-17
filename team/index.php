@@ -20,13 +20,13 @@
     <div class="row">
 
     <?php
-        for( $i = 0 ; $i < 11 ; $i++) {
+        for( $i = 0 ; $i < 8 ; $i++) {
     ?>
     
         <div class="col-md-3 justify-content-center">
             <div class="text-center mb-3">
                 <div class="TeamImage">
-                    <img src="https://readmal.com/images/team/lwinmoepaing.jpg" alt="Lwin Moe Paing" class="rounded-circle">
+                    <img src="/assets/images/logo/greenygn_animate.svg" alt="Lwin Moe Paing" class="">
                     <div class="mt-2"> <h6> Co-Founder @ Readmal </h6> </div>
                     
                     <?php 
