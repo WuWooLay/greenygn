@@ -1,0 +1,87 @@
+/* Body */
+body {
+    min-height: 100vh;
+    padding-bottom: 50px;
+    position: relative;
+}
+/* Body End*/
+
+/* Preloading */
+.preloading_container {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: #fff;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+.Green_Animate_Svg {
+    width: 200px;
+    position: absolute;
+    top: 200px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.Green_Animate_Text {
+    position: absolute;
+    top: 350px;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+}
+
+/* Preloading End*/
+
+
+/* 404 Errors  */
+.container_404 {
+    text-align: center;
+    color: #a2a2a2;
+}
+
+.errors_404_svg {
+    width: 300px;
+}
+
+.container_404 a {
+    color: #4285f4;
+}
+/* 404 Errors End*/
+
+/* Footer */
+.footer {
+    color: #80868b;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display:block;
+    font-weight: bolder;
+    z-index: 1;
+}
+
+.footer > ul {
+    list-style: none;
+    margin: 0;
+    padding: 3px;
+    text-align: center;
+}
+.footer > ul > li {
+    display: inline-block;
+}
+.footer > ul > li:after {
+    content: " | ";
+    display: inline-block;
+}
+.footer > ul > li:last-child:after {
+    content: "";
+    display: inline-block;
+}
+.footer > ul > li > a {
+    color: #4285f4;
+}
+.footer > ul > li > a:hover {
+    text-decoration: none;
+}
+/* FooterEnd */

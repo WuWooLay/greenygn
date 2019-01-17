@@ -1,0 +1,32 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+  <defs>
+    <style>
+      .cls-1, .cls-2, .cls-3 {
+        fill: none;
+        stroke: #26a74a;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .cls-1 {
+        stroke-width: 6px;
+      }
+
+      .cls-3 {
+        stroke-width: 5px;
+      }
+    </style>
+  </defs>
+  <title>404</title>
+  <g>
+    <g id="Tree_404_Group">
+      <polyline class="cls-1" points="39.49 99.59 8 174.87 60.23 174.87 60.23 138 60.23 247.07"/>
+      <polyline class="cls-2" points="44.1 94.51 63.11 52.16 113.8 174.87 66.57 174.87"/>
+      <polyline class="cls-1" points="217.69 100.36 186.2 175.63 238.43 175.63 238.43 138.77 238.43 247.84"/>
+      <polyline class="cls-2" points="222.3 95.27 241.31 52.93 292 175.63 244.76 175.63"/>
+    </g>
+    <g id="O_Group">
+      <circle class="cls-3" cx="150" cy="218.26" r="29.19"/>
+    </g>
+  </g>
+</svg>
