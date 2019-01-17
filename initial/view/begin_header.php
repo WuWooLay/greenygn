@@ -10,6 +10,7 @@
         <link rel="icon" href="/greenygn.png">
         <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
         <link rel="stylesheet" href="/assets/css/greenygn.css">
+        <link rel="stylesheet" href="/assets/css/material-fonts/material-icons.css">
             
         <script src="/assets/js/jquery.min.js" > </script>
         <script src="/assets/js/anime.min.js" > </script>

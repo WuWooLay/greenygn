@@ -51,6 +51,26 @@ body {
 /* 404 Errors End*/
 
 /* Footer */
+.scroll_top_container {
+    width: 50px;
+    background: #28A745;
+    position: fixed;
+    right: 5px;
+    bottom: 20px;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.scroll_top_container  i {
+    position: relative;
+    left: 9px;
+    top: 8px;
+    color: #fff;
+    font-size: 2rem;
+}
+
 .footer {
     color: #80868b;
     position: absolute;

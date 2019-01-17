@@ -32,4 +32,26 @@ $(document).ready( function() {
         },800);
     }, 500);
     
+    window.addEventListener('scroll', function () {
+
+        var y = ((window.scrollY || window.pageYOffset) + window.innerHeight ) / 1.3  ;
+        var innerHeight = (window.innerHeight); 
+
+        // console.log(y);
+        // console.log(innerHeight);
+        
+        if( y >= innerHeight ) {
+            $('#scroll_top_container').removeClass('d-none');
+        } else {
+            $('#scroll_top_container').addClass('d-none');
+        }
+
+    });
+
+    $("#scroll_top_container").click( function () {
+        $('html, body').animate({
+            scrollTop: 0
+        }, 'fast');
+    });
+
 });
