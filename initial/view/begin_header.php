@@ -7,6 +7,7 @@
 
         <title> <?= (isset($title) ? 'GreenYangon | '. $title : 'GreenYangon | Home') ?></title>
         
+        <link rel="icon" href="/greenygn.png">
         <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
         <link rel="stylesheet" href="/assets/css/greenygn.css">
             
