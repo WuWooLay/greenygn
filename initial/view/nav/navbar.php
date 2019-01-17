@@ -23,7 +23,7 @@
                 <a class="nav-link" href="/forum"> Forum </a>
             </li>
             <li class="nav-item <?= (isset($title) ?  ($title == 'Application')? 'active' : '' : '') ?>">
-                <a class="nav-link" href="/team"> Apps </a>
+                <a class="nav-link" href="/apps"> Apps </a>
             </li>
             <li class="nav-item <?= (isset($title) ?  ($title == 'About')? 'active' : '' : '') ?>">
                 <a class="nav-link" href="/about"> About </a>
@@ -38,10 +38,10 @@
          <!-- Left Navbar -->
          <ul class="navbar-nav">
             <li class="nav-item <?= (isset($title) ?  ($title == 'Login')? 'active' : '' : '') ?>">
-                <a class="nav-link" href="/"> Login </a>
+                <a class="nav-link" href="/login"> Login </a>
             </li>
             <li class="nav-item <?= (isset($title) ?  ($title == 'Register')? 'active' : '' : '') ?>">
-                <a class="nav-link" href="/forum"> Register </a>
+                <a class="nav-link" href="/register"> Register </a>
             </li>
         </ul>
         <!-- Left Navbar End-->

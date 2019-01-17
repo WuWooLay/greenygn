@@ -85,3 +85,14 @@ body {
     text-decoration: none;
 }
 /* FooterEnd */
+
+/* Team User View */
+.TeamImage {
+    width: 180px;
+    margin: auto;
+}
+
+.TeamImage > img {
+    width: 100%;
+}
+/* Team User View End */

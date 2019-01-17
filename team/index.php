@@ -9,7 +9,48 @@
 
     // Require "Navigation Bar"
     require __DIR__ . "/..//initial/view/nav/navbar.php";
+
 ?>
+
+<!-- Team Container Start -->
+<div class="container-fluid mt-4">
+
+    <h4 class="text-center mb-4"> Green Yangon Team </h4>
+
+    <div class="row">
+
+    <?php
+        for( $i = 0 ; $i < 11 ; $i++) {
+    ?>
+    
+        <div class="col-md-3 justify-content-center">
+            <div class="text-center mb-3">
+                <div class="TeamImage">
+                    <img src="https://readmal.com/images/team/lwinmoepaing.jpg" alt="Lwin Moe Paing" class="rounded-circle">
+                    <div class="mt-2"> <h6> Co-Founder @ Readmal </h6> </div>
+                    
+                    <?php 
+                    
+                        $arr = ['Ui/Ux Designer', 'Wit-2018 Design Winner', 'UniHack3-Champion'];
+                        
+                        foreach($arr as $v) {
+                    ?>
+                        <div> <a href="#!"> <?= $v ?> </a> </div>
+
+                    <?php
+                        }
+                    ?>
+                    
+                </div>
+            </div>
+        </div>
+
+    <?php      
+        }
+    ?>
+    </div>
+</div>
+<!-- Team Container End -->
 
 
 <?php
