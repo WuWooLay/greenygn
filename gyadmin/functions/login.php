@@ -44,12 +44,13 @@ function login () {
 
                     $_SESSION['admin'] = [
                         'name' => $result['name'],
-                        'role' => $result['role'],
-                        'email' => $email
+                        'admin_role_id' => $result['admin_role_id'],
+                        'email' => $email,
+                        'image' => $result['image']
                     ];
 
                     // If Login User
-                    if($result['admin_role_id' == 1]) {
+                    if($result['admin_role_id']  == 1) {
                         header('Location: ' . '/gyadmin/superadmin');
                     } else {
                         header('Location: ' . '/gyadmin/admin');

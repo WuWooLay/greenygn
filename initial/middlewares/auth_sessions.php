@@ -13,8 +13,12 @@ if (isset($_SESSION['user']))
 } else if (isset($_SESSION['admin']))
 {
   $result = $_SESSION['admin'];
+
+  echo "<pre>";
+  print_r($_SESSION['admin']);
+  echo "</pre>";
   // If Login User
-  if($result['admin_role_id' == 1]) {
+  if($_SESSION['admin']['admin_role_id'] == 1) {
       header('Location: ' . '/gyadmin/superadmin');
   } else {
       header('Location: ' . '/gyadmin/admin');
