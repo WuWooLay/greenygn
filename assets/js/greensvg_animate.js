@@ -4,7 +4,7 @@ $(document).ready( function() {
         targets: ' #Y_Group polyline, #Y_Group line, #Tree_Group path',
         strokeDashoffset: [anime.setDashoffset, 0],
         easing: 'easeInOutSine',
-        duration: 400,
+        duration: 200,
         delay: function(el, i) { return i * 70 },
         direction: 'alternate',
     });
@@ -13,7 +13,7 @@ $(document).ready( function() {
         targets: '#G_Group, #Border_Line',
         strokeDashoffset: [anime.setDashoffset, 0],
         easing: 'easeInOutSine',
-        duration: 1000,
+        duration: 800,
         delay: function(el, i) { return i * 100 },
         direction: 'alternate',
     });
@@ -24,12 +24,13 @@ $(document).ready( function() {
             targets: '#preloading_container',
             easing: 'easeInOutSine',
             opacity: 0,
-            duration: 800,
+            duration: 500,
         });
 
         setTimeout(  function () {
             $('#preloading_container').addClass('d-none');
-        },800);
+        },500);
+
     }, 500);
     
     window.addEventListener('scroll', function () {

@@ -20,15 +20,38 @@
 ?>
 
     <!-- Container Start -->
-    <div class="container-fluid">
+    <div class="container-fluid mt-3">
 
+        <div class="row">
 
+            <!-- Url List Container -->
+            <div class="col-md-3">
+
+                <?php 
+                    // Require " Url List "
+                    require __DIR__ . "/view/left_url_list/left_url_list.php";
+                ?>
+
+            </div>
+            <!-- Url List Container -->
+
+            <!-- Normal Container -->
+            <div class="col-md-9">
+            
+            </div>
+            <!-- Normal Container End -->
+
+        </div>
     
     </div>
     <!-- Container Start End -->
 
 <?php
-  // Require "Footer"
-  require __DIR__ . "/view/finish_footer.php";
+
+    // Require "Preloading"
+    require __DIR__ . "/../../initial/view/preloading/preloading.php";
+
+    // Require "Footer"
+    require __DIR__ . "/view/finish_footer.php";
 ?>
 
