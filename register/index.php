@@ -4,7 +4,7 @@
     require __DIR__ . "/../initial/middlewares/auth_sessions.php";
 
     // Function => Login Functions
-    // require __DIR__ . "/functions/login.php";
+    require __DIR__ . "/functions/register.php";
 
     $title = "Register";
 
@@ -80,7 +80,8 @@
                     <?php
                         }
                     ?>
-              
+                   
+                   
 
                 </div>
                 <!-- Password End-->
@@ -92,28 +93,25 @@
                     <input
                         required="required"
                         type="password"
-                        name="password"
-                        class="form-control <?= (isset($errors['password']))? 'is-invalid' :'' ?>"
-                        id="password"
-                        placeholder="Password"
-                        value="<?= (isset($password)) ? $password : '' ?>" 
+                        name="confirmpassword"
+                        class="form-control <?= (isset($errors['confirmpassword']))? 'is-invalid' :'' ?>"
+                        id="confirmpassword"
+                        value="" 
                     >
-
                     <?php 
-                        if (isset($errors['password'])) {
+                        if (isset($errors['confirmpassword'])) {
                     ?>
                             <div class="invalid-feedback">
-                                <?= $errors['password'] ?>
+                                <?= $errors['confirmpassword'] ?>
                             </div>
                     <?php
                         }
                     ?>
-              
-
+                 
                 </div>
                 <!-- RePassword End-->
 
-                <button type="submit" name="submit" class="btn btn-outline-primary"> Login </button>
+                <button type="submit" name="submit" class="btn btn-outline-primary"> Register </button>
             
             </form>
 
