@@ -1,5 +1,8 @@
 <?php
 
+    // Middle ware
+    require __DIR__ . "/initial/middlewares/auth_sessions.php";
+
 
     $title = "Home";
 

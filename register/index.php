@@ -29,7 +29,47 @@
         <div class="col-md-4">
         
             <form method="post">
+                
+                
+                    <?php 
+                        if (isset($db_errors) && count($db_errors) > 0 ) {
+                            foreach($db_errors as $v ) {
+                    ?>           
+                            <div class="alert alert-danger" role="alert">
+                                <?= $v ?>
+                            </div>
+                    <?php
+                            }      
+                        }
+                    ?>
 
+                
+                <!-- Email -->
+                <div class="form-group">
+                    
+                    <label for="name">User Name</label>
+                    <input
+                        type="text" 
+                        class="form-control <?= (isset($errors['name']))? 'is-invalid' :'' ?>" 
+                        id="name"
+                        name="name" 
+                        placeholder="Enter name"
+                        value="<?= (isset($name)) ? $name : '' ?>" 
+                        required="required"
+                    >
+                   
+                    <?php 
+                        if (isset($errors['name'])) {
+                    ?>
+                            <div class="invalid-feedback">
+                                <?= $errors['name'] ?>
+                            </div>
+                    <?php
+                        }
+                    ?>
+              
+                </div>
+                <!-- Email End-->
                 <!-- Email -->
                 <div class="form-group">
                     
@@ -112,6 +152,7 @@
                 <!-- RePassword End-->
 
                 <button type="submit" name="submit" class="btn btn-outline-primary"> Register </button>
+                <a href="/login"> Already have ? </a>
             
             </form>
 

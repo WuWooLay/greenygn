@@ -8,7 +8,7 @@ require __DIR__ . "/../conn/index.php";
 if (isset($_SESSION['user']))
 {
   // logged in !
-  header("Location: " . "/user");
+  header("Location: " . "/users");
 
 } else if (isset($_SESSION['admin']))
 {

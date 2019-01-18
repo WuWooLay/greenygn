@@ -6,7 +6,8 @@ function validation ($str) {
 }
 
 function login () {
-    global $email, $password, $errors, $conn;
+    global $email, $password, $errors,
+    $db_errors, $conn;
 
     // For Errors Count
     $errors = array();
@@ -23,6 +24,50 @@ function login () {
         $errors['password'] = 'Please enter a long password AtLeast 6';
     }
 
+    if(count($errors) == 0 ) {
+        
+        // Check This Email is There ?
+        $sql = "SELECT * FROM `users` WHERE `email` LIKE '$email'";
+        
+        if($result = mysqli_query($conn, $sql)) {
+        // Mysql Work?
+
+            if(mysqli_num_rows($result) == 1 ) {
+            // Check Email is Used
+                
+                // Check Password is Wrong or Right
+                $result = (mysqli_fetch_assoc($result));
+
+                // Password Verify
+                if(password_verify($password , $result['password'])) {
+                    // Success Password
+
+                    $_SESSION['user'] = [
+                        'name' => $result['name'],
+                        'role' => 'User',
+                        'email' => $email
+                    ];
+
+                    // If Login User
+                    header('Location: ' . '/users');
+
+                } else {
+                    // Wrong Password
+                    $db_errors[] = "Your Password is Wrong";
+                }  
+
+            } else {
+                // Mysqli Insert Error
+                $db_errors[] = "Your Email is Not Registered ";
+            }
+
+        } else {
+             // Mysqli Insert Error
+             $db_errors[] = "Error: " . mysqli_error($conn);
+        }
+
+    }
+    
 }
 
 if(isset($_POST['submit'])) 

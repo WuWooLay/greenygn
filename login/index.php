@@ -29,6 +29,18 @@
         <div class="col-md-4">
         
             <form method="post">
+                    <?php 
+                        if (isset($db_errors) && count($db_errors) > 0 ) {
+                            foreach($db_errors as $v ) {
+                    ?>           
+                            <div class="alert alert-danger" role="alert">
+                                <?= $v ?>
+                            </div>
+                    <?php
+                            }      
+                        }
+                    ?>
+
 
                 <div class="form-group">
 
@@ -84,7 +96,7 @@
                 </div>
 
                 <button type="submit" name="submit" class="btn btn-outline-primary"> Login </button>
-            
+                <a href="/register"> Register ? </a>
             </form>
 
         </div>
