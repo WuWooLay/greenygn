@@ -124,3 +124,14 @@ body {
     width: 100%;
 }
 /* Team User View End */
+
+/* Admin Or User List Images Div */
+.AdminUserListTable {
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+}
+/* Admin Or User List Images Div End*/

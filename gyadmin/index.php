@@ -29,6 +29,8 @@
         <div class="col-md-4">
         
             <form method="post">
+
+                    <!-- Show Error Message -->
                     <?php 
                         if (isset($db_errors) && count($db_errors) > 0 ) {
                             foreach($db_errors as $v ) {
@@ -40,6 +42,7 @@
                             }      
                         }
                     ?>
+                    <!-- Show Error Message End-->
 
 
                 <div class="form-group">
@@ -56,7 +59,8 @@
                         required="required"
                     >
                    
-                    <?php 
+                   <!-- Show Error Email Message -->
+                   <?php 
                         if (isset($errors['email'])) {
                     ?>
                             <div class="invalid-feedback">
@@ -65,6 +69,7 @@
                     <?php
                         }
                     ?>
+                   <!-- Show Error Email Message End -->
               
                 </div>
 
@@ -81,6 +86,7 @@
                         value="<?= (isset($password)) ? $password : '' ?>" 
                     >
 
+                    <!-- Show Error Password Message -->
                     <?php 
                         if (isset($errors['password'])) {
                     ?>
@@ -90,9 +96,9 @@
                     <?php
                         }
                     ?>
+                    <!-- Show Error Password Message -->
 
                   
-
                 </div>
 
                 <button type="submit" name="submit" class="btn btn-outline-primary"> Login </button>

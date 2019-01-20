@@ -2,13 +2,27 @@
 
     $title = "404";
 
+    session_start();
+
     // Require "Start Header"
     require __DIR__ . "/..//initial/view/begin_header.php";
     // Require "End Header"
     require __DIR__ . "/..//initial/view/finish_header.php";
 
-    // Require "Navigation Bar"
-    require __DIR__ . "/..//initial/view/nav/navbar.php";
+    // is Admin or Guest
+    if(isset($_SESSION['admin'])) {
+
+        if($_SESSION['admin']['admin_role_id'] == 1) {
+            // Require "Navigation Bar"
+            require __DIR__ . "/..//gyadmin/superadmin/view/nav/navbar.php";
+        } else {
+
+        }
+
+    } else {
+        // Require "Navigation Bar"
+        require __DIR__ . "/..//initial/view/nav/navbar.php";
+    }
 ?>
 
     <div class="container_404">

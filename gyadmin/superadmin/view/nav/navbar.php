@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-success">
+<nav class="navbar navbar-expand-lg navbar-dark bg-success ">
    
    <!-- Brand Logo -->
        <a class="navbar-brand ml-md-1" href="/"> 
@@ -16,12 +16,17 @@
        <!-- Left Navbar -->
        <ul class="navbar-nav mr-auto">
            <li class="nav-item  <?= (isset($title) ?  ($title == 'Home')? 'active' : '' : '') ?>">
-               <a class="nav-link" href="/"> Home </a>
+               <a class="nav-link" href="/gyadmin/superadmin/"> Home </a>
+           </li>
+
+           <li class="nav-item  <?= (isset($title) ?  ($title == 'Orders')? 'active' : '' : '') ?> ">
+               <a class="nav-link" href="/"> Orders </a>
            </li>
 
            <li class="nav-item  <?= (isset($title) ?  ($title == 'Plants')? 'active' : '' : '') ?> ">
                <a class="nav-link" href="/"> Plants </a>
            </li>
+           
            <li class="nav-item  <?= (isset($title) ?  ($title == 'Forum')? 'active' : '' : '') ?> ">
                <a class="nav-link" href="/"> Forum </a>
            </li>
@@ -32,9 +37,9 @@
                     Add 
                   </a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="/admin_readmal/horror"> User </a>
-                    <a class="dropdown-item" href="javascript:void(0)"> Admin </a>
-                    <a class="dropdown-item" href="javascript:void(0)"> About Page </a>
+                    <a class="dropdown-item" href="/gyadmin/superadmin/users"> Users </a>
+                    <a class="dropdown-item" href="/gyadmin/superadmin/admins"> Admins </a>
+                    <a class="dropdown-item" href="/gyadmin/superadmin/about-page"> About Page </a>
                   </div>
            </li>
 
@@ -49,7 +54,7 @@
                     Setting 
                   </a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="/gyadmin/superadmin/profile.php"> Profile </a>
+                    <a class="dropdown-item" href="/gyadmin/superadmin/profile/"> Profile </a>
                     <a class="dropdown-item" href="/logout"> Logout </a>
                   </div>
             </li>

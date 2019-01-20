@@ -11,7 +11,6 @@ if (isset($_SESSION['admin']))
   if($_SESSION['admin']['admin_role_id'] != 1) {
       header("Location: " . "/gyadmin/admin/");
   }
-
   
 } else {
    //   Not Admin  

@@ -46,7 +46,8 @@ function login () {
                         'name' => $result['name'],
                         'admin_role_id' => $result['admin_role_id'],
                         'email' => $email,
-                        'image' => $result['image']
+                        'image' => $result['image'],
+                        'id' => $result['id']
                     ];
 
                     // If Login User
