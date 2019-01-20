@@ -8,7 +8,7 @@
 
     // Functions
     // require __DIR__. "/functions/index/index_page_ban.php";
-    // require __DIR__. "/functions/index/getadmins.php";
+    require __DIR__. "/functions/index/getdata.php";
 
     $title = "Forum";
 
@@ -126,17 +126,18 @@
 
                         <!-- Pagination -->
                         <div class="col-md-3">
-                            <div class="input-group mb-3">
-                                
-                                <input type="text" class="form-control" value="1">
-                            
-                                <div class="input-group-append">
-                                    <button class="btn btn-outline-primary" type="button" id="button-addon2">
-                                        / 2 Go
-                                    </button>
-                                </div>
+                            <form action="" method="get">
+                                <div class="input-group mb-3">
 
-                            </div>
+                                        <input name="page" required type="number" class="form-control" min=1 max="<?= $total_pages ?>" value="<?= $page ?>">
+                                    
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-primary" type="submit" id="button-addon2">
+                                                / <?= $total_pages  ?> Go
+                                            </button>
+                                        </div>
+                                </div>
+                            </form>
                         </div>
                         <!-- Pagination End -->
                     
@@ -152,8 +153,8 @@
                                 <tr>
                                     <th scope="col">Photo</th>
                                     <th scope="col">Title</th>
-                                    <th scope="col">Email</th>
                                     <th scope="col">Name</th>
+                                    <th scope="col">Phone</th>
                                     <th class="" scope="col">Edit</th>
                                     <th class="" scope="col">Ban</th>
                                 </tr>
@@ -161,6 +162,70 @@
 
                             <tbody class="mm_font" id="table_row">
 
+                                <?php
+                                    foreach($result as $k => $v) {
+                                ?>
+
+                                <tr class="">
+                                        <!-- Image  -->
+                                        <td> 
+                                            <div class="AdminUserListTable" style="background-image: url('<?= $v['image'] ?>')">  </div> 
+                                        </td>
+                                        <!-- Image End -->
+
+                                        <!-- Title -->
+                                        <td> <?= $v['title'] ?> </td>
+                                        <!-- Title End -->
+
+                                        <!-- Name -->
+                                        <td> <?= $v['admin_name'] ?> </td>
+                                        <!-- Name End -->
+
+                                        <!-- Phone -->
+                                        <td > 
+                                            <?php 
+                                                if(strlen($v['ph']) > 0) {
+                                            ?>
+                                                <a  class="btn btn-primary btn-sm rounded-circle" href="tel:<?= $v['ph'] ?>">
+                                                    <i class="material-icons md-18"> phone </i>
+                                                </a>
+                                                <?= $v['ph'] ?>
+                                            <?php       
+                                                } else {
+                                            ?>
+                                                <a  class="btn btn-outline-danger btn-sm rounded-circle" href="#!">
+                                                    <i class="material-icons md-18"> phone </i>
+                                                </a>
+                                            <?php       
+                                                }
+                                            ?>
+                                        </td>
+                                        <!-- Phone End -->  
+                                           
+                                        <!-- Edit -->
+                                        <td>
+                                            <a class="btn btn-outline-success btn-sm " href="/gyadmin/superadmin/profile/" role="button">
+                                            <i class="material-icons md-18"> create </i>
+                                            </a>  
+                                        </td>
+                                        <!-- Edit End-->
+                                        
+                                        <!-- Ban -->
+                                        <td>
+                                            <a class="btn btn-outline-danger btn-sm " href="/gyadmin/superadmin/profile/" role="button">
+                                                Ban
+                                            </a>
+                                        </td>
+                                        <!-- Ban End -->
+                                </tr>
+                                
+                                <?php
+                                            // echo $k .  "<tr> <td>" ;
+                                            // // echo ($v["deleted_at"]) ? "true" : "false" . "<br>" ;
+                                            // print_r($v);
+                                            // echo"</td></tr>";
+                                    }
+                                ?>
 
                             </tbody>
 
