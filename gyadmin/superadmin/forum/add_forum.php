@@ -7,9 +7,9 @@
     require __DIR__ . "/../middlewares/is_superadmin.php";
 
     // Functions
-    require __DIR__. "/functions/add_admin/add_admin.php";
+    require __DIR__. "/functions/add_forum/add_forum.php";
 
-    $title = "Add";
+    $title = "Forum";
 
     // Require "Start Header"
     require __DIR__ . "/../view/begin_header.php";
@@ -69,8 +69,8 @@
                 
                 <!-- Shwo DB Errors -->
                 <?php 
-                        if (isset($db_errors) && count($db_errors) > 0 ) {
-                            foreach($db_errors as $v ) {
+                        if (isset($req['errors']) && count($req['errors']) > 0 ) {
+                            foreach($req['errors'] as $v ) {
                 ?>           
                             <div class="alert alert-danger" role="alert">
                                 <?= $v ?>
@@ -81,27 +81,26 @@
                 ?>
                 <!-- Shwo DB Errors End -->
 
-                 <!-- Shwo Errors -->
-                 <?php 
-                        if (isset($errors) && count($errors) > 0 ) {
-                            foreach($errors as $v ) {
+                <!-- Shwo Success -->
+                <?php 
+                        if (isset($req['success']) && count($req['success']) > 0 ) {
+                            foreach($req['success'] as $v ) {
                 ?>           
-                            <div class="alert alert-danger" role="alert">
+                            <div class="alert alert-success" role="alert">
                                 <?= $v ?>
                             </div>
                 <?php
                             }      
                         }
                 ?>
-                <!-- Shwo Errors End -->
+                <!-- Shwo Success End -->
 
-              
 
                 <!-- Breadcum Navigation -->
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="/gyadmin/superadmin/">DashBoard</a></li>
-                    <li class="breadcrumb-item"><a href="/gyadmin/superadmin/admins">Admins</a></li>
+                    <li class="breadcrumb-item"><a href="/gyadmin/superadmin/forum">Forums</a></li>
                         <li class="breadcrumb-item active"> Add </li>
                     </ol>
                 </nav>
@@ -112,68 +111,44 @@
                     <div class="row">
 
 
-                        <div class="col-md-8">
+                        <div class="col-md-10">
                         
-                            <form method="post">
+                            <form method="post" enctype="multipart/form-data">
                                 
-                            <h3 class=""> Add Admin </h3>
-                                    
+                            <h3 class=""> Add Forum </h3>
+
+                                <!-- Id -->
+                                <input type="hidden" name="admin_id" value="<?= $_SESSION['admin']['id'] ?>">
+                                <!-- Id End-->
                                 
                                 <!-- Name -->
                                 <div class="form-group">
-                                    <label for="name">User Name</label>
-                                    <input type="text" class="form-control " id="name" name="name" placeholder="Enter name" value="<?= isset($name) ? "$name":"" ?>" required="required">
+                                    <label for="title">Title</label>
+                                    <input type="text" class="form-control " id="title" name="title" placeholder="Enter name" value="<?= isset($name) ? "$name":"" ?>" required="required">
                                 </div>
                                 <!-- Name End-->
                                 
                                 <!-- Email -->
                                 <div class="form-group">
                                     
-                                    <label for="email">Email address</label>
-                                    <input type="email" class="form-control " id="email" name="email" placeholder="Enter email" value="<?= isset($email) ? "$email":"" ?>" required="required">
+                                    <label for="description">Description</label>
+                                    <textarea class="form-control " name="description" id="description" cols="30" rows="8"></textarea>
                                                 
                                 </div>
                                 <!-- Email End-->
-                                
-                                <!-- Password -->
+
+                                <!-- Image Upload -->
                                 <div class="form-group">
-                                    <label for="password">Password</label>
-                                    <input required="required" type="password" name="password" class="form-control " id="password" placeholder="Password" value="<?= isset($password) ? "$password":"" ?>">
-                                </div>
-                                <!-- Password End-->
-
-                                <!-- RePassword -->
-                                <div class="form-group">
-                                    <label for="password">Confirm Password</label>
-                                    <input required="required" type="password" name="confirmpassword" class="form-control "  placeholder="Confirm Password" id="confirmpassword" value="">
-                                </div>
-                                <!-- RePassword End-->
-
-                                <!-- If Special Admin -->
-                                <?php 
-                                        if($_SESSION['admin']['id'] == 1) {
-                                    ?>
-                                    <div class="form-group">
-
-                                        <div class="custom-control custom-radio custom-control-inline">
-                                            <input value="1" checked="checked" type="radio" id="customRadioInline1" name="admin_role_id" class="custom-control-input">
-                                            <label class="custom-control-label" for="customRadioInline1"> Super Admin</label>
-                                        </div>
-
-                                        <div class="custom-control custom-radio custom-control-inline">
-                                            <input value="2" type="radio" id="customRadioInline2" name="admin_role_id" class="custom-control-input">
-                                            <label class="custom-control-label" for="customRadioInline2"> Normal Admin</label>
-                                        </div>
-
+                                    <div class="custom-file mb-3">
+                                        <input required name="file" type="file" class="custom-file-input" id="customFile">
+                                        <label class="custom-file-label" for="customFile">Choose file</label>
                                     </div>
-                                <?php
-                                        }
-                                ?>
-                                <!-- If Special Admin End -->
-
-                                <button type="submit" name="submit" class="btn btn-outline-primary"> Add Admins </button>
+                                </div>
+                                <!-- Image Upload End -->
                                 
+                                <button type="submit" name="submit" class="btn btn-outline-primary"> Add Forum </button>
                             
+
                             </form>
 
                         </div>

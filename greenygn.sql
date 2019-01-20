@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 20, 2019 at 11:04 AM
+-- Generation Time: Jan 20, 2019 at 10:24 PM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -75,7 +75,7 @@ INSERT INTO `admin` (`id`, `name`, `email`, `password`, `admin_role_id`, `positi
 (1, 'Lwin Moe Paing', 'lwinmoepaing007@gmail.com', '$2y$10$ylEA3AIe8Ad/unGPz.54CeBJVJazs6fN93z3riCY01n7iF2KRoUUm', 1, 'Co-Founder @ Readmal.com', 'Ui/Ux Designer,UniHack3-Champion,Wit-2018 Design Winner', '/assets/images/admins/id1_08_20_56_5c44215837539.jpg', '09-420059241', '', '', NULL, '2019-01-18 17:33:54', '2019-01-18 17:33:54'),
 (2, 'Htet Naing Linn', 'htetnainglinn@gmail.com', '$2y$10$ylEA3AIe8Ad/unGPz.54CeBJVJazs6fN93z3riCY01n7iF2KRoUUm', 1, 'Co-Founder @ Readmal', '', '/assets/images/admins/id2_00_52_20_5c43b83402230.jpg', '09-449949494', 'Nothing', 'Ma shi', NULL, '2019-01-18 23:45:12', '2019-01-18 23:45:12'),
 (3, 'Ko Htet Ko', 'admin@gmail.com', '$2y$10$ylEA3AIe8Ad/unGPz.54CeBJVJazs6fN93z3riCY01n7iF2KRoUUm', 1, 'admin', '', '/assets/images/admins/id3_08_22_09_5c4421a116ef4.jpg', '09-455874454', '', '', NULL, '2019-01-20 04:03:04', '2019-01-20 04:03:04'),
-(4, 'Next Admin', '123@cc.sa', '$2y$10$JiwiSrp42aN1QkRg/bOCnenslzUdQ7sVkBCNjZ3MYmUsvmhRMQW1W', 2, 'admin', '', '/assets/images/admins/id4_09_15_08_5c442e0cc2f4a.png', '09-777777777', '', '', NULL, '2019-01-20 14:37:09', '2019-01-20 14:37:09'),
+(4, 'Next Admin', '123@cc.sa', '$2y$10$JiwiSrp42aN1QkRg/bOCnenslzUdQ7sVkBCNjZ3MYmUsvmhRMQW1W', 1, 'admin', '', '/assets/images/admins/id4_09_15_08_5c442e0cc2f4a.png', '09-777777777', '', '', NULL, '2019-01-20 14:37:09', '2019-01-20 14:37:09'),
 (5, 'L w', 'admin2@gmail.com', '$2y$10$iM9WZ3R9jFdcghUpEp2.4OrtjhidnmsY6priZ55jyiFIihod.uzru', 2, 'admin', '', '/assets/images/logo/greenygn_animate.svg', NULL, NULL, NULL, NULL, '2019-01-20 15:00:16', '2019-01-20 15:00:16');
 
 -- --------------------------------------------------------
@@ -99,6 +99,31 @@ CREATE TABLE `admin_role` (
 INSERT INTO `admin_role` (`id`, `name`, `deleted_at`, `created_at`, `modified_at`) VALUES
 (1, 'superadmin', NULL, '2019-01-18 16:58:16', '2019-01-18 16:58:16'),
 (2, 'admin', NULL, '2019-01-18 16:58:16', '2019-01-18 16:58:16');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `forum`
+--
+
+CREATE TABLE `forum` (
+  `id` int(11) NOT NULL,
+  `image` varchar(200) NOT NULL DEFAULT '/assets/images/logo/greenygn_animate.svg',
+  `title` varchar(120) NOT NULL,
+  `description` text NOT NULL,
+  `admin_id` int(10) UNSIGNED NOT NULL,
+  `deleted_at` datetime DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `modified_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `forum`
+--
+
+INSERT INTO `forum` (`id`, `image`, `title`, `description`, `admin_id`, `deleted_at`, `created_at`, `modified_at`) VALUES
+(2, '/assets/images/forums/admin_id1_22_17_34_5c44e56ea1d82.jpg', '123333 333', '131313', 1, NULL, '2019-01-21 03:47:34', '2019-01-21 03:47:34'),
+(3, '/assets/images/forums/admin_id1_22_19_32_5c44e5e425236.jpg', '123333 333', '131313', 1, NULL, '2019-01-21 03:49:32', '2019-01-21 03:49:32');
 
 -- --------------------------------------------------------
 
@@ -154,6 +179,13 @@ ALTER TABLE `admin_role`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `forum`
+--
+ALTER TABLE `forum`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `forum_admin_id_foreign` (`admin_id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -184,6 +216,12 @@ ALTER TABLE `admin_role`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `forum`
+--
+ALTER TABLE `forum`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
@@ -204,6 +242,12 @@ ALTER TABLE `about_page`
 --
 ALTER TABLE `admin`
   ADD CONSTRAINT `admin_role_foreign` FOREIGN KEY (`admin_role_id`) REFERENCES `admin_role` (`id`);
+
+--
+-- Constraints for table `forum`
+--
+ALTER TABLE `forum`
+  ADD CONSTRAINT `forum_admin_id_foreign` FOREIGN KEY (`admin_id`) REFERENCES `admin` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

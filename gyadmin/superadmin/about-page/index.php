@@ -7,7 +7,8 @@
     require __DIR__ . "/../middlewares/is_superadmin.php";
 
     // Functions
-    require __DIR__. "/functions/add_admin/add_admin.php";
+    require __DIR__. "/functions/update_description.php";
+    require __DIR__. "/functions/getdata.php";
 
     $title = "Add";
 
@@ -85,14 +86,14 @@
                  <?php 
                         if (isset($errors) && count($errors) > 0 ) {
                             foreach($errors as $v ) {
-                ?>           
+                 ?>           
                             <div class="alert alert-danger" role="alert">
                                 <?= $v ?>
                             </div>
-                <?php
+                 <?php
                             }      
                         }
-                ?>
+                 ?>
                 <!-- Shwo Errors End -->
 
               
@@ -101,8 +102,7 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="/gyadmin/superadmin/">DashBoard</a></li>
-                    <li class="breadcrumb-item"><a href="/gyadmin/superadmin/admins">Admins</a></li>
-                        <li class="breadcrumb-item active"> Add </li>
+                        <li class="breadcrumb-item active"> About Page </li>
                     </ol>
                 </nav>
                 <!-- Breadcum Navigation End -->
@@ -116,62 +116,28 @@
                         
                             <form method="post">
                                 
-                            <h3 class=""> Add Admin </h3>
-                                    
+                            <h3 class=""> About Page </h3>
                                 
-                                <!-- Name -->
-                                <div class="form-group">
-                                    <label for="name">User Name</label>
-                                    <input type="text" class="form-control " id="name" name="name" placeholder="Enter name" value="<?= isset($name) ? "$name":"" ?>" required="required">
-                                </div>
-                                <!-- Name End-->
+                                <!-- Id -->
+                                <input type="hidden" name="admin_id" value="<?= $_SESSION['admin']['id'] ?>">
+                                <!-- Id End -->
                                 
                                 <!-- Email -->
                                 <div class="form-group">
                                     
-                                    <label for="email">Email address</label>
-                                    <input type="email" class="form-control " id="email" name="email" placeholder="Enter email" value="<?= isset($email) ? "$email":"" ?>" required="required">
+                                    <label for="description"> Updated by <?= isset($result['admin']) ? $result['admin'] : "Mashi" ?> </label>
+                                    <textarea 
+                                        class="form-control " 
+                                        id="description" name="description" 
+                                    ><?= isset($result['description']) ? $result['description'] : "Mashi" ?></textarea>
                                                 
                                 </div>
                                 <!-- Email End-->
                                 
-                                <!-- Password -->
-                                <div class="form-group">
-                                    <label for="password">Password</label>
-                                    <input required="required" type="password" name="password" class="form-control " id="password" placeholder="Password" value="<?= isset($password) ? "$password":"" ?>">
-                                </div>
-                                <!-- Password End-->
-
-                                <!-- RePassword -->
-                                <div class="form-group">
-                                    <label for="password">Confirm Password</label>
-                                    <input required="required" type="password" name="confirmpassword" class="form-control "  placeholder="Confirm Password" id="confirmpassword" value="">
-                                </div>
-                                <!-- RePassword End-->
-
-                                <!-- If Special Admin -->
-                                <?php 
-                                        if($_SESSION['admin']['id'] == 1) {
-                                    ?>
-                                    <div class="form-group">
-
-                                        <div class="custom-control custom-radio custom-control-inline">
-                                            <input value="1" checked="checked" type="radio" id="customRadioInline1" name="admin_role_id" class="custom-control-input">
-                                            <label class="custom-control-label" for="customRadioInline1"> Super Admin</label>
-                                        </div>
-
-                                        <div class="custom-control custom-radio custom-control-inline">
-                                            <input value="2" type="radio" id="customRadioInline2" name="admin_role_id" class="custom-control-input">
-                                            <label class="custom-control-label" for="customRadioInline2"> Normal Admin</label>
-                                        </div>
-
-                                    </div>
-                                <?php
-                                        }
-                                ?>
+                         
                                 <!-- If Special Admin End -->
 
-                                <button type="submit" name="submit" class="btn btn-outline-primary"> Add Admins </button>
+                                <button type="submit" name="submit" class="btn btn-outline-success"> Update  </button>
                                 
                             
                             </form>

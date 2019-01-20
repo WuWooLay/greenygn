@@ -20,15 +20,15 @@
            </li>
 
            <li class="nav-item  <?= (isset($title) ?  ($title == 'Orders')? 'active' : '' : '') ?> ">
-               <a class="nav-link" href="/"> Orders </a>
+               <a class="nav-link" href="/gyadmin/superadmin/orders/"> Orders </a>
            </li>
 
            <li class="nav-item  <?= (isset($title) ?  ($title == 'Plants')? 'active' : '' : '') ?> ">
-               <a class="nav-link" href="/"> Plants </a>
+               <a class="nav-link" href="/gyadmin/superadmin/plants/"> Plants </a>
            </li>
            
            <li class="nav-item  <?= (isset($title) ?  ($title == 'Forum')? 'active' : '' : '') ?> ">
-               <a class="nav-link" href="/"> Forum </a>
+               <a class="nav-link" href="/gyadmin/superadmin/forum/"> Forum </a>
            </li>
 
 
