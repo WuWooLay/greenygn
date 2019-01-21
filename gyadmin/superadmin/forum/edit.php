@@ -9,7 +9,7 @@
     require __DIR__ . "/../middlewares/is_superadmin.php";
 
     // Functions
-    require __DIR__. "/functions/add_forum/add_forum.php";
+    require __DIR__. "/functions/edit/edit.php";
 
     $title = "Forum";
 
@@ -103,7 +103,7 @@
                     <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="/gyadmin/superadmin/">DashBoard</a></li>
                     <li class="breadcrumb-item"><a href="/gyadmin/superadmin/forum">Forums</a></li>
-                        <li class="breadcrumb-item active"> Add </li>
+                        <li class="breadcrumb-item active"> Edit </li>
                     </ol>
                 </nav>
                 <!-- Breadcum Navigation End -->
@@ -117,7 +117,7 @@
                         
                             <form method="post" enctype="multipart/form-data">
                                 
-                            <h3 class=""> Add Forum </h3>
+                            <h3 class=""> Edit Forum </h3>
 
                                 <!-- Id -->
                                 <input type="hidden" name="admin_id" value="<?= $_SESSION['admin']['id'] ?>">

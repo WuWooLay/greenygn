@@ -1,7 +1,8 @@
 <?php
 
     // Super Admin Index.php
-
+    
+    // Connect Mysql 
     require __DIR__ . "/../../initial/conn/index.php";
     
     // Middlewares

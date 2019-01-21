@@ -1,6 +1,8 @@
 <?php
 
     // Super Admin  superadmin/admins
+    
+    // Connect Mysql 
     require __DIR__ . "/../../../initial/conn/index.php";
     
     // Middlewares
@@ -204,8 +206,8 @@
                                            
                                         <!-- Edit -->
                                         <td>
-                                            <a class="btn btn-outline-success btn-sm " href="/gyadmin/superadmin/profile/" role="button">
-                                            <i class="material-icons md-18"> create </i>
+                                            <a class="btn btn-outline-success btn-sm " href="/gyadmin/superadmin/forum/edit.php?id=<?= $v['id'] ?>" role="button">
+                                                <i class="material-icons md-18"> create </i>
                                             </a>  
                                         </td>
                                         <!-- Edit End-->
