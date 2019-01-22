@@ -9,7 +9,7 @@
     require __DIR__ . "/../middlewares/is_superadmin.php";
 
     // Functions
-    require __DIR__. "/functions/index/getdata.php";
+    require __DIR__. "/functions/deleted_list/getdata.php";
 
     $title = "Plants";
 
@@ -169,8 +169,8 @@
                                 </div>
 
                                <div class="list-group">
-                                    <a href="/gyadmin/superadmin/plants/" class="list-group-item list-group-item-action"> All List </a>
-                                    <a href="/gyadmin/superadmin/plants/deleted_list.php" class="list-group-item list-group-item-action"> Deleted List </a>
+                                    <a href="/gyadmin/superadmin/plants/" class="list-group-item list-group-item-action"> All </a>
+                                    <a href="/gyadmin/superadmin/plants/deleted_list.php" class="list-group-item list-group-item-action"> Deleted </a>
                                </div>
 
                             </div>
@@ -203,76 +203,6 @@
                     
                         <!-- Table -->
                         <div class="col-md-9">
-                        <div class="table-responsive">      
-                            <table class="table">
-
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Photo</th>
-                                        <th scope="col">Name</th>
-                                        <th scope="col">Price</th>
-                                        <th scope="col">Category</th>
-                                        <th scope="col">Added By</th>
-                                        <th class="" scope="col">Edit</th>
-                                        <th class="" scope="col">Deleted</th>
-                                    </tr>
-                                </thead>
-
-                                <tbody class="mm_font" id="table_row">
-
-                                    <?php
-                                        foreach($result as $k => $v) :
-                                    ?>
-
-                                    <tr class="">
-                                            <!-- Image  -->
-                                            <td> 
-                                                <div class="AdminUserListTable" style="background-image: url('<?= $v['image'] ?>')">  </div> 
-                                            </td>
-                                            <!-- Image End -->
-
-                                            <!-- Name -->
-                                            <td> <?= $v['name'] ?> </td>
-                                            <!-- Name End -->
-
-                                            <!-- price -->
-                                            <td> <?= $v['price'] ?> </td>
-                                            <!-- price End -->
-
-                                            <!-- Category -->
-                                            <td> <?= $v['category_name'] ?> </td>
-                                            <!-- Category End -->
-
-                                            <!-- Admin Name -->
-                                            <td> <?= $v['admin_name'] ?> </td>
-                                            <!-- Admin Name End -->
-
-                                            
-                                            <!-- Edit -->
-                                            <td>
-                                                <a class="btn btn-outline-success btn-sm " href="/gyadmin/superadmin/forum/edit.php?id=<?= $v['id'] ?>&page=<?= $page ?>" role="button">
-                                                    <i class="material-icons md-18"> create </i>
-                                                </a>  
-                                            </td>
-                                            <!-- Edit End-->
-                                            
-                                            <!-- Delete -->
-                                            <td>
-                                                <a class="btn btn-outline-danger btn-sm " href="/gyadmin/superadmin/forum/functions/index/ban.php?id=<?= $v['id'] ?>&page=<?= $page ?>" role="button">
-                                                    Delete
-                                                </a>
-                                            </td>
-                                            <!-- Delete End -->
-                                    </tr>
-
-                                    <?php
-                                        endforeach;
-                                    ?>
-                                    
-                                </tbody>
-
-                            </table>
-                        </div>
                         </div>
                         <!-- Table End-->
                     

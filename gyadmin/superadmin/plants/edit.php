@@ -1,6 +1,6 @@
 <?php
 
-    // Super Admin  superadmin/plants
+    // Super Admin  superadmin/admins
     
     // Connect Mysql 
     require __DIR__ . "/../../../initial/conn/index.php";
@@ -9,9 +9,8 @@
     require __DIR__ . "/../middlewares/is_superadmin.php";
 
     // Functions
-    require __DIR__. "/functions/add/add.php";
-    require __DIR__. "/functions/add/add_category.php";
-    require __DIR__. "/functions/add/getdata.php";
+    // require __DIR__. "/functions/edit/edit.php";
+    require __DIR__. "/functions/edit/getdata.php";
 
     $title = "Plants";
 
@@ -37,6 +36,7 @@
                     // Require " Url List "
                     require __DIR__ . "/../view/left_url_list/left_url_list.php";
                 ?>
+
         
             </div>
             <!-- Url List Container -->
@@ -103,8 +103,8 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="/gyadmin/superadmin/">DashBoard</a></li>
-                    <li class="breadcrumb-item"><a href="/gyadmin/superadmin/plants/">Plants</a></li>
-                        <li class="breadcrumb-item active"> Add </li>
+                    <li class="breadcrumb-item"><a href="/gyadmin/superadmin/forum">Forums</a></li>
+                        <li class="breadcrumb-item active"> Edit </li>
                     </ol>
                 </nav>
                 <!-- Breadcum Navigation End -->
@@ -112,88 +112,37 @@
                 <!-- Form -->
                 <div class="container-fluid mt-3">
                     <div class="row">
-
-                        <!-- Add Plant Column -->
-                        <div class="col-md-6">
+                        <div class="col-md-10">
                         
                             <form method="post" enctype="multipart/form-data">
                                 
-                            <h3 class=""> Add Plant </h3>
+                            <h3 class=""> Edit Forum </h3>
 
                                 <!-- Id -->
-                                <input type="hidden" name="admin_id" value="<?= $_SESSION['admin']['id'] ?>">
+                                <input type="hidden" name="id" value="<?= $result['id'] ?>">
                                 <!-- Id End-->
                                 
-                                <!-- Name -->
+                                <!-- Title -->
                                 <div class="form-group">
-                                    <label for="name">Name</label>
-                                    <input type="text" class="form-control " id="name" name="name" placeholder="Enter name" value="<?= isset($req['name']) ? $req['name'] : "" ?>" required="required">
+                                    <label for="title">Title</label>
+                                    <input type="text" class="form-control " id="title" name="title" placeholder="Enter name" value="<?= $result['title'] ?>" required="required">
                                 </div>
-                                <!-- Name End-->
+                                <!-- Title End-->
                                 
-                                <!-- Price -->
+                                <!-- Email -->
                                 <div class="form-group">
-                                    <label for="price">Price</label>
-                                    <input type="text" class="form-control " id="price" name="price" placeholder="1000" value="<?= isset($req['price']) ? $req['price'] : "" ?>" required="required">
+                                    
+                                    <label for="description">Description</label>
+                                    <textarea class="form-control " name="description" id="description" cols="30" rows="8"><?=  $result['description'] ?></textarea>
+                                                
                                 </div>
-                                <!-- Price End-->
+                                <!-- Email End-->
 
-                                <!-- Category List -->
-                                <div class="form-group">
-                                    <label for="category"> Category List </label>
-                                    <select name="category_id" id="category" class="custom-select">
+                                <button type="submit" name="submit" class="btn btn-outline-primary"> Update Forum </button>
 
-                                        <?php
-                                                foreach($category_list as $v) {
-                                        ?>
-                                            <option value="<?= $v['id'] ?>"><?= $v['name'] ?></option>
-                                        <?php
-                                                }
-                                        ?>
-                                        
-                                    </select>
-                                </div>
-                                <!-- Category List end -->
-
-                                <!-- Image Upload -->
-                                <div class="form-group">
-                                    <label for="customFile"> Image Upload </label>
-                                    <div class="custom-file mb-3">
-                                        <input required name="file" type="file" class="custom-file-input" id="customFile">
-                                        <label class="custom-file-label" for="customFile">Choose file</label>
-                                    </div>
-                                </div>
-                                <!-- Image Upload End -->
-                                
-                                <button type="submit" name="submit" class="btn btn-outline-primary"> Add Forum </button>
-                            
                             </form>
 
                         </div>
-                        <!-- Add Plant Column End-->
-                        
-                        <!-- Add Category Column -->
-                        <div class="col-md-6">
-                        
-                            <form method="post" class="">
-                                
-                            <h3 class=""> Add Category </h3>
-
-                                <!-- Name -->
-                                <div class="form-group">
-                                    <label for="name">Name</label>
-                                    <input type="text" class="form-control " id="name" name="cat_name" placeholder="Enter name" value="<?= isset($req['cat_name']) ? $req['cat_name'] : "" ?>" required="required">
-                                </div>
-                                <!-- Name End-->
-                                
-                                <button type="submit" name="category_submit" class="btn btn-outline-primary">
-                                 Add Category 
-                                </button>
-                            
-                            </form>
-
-                        </div>
-                        <!-- Add Category Column End -->
                     </div>
                 </div>
                 <!-- Form End -->

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 22, 2019 at 08:05 PM
+-- Generation Time: Jan 22, 2019 at 10:38 PM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -119,7 +119,8 @@ CREATE TABLE `category` (
 --
 
 INSERT INTO `category` (`id`, `name`, `created_at`, `modified_at`, `deleted_at`) VALUES
-(1, 'fruits', '2019-01-23 00:41:46', '2019-01-23 00:41:46', NULL);
+(1, 'Fruits', '2019-01-23 00:41:46', '2019-01-23 00:41:46', NULL),
+(2, 'Flowers', '2019-01-23 03:57:45', '2019-01-23 03:57:45', NULL);
 
 -- --------------------------------------------------------
 
@@ -163,6 +164,14 @@ CREATE TABLE `plants` (
   `created_at` datetime DEFAULT NULL,
   `modified_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `plants`
+--
+
+INSERT INTO `plants` (`id`, `image`, `name`, `price`, `category_id`, `admin_id`, `deleted_at`, `created_at`, `modified_at`) VALUES
+(1, '/assets/images/plants/admin_id1_20_37_56_5c47711429f25.png', 'adf', 1000, 1, 1, NULL, '2019-01-23 02:07:56', '2019-01-23 02:07:56'),
+(2, '/assets/images/plants/plant_id1_22_35_03_5c478c872d1f0.jpg', 'Rose', 3000, 2, 1, NULL, '2019-01-23 04:05:03', '2019-01-23 04:05:03');
 
 -- --------------------------------------------------------
 
@@ -272,7 +281,7 @@ ALTER TABLE `admin_role`
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `forum`

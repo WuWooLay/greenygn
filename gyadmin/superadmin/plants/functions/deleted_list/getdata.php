@@ -20,7 +20,6 @@ $role = [
     '`p`.`id`',
     '`p`.`image`',
     '`p`.`name`',
-    '`p`.`price`',
     '`p`.`admin_id`',
     '`p`.`deleted_at`'
 ];
@@ -29,7 +28,7 @@ $role = [
 $sql  = "SELECT " . implode(",",$role) . ", `cat`.`name` as `category_name`, `a`.`name` as `admin_name` FROM `plants` as `p`";
 $sql .= "INNER JOIN `category` as `cat` ON  `p`.`category_id` = `cat`.`id`";
 $sql .= "INNER JOIN `admin` as `a` ON `p`.`admin_id` = `a`.`id`";
-$sql .= "WHERE `p`.`deleted_at` IS NULL ORDER BY `p`.`id` DESC LIMIT $offset, $no_of_records_per_page ";
+$sql .= "WHERE `p`.`deleted_at` IS NOT NULL ORDER BY `p`.`id` DESC LIMIT $offset, $no_of_records_per_page ";
 
 
 // die($sql);
@@ -51,6 +50,7 @@ if($res = mysqli_query($conn, $sql)) {
     //     // echo ($v["deleted_at"]) ? "true" : "false" . "<br>" ;
     //     print_r($v);
     // }
+
     // die();
 }
 
