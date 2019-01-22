@@ -1,6 +1,6 @@
 <?php
 
-    // Super Admin  superadmin/admins
+    // Super Admin  superadmin/plants
     
     // Connect Mysql 
     require __DIR__ . "/../../../initial/conn/index.php";
@@ -9,9 +9,10 @@
     require __DIR__ . "/../middlewares/is_superadmin.php";
 
     // Functions
-    require __DIR__. "/functions/add_forum/add_forum.php";
+    require __DIR__. "/functions/add/getdata.php";
+    // require __DIR__. "/functions/add_forum/add_forum.php";
 
-    $title = "Forum";
+    $title = "Plants";
 
     // Require "Start Header"
     require __DIR__ . "/../view/begin_header.php";
@@ -35,7 +36,6 @@
                     // Require " Url List "
                     require __DIR__ . "/../view/left_url_list/left_url_list.php";
                 ?>
-
         
             </div>
             <!-- Url List Container -->
@@ -102,7 +102,7 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="/gyadmin/superadmin/">DashBoard</a></li>
-                    <li class="breadcrumb-item"><a href="/gyadmin/superadmin/forum">Forums</a></li>
+                    <li class="breadcrumb-item"><a href="/gyadmin/superadmin/plants/">Plants</a></li>
                         <li class="breadcrumb-item active"> Add </li>
                     </ol>
                 </nav>
@@ -113,11 +113,11 @@
                     <div class="row">
 
 
-                        <div class="col-md-10">
+                        <div class="col-md-8">
                         
                             <form method="post" enctype="multipart/form-data">
                                 
-                            <h3 class=""> Add Forum </h3>
+                            <h3 class=""> Add Plant </h3>
 
                                 <!-- Id -->
                                 <input type="hidden" name="admin_id" value="<?= $_SESSION['admin']['id'] ?>">
@@ -125,22 +125,32 @@
                                 
                                 <!-- Name -->
                                 <div class="form-group">
-                                    <label for="title">Title</label>
-                                    <input type="text" class="form-control " id="title" name="title" placeholder="Enter name" value="<?= isset($name) ? "$name":"" ?>" required="required">
+                                    <label for="name">Name</label>
+                                    <input type="text" class="form-control " id="name" name="name" placeholder="Enter name" value="<?= isset($name) ? "$name":"" ?>" required="required">
                                 </div>
                                 <!-- Name End-->
                                 
-                                <!-- Description -->
+                                <!-- Price -->
                                 <div class="form-group">
-                                    
-                                    <label for="description">Description</label>
-                                    <textarea class="form-control " name="description" id="description" cols="30" rows="8"></textarea>
-                                                
+                                    <label for="price">Price</label>
+                                    <input type="text" class="form-control " id="price" name="price" placeholder="1000" value="<?= isset($name) ? "$name":"" ?>" required="required">
                                 </div>
-                                <!-- Description End-->
+                                <!-- Price End-->
+
+                                <!-- Category List -->
+                                <div class="form-group">
+                                    <label for="category"> Category List </label>
+                                    <select name="category_id" id="category" class="custom-select">
+                                        <option id="1">One</option>
+                                        <option id="2">Two</option>
+                                        <option id="3">Three</option>
+                                    </select>
+                                </div>
+                                <!-- Category List end -->
 
                                 <!-- Image Upload -->
                                 <div class="form-group">
+                                    <label for="customFile"> Image Upload </label>
                                     <div class="custom-file mb-3">
                                         <input required name="file" type="file" class="custom-file-input" id="customFile">
                                         <label class="custom-file-label" for="customFile">Choose file</label>

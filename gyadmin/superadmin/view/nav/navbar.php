@@ -50,9 +50,11 @@
         <ul class="navbar-nav mr-4">
 
             <li class="nav-item  mr-5 <?= (isset($title) ?  ($title == 'Setting')? 'active' : '' : '') ?> dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Setting 
-                  </a>
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
+                   <img class="rounded-circle" src="<?= $_SESSION['admin']['image'] ?>" width="30" height="30" alt=" <?= $_SESSION['admin']['name'] ?> ">
+                   <?= $_SESSION['admin']['name'] ?> 
+                </a>
+                  
                   <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" href="/gyadmin/superadmin/profile/"> Profile </a>
                     <a class="dropdown-item" href="/logout"> Logout </a>
