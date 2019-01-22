@@ -135,3 +135,17 @@ body {
     border-radius: 40px;
 }
 /* Admin Or User List Images Div End*/
+
+/* Plants Edit Image*/
+.PlantBackgroundChange {
+    height: 300px;
+}
+
+.PlantBackgroundChange > div{
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+/* Plants Edit Image End */

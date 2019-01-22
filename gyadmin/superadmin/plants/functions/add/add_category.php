@@ -18,7 +18,6 @@ function category_upload() {
         if (strlen($req['cat_name']) < 3 ) {
             $req['errors'][] = 'Must Be Category Name Atleast 3words';
         }
-        
       
 
         // If All Are Okay

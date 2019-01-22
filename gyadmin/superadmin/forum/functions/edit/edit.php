@@ -14,7 +14,7 @@
         // Get Forum Id
         $req['id'] = $_POST['id'];
 
-        // Validate Name
+        // Validate Title
         $req['title'] = isset($_POST['title']) ? validation($_POST['title']) : '' ;
         // Delete All White Space
         $req['title'] =  preg_replace('/\s+/', ' ', $req['title']);

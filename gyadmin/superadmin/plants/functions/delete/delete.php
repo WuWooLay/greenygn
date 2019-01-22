@@ -7,7 +7,7 @@
     if( isset ($_GET['id'] ) && is_numeric($_GET['id'])) {
         // Check Get Id 
         
-        $sql = "SELECT * FROM `forum` WHERE `id` = " . $_GET['id'];
+        $sql = "SELECT * FROM `plants` WHERE `id` = " . $_GET['id'];
         
         if( $result = mysqli_query($conn, $sql)) {
             
@@ -18,31 +18,31 @@
                 
                 $nowOrNot = $row["deleted_at"] ? "NULL" : "NOW()";
 
-                $sql = "UPDATE `forum` SET `deleted_at` = $nowOrNot WHERE `forum`.`id` = ". $_GET['id'];
+                $sql = "UPDATE `plants` SET `deleted_at` = $nowOrNot WHERE `plants`.`id` = ". $_GET['id'];
 
                 if(mysqli_query($conn, $sql)) {
 
                     $_SESSION['success'] = " Successfully Updated ";
-                    header("Location: " . "/gyadmin/superadmin/forum/" . ((isset($_GET['page'])) ? '?page=' . $_GET['page'] : '') );
+                    header("Location: " . "/gyadmin/superadmin/plants/" . ((isset($_GET['page'])) ? '?page=' . $_GET['page'] : '') );
                     die();
                 }
 
                 echo "<pre>";
-                print_r($admin);
+                // print_r($admin);
                 die();
 
             } else {
 
                 // Wrong Id
                 $_SESSION['errors'] = " Can't Ban Bcoz Id Not Found ";
-                header('Location: ' . '/gyadmin/superadmin/forum/');
+                header('Location: ' . '/gyadmin/superadmin/plants/');
                 die();
             }
 
         } else {
             // Can't Connect Sql
             $_SESSION['errors'] = " Error : " . mysqli_error($conn);
-            header('Location: ' . '/gyadmin/superadmin/forum/' . ((isset($_GET['page'])) ? '?page=' . $_GET['page'] : ''));
+            header('Location: ' . '/gyadmin/superadmin/plants/' . ((isset($_GET['page'])) ? '?page=' . $_GET['page'] : ''));
             die();
         }
 

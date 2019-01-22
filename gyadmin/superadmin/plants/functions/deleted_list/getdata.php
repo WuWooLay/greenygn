@@ -20,6 +20,7 @@ $role = [
     '`p`.`id`',
     '`p`.`image`',
     '`p`.`name`',
+    '`p`.`price`',
     '`p`.`admin_id`',
     '`p`.`deleted_at`'
 ];
@@ -50,7 +51,6 @@ if($res = mysqli_query($conn, $sql)) {
     //     // echo ($v["deleted_at"]) ? "true" : "false" . "<br>" ;
     //     print_r($v);
     // }
-
     // die();
 }
 

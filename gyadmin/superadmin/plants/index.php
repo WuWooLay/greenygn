@@ -205,7 +205,8 @@
                         <div class="col-md-9">
                         <div class="table-responsive">      
                             <table class="table">
-
+                            
+                                <!-- Table Head -->
                                 <thead>
                                     <tr>
                                         <th scope="col">Photo</th>
@@ -217,6 +218,7 @@
                                         <th class="" scope="col">Deleted</th>
                                     </tr>
                                 </thead>
+                                <!-- Table Head End-->
 
                                 <tbody class="mm_font" id="table_row">
 
@@ -246,11 +248,10 @@
                                             <!-- Admin Name -->
                                             <td> <?= $v['admin_name'] ?> </td>
                                             <!-- Admin Name End -->
-
                                             
                                             <!-- Edit -->
                                             <td>
-                                                <a class="btn btn-outline-success btn-sm " href="/gyadmin/superadmin/forum/edit.php?id=<?= $v['id'] ?>&page=<?= $page ?>" role="button">
+                                                <a class="btn btn-outline-success btn-sm " href="/gyadmin/superadmin/plants/edit.php?id=<?= $v['id'] ?>&page=<?= $page ?>" role="button">
                                                     <i class="material-icons md-18"> create </i>
                                                 </a>  
                                             </td>
@@ -258,7 +259,7 @@
                                             
                                             <!-- Delete -->
                                             <td>
-                                                <a class="btn btn-outline-danger btn-sm " href="/gyadmin/superadmin/forum/functions/index/ban.php?id=<?= $v['id'] ?>&page=<?= $page ?>" role="button">
+                                                <a class="btn btn-outline-danger btn-sm " href="/gyadmin/superadmin/plants/functions/delete/delete.php?id=<?= $v['id'] ?>&page=<?= $page ?>" role="button">
                                                     Delete
                                                 </a>
                                             </td>

@@ -9,7 +9,8 @@
     require __DIR__ . "/../middlewares/is_superadmin.php";
 
     // Functions
-    // require __DIR__. "/functions/edit/edit.php";
+    require __DIR__. "/functions/edit/edit.php";
+    require __DIR__. "/functions/edit/upload_image.php";
     require __DIR__. "/functions/edit/getdata.php";
 
     $title = "Plants";
@@ -103,7 +104,7 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="/gyadmin/superadmin/">DashBoard</a></li>
-                    <li class="breadcrumb-item"><a href="/gyadmin/superadmin/forum">Forums</a></li>
+                    <li class="breadcrumb-item"><a href="/gyadmin/superadmin/plants">Plants</a></li>
                         <li class="breadcrumb-item active"> Edit </li>
                     </ol>
                 </nav>
@@ -112,37 +113,72 @@
                 <!-- Form -->
                 <div class="container-fluid mt-3">
                     <div class="row">
-                        <div class="col-md-10">
+                        
+                        <!-- Edit Form -->
+                        <div class="col-md-6">
                         
                             <form method="post" enctype="multipart/form-data">
                                 
-                            <h3 class=""> Edit Forum </h3>
+                            <h3 class=""> Edit Plant </h3>
 
                                 <!-- Id -->
                                 <input type="hidden" name="id" value="<?= $result['id'] ?>">
                                 <!-- Id End-->
                                 
-                                <!-- Title -->
+                                <!-- Name -->
                                 <div class="form-group">
-                                    <label for="title">Title</label>
-                                    <input type="text" class="form-control " id="title" name="title" placeholder="Enter name" value="<?= $result['title'] ?>" required="required">
+                                    <label for="name">Name</label>
+                                    <input type="text" class="form-control " id="name" name="name" placeholder="Enter name" value="<?= $result['name'] ?>" required="required">
                                 </div>
-                                <!-- Title End-->
+                                <!-- Name End-->
+
+                                <!-- Price -->
+                                <div class="form-group">
+                                    <label for="Price">Price</label>
+                                    <input type="number" class="form-control " id="Price" name="price" placeholder="Enter Price" value="<?= $result['price'] ?>" required="required">
+                                </div>
+                                <!-- Price End-->
+
+                                <!-- Category List -->
+                                <div class="form-group">
+                                    <label for="category"> Category List </label>
+                                    <select name="category_id" id="category" class="custom-select">
+
+                                        <?php
+                                                foreach($category_list as $v) {
+                                        ?>
+                                            <option value="<?= $v['id'] ?>"  <?= ($v['id'] == $result['category_id']) ? 'selected' : '' ?> ><?= $v['name'] ?></option>
+                                        <?php
+                                                }
+                                        ?>
+                                        
+                                    </select>
+                                </div>
+                                <!-- Category List end -->
                                 
-                                <!-- Email -->
-                                <div class="form-group">
-                                    
-                                    <label for="description">Description</label>
-                                    <textarea class="form-control " name="description" id="description" cols="30" rows="8"><?=  $result['description'] ?></textarea>
-                                                
-                                </div>
-                                <!-- Email End-->
 
                                 <button type="submit" name="submit" class="btn btn-outline-primary"> Update Forum </button>
 
                             </form>
 
                         </div>
+                        <!-- Edit Form End-->
+
+                        <!-- Photo Change -->
+                        <div class="col-md-6">
+                            <!-- Change Image Button Call Modal -->
+                            <button type="button" class="mb-3 btn btn-outline-primary btn-block" data-toggle="modal" data-target="#UploadImage">
+                                                Change Image
+                            </button>
+                            <!-- Change Image Button Call Modal End -->
+                                
+                             <div class="PlantBackgroundChange">
+                                    <div style="background-image:url('<?= $result['image'] ?>')"></div>
+                             </div>
+
+                        </div>
+                        <!-- Photo Change -->
+
                     </div>
                 </div>
                 <!-- Form End -->
@@ -154,6 +190,41 @@
     
     </div>
     <!-- Container Start End -->
+
+
+    <!-- Model Image -->
+    <div class="modal fade" id="UploadImage" tabindex="-1" role="dialog" aria-labelledby="UploadImageTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="UploadImageTitle"> Image Upload</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    
+                    <!-- Image  Upload Form -->
+                    <form method="post" enctype="multipart/form-data">
+                            <!-- Id -->
+                            <input type="hidden" name="id" value="<?= $result['id'] ?>">
+                            <!-- Id End-->
+                            <div class="custom-file mb-3">
+                            <input required  name="file" type="file" class="custom-file-input" id="customFile">
+                            <label class="custom-file-label" for="customFile">Choose file</label>
+                        </div>
+
+                        <button type="submit" name="upload_image" class="btn btn-primary">Upload</button>
+
+                    </form>
+                    <!-- Image  Upload Form  End -->
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Model End-->
 
 
 <?php

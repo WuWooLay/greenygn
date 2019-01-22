@@ -57,7 +57,7 @@ function upload() {
                         // Declare Patch
                         $path = __DIR__ . "/../../../../../assets/images/plants/";
                         // New Name
-                        $newName =  "plant_id" . $_POST['admin_id'] . "_" . date("H_i_s") . "_" . uniqid() . "." . $ext;
+                        $newName =  "plant_id" . "_" . date("H_i_s") . "_" . uniqid() . "." . $ext;
             
                         // Same Width Height
                         if(move_uploaded_file($file, $path . $newName)) {
