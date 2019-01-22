@@ -9,7 +9,6 @@
     require __DIR__ . "/../middlewares/is_superadmin.php";
 
     // Functions
-    // require __DIR__. "/functions/index/index_page_ban.php";
     require __DIR__. "/functions/index/getdata.php";
 
     $title = "Forum";

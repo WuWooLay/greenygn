@@ -1,5 +1,5 @@
 ***  Lwin Moe Paing [ Readmal.Com ] ***
-***  OPEN WITH NODEPAD => ***
+***  OPEN WITH NOTEPAD => ***
 ***  RIGHT CLICK => ***
 ***  RUN AS ADMINSTRATOR ***
 

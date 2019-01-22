@@ -10,7 +10,6 @@
 
     // Functions
     require __DIR__. "/functions/search/search.php";
-    // require __DIR__. "/functions/index/getadmins.php";
 
     $title = "Forum";
 
