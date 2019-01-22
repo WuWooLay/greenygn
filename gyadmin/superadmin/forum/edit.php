@@ -10,6 +10,7 @@
 
     // Functions
     require __DIR__. "/functions/edit/edit.php";
+    require __DIR__. "/functions/edit/getdata.php";
 
     $title = "Forum";
 
@@ -111,8 +112,6 @@
                 <!-- Form -->
                 <div class="container-fluid mt-3">
                     <div class="row">
-
-
                         <div class="col-md-10">
                         
                             <form method="post" enctype="multipart/form-data">
@@ -120,36 +119,26 @@
                             <h3 class=""> Edit Forum </h3>
 
                                 <!-- Id -->
-                                <input type="hidden" name="admin_id" value="<?= $_SESSION['admin']['id'] ?>">
+                                <input type="hidden" name="id" value="<?= $result['id'] ?>">
                                 <!-- Id End-->
                                 
-                                <!-- Name -->
+                                <!-- Title -->
                                 <div class="form-group">
                                     <label for="title">Title</label>
-                                    <input type="text" class="form-control " id="title" name="title" placeholder="Enter name" value="<?= isset($name) ? "$name":"" ?>" required="required">
+                                    <input type="text" class="form-control " id="title" name="title" placeholder="Enter name" value="<?= $result['title'] ?>" required="required">
                                 </div>
-                                <!-- Name End-->
+                                <!-- Title End-->
                                 
                                 <!-- Email -->
                                 <div class="form-group">
                                     
                                     <label for="description">Description</label>
-                                    <textarea class="form-control " name="description" id="description" cols="30" rows="8"></textarea>
+                                    <textarea class="form-control " name="description" id="description" cols="30" rows="8"><?=  $result['description'] ?></textarea>
                                                 
                                 </div>
                                 <!-- Email End-->
 
-                                <!-- Image Upload -->
-                                <div class="form-group">
-                                    <div class="custom-file mb-3">
-                                        <input required name="file" type="file" class="custom-file-input" id="customFile">
-                                        <label class="custom-file-label" for="customFile">Choose file</label>
-                                    </div>
-                                </div>
-                                <!-- Image Upload End -->
-                                
-                                <button type="submit" name="submit" class="btn btn-outline-primary"> Add Forum </button>
-                            
+                                <button type="submit" name="submit" class="btn btn-outline-primary"> Update Forum </button>
 
                             </form>
 

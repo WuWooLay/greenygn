@@ -9,8 +9,8 @@
     require __DIR__ . "/../middlewares/is_superadmin.php";
 
     // Functions
-    // require __DIR__. "/functions/index/index_page_ban.php";
-    require __DIR__. "/functions/index/getdata.php";
+    require __DIR__. "/functions/search/search.php";
+    // require __DIR__. "/functions/index/getadmins.php";
 
     $title = "Forum";
 
@@ -43,19 +43,18 @@
 
             <!-- Normal Container -->
             <div class="col-md-9">
-                 
-                <!-- Show Errors Messages -->
-                <?php 
+                  <!-- Show Errors Messages -->
+                  <?php 
                         if (isset($_SESSION['errors'])) {
-                ?>           
+                    ?>           
                         <div class="alert alert-danger" role="alert">
                             <?= ($_SESSION['errors']) ?>
                         </div>
-                <?php
+                    <?php
                         unset($_SESSION['errors']);
                         }
-                ?>
-                <!-- Show Errors Messages End-->
+                    ?>
+                    <!-- Show Errors Messages End-->
 
                 <!-- Show Success Messages -->
                 <?php 
@@ -76,7 +75,7 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="/gyadmin/superadmin/">DashBoard</a></li>
-                        <li class="breadcrumb-item active"> Forum </li>
+                        <li class="breadcrumb-item active"> Admins </li>
                     </ol>
                 </nav>
                 <!-- Breadcum Navigation End -->
@@ -85,63 +84,43 @@
                 <div class="container-fluid">
                     <div class="row">
 
-                        <!-- Add Forum -->
+                        <!-- Back To Admins -->
                         <div class="col-md-3 mb-2">
-                            <a href="add_forum.php" class="btn btn-outline-primary rounded btn-block" role="button"> 
-                                <i class="icon ion-md-add"></i> Add Forum 
+                            <a href="/gyadmin/superadmin/forum/" class="btn btn-danger rounded btn-block" role="button"> 
+                                <i class="icon ion-md-add"></i> Back 
                             </a>
                         </div>
-                        <!-- Add Forum End -->
-                        
+                        <!-- Back To Admins End -->
+
                         <!-- Search Form -->
                         <div class="col-md-6 mb-2">
-
-                                <!-- Search Form Container -->
-                                <div class="container-fluid">
-
-                                    <form method="GET" action="search.php">
-                                        <div class="row">
-                                            
-                                            <!-- Search Form -->
-                                            <div class="col-md-8">
-                                                <div class="form-group">
-                                                    <input name="title" class="form-control" type="text" placeholder="Search By Title">
-                                                </div>
+                            <!-- Search Form Container -->
+                            <div class="container-fluid">
+                                <form method="GET" action="">
+                                    <div class="row">
+                                        
+                                        <!-- Search Form -->
+                                        <div class="col-md-8">
+                                            <div class="form-group">
+                                                <input required="required" name="name" class="form-control" type="text" placeholder="Search By Name">
                                             </div>
-                                            <!-- Search Form End -->
-                                            
-                                            <!-- Submit -->
-                                            <div class="col-md-4">
-                                                <button href="add_admin.php" class="btn btn-outline-primary rounded btn-block" role="button"> 
-                                                    <i class="icon ion-md-add"></i> Search 
-                                                </button>
-                                            </div>
-                                            <!-- Submit End -->
-
                                         </div>
-                                    </form>
-
-                                </div>
-                                <!-- Search Form Container End-->
-                        </div>
-                        <!-- Search Form End -->
-
-                        <!-- Pagination -->
-                        <div class="col-md-3">
-                            <form action="" method="get">
-                                <div class="input-group mb-3">
-
-                                        <input name="page" required type="number" class="form-control" min=1 max="<?= $total_pages ?>" value="<?= $page ?>">
-                                    
-                                        <div class="input-group-append">
-                                            <button class="btn btn-outline-primary" type="submit" id="button-addon2">
-                                                / <?= $total_pages  ?> Go
+                                        <!-- Search Form End -->
+                                        
+                                        <!-- Submit -->
+                                        <div class="col-md-4">
+                                            <button href="add_admin.php" class="btn btn-outline-primary rounded btn-block" role="button"> 
+                                                <i class="icon ion-md-add"></i> Search 
                                             </button>
                                         </div>
-                                </div>
-                            </form>
+                                        <!-- Submit End -->
+
+                                    </div>
+                                </form>
+                            </div>
+                            <!-- Search Form Container End-->
                         </div>
-                        <!-- Pagination End -->
+                        <!-- Search Form End -->
                     
                     </div>
                 </div>
@@ -206,7 +185,7 @@
                                            
                                         <!-- Edit -->
                                         <td>
-                                            <a class="btn btn-outline-success btn-sm " href="/gyadmin/superadmin/forum/edit.php?id=<?= $v['id'] ?>&page=<?= $page ?>" role="button">
+                                            <a class="btn btn-outline-success btn-sm " href="/gyadmin/superadmin/forum/edit.php?id=<?= $v['id'] ?>&page=<?= (isset($page)) ? $page : "" ?>" role="button">
                                                 <i class="material-icons md-18"> create </i>
                                             </a>  
                                         </td>
@@ -214,7 +193,7 @@
                                         
                                         <!-- Ban -->
                                         <td>
-                                            <a class="btn btn-outline-danger btn-sm " href="/gyadmin/superadmin/forum/functions/index/ban.php?id=<?= $v['id'] ?>&page=<?= $page ?>" role="button">
+                                            <a class="btn btn-outline-danger btn-sm " href="/gyadmin/superadmin/forum/functions/index/ban.php?id=<?= $v['id'] ?>&page=<?= (isset($page)) ? $page : "" ?>" role="button">
                                                 Ban
                                             </a>
                                         </td>
@@ -234,6 +213,7 @@
                     </table>
                 </div>
                 <!-- Table End -->
+              
             </div>
             <!-- Normal Container End -->
 

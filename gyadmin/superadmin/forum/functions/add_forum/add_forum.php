@@ -82,8 +82,6 @@ function upload() {
             
                     }else if( count($req['errors']) != 0 ) {
                         // Continue Show Errors
-            
-                        
                     } else {
                         // Something Wrong
                         $req['errors'][] = "Something Wrong!!";
@@ -113,7 +111,7 @@ function upload() {
 
 
 
-    // HTML Special Character Remove
+// HTML Special Character Remove
 function validation ($str) {
     return  trim(htmlspecialchars($str));
 }

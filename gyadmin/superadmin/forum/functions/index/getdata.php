@@ -1,5 +1,6 @@
 <?php
 
+// Pagination Start
 if (isset($_GET['page']) && is_numeric($_GET['page'])) {
     $page = $_GET['page'];
 } else {
@@ -14,7 +15,7 @@ $result = mysqli_query($conn,$total_pages_sql);
 $total_rows = mysqli_fetch_array($result)[0];
 $total_pages = ceil($total_rows / $no_of_records_per_page);
 
-
+// Out In Query
 $role = [
     '`f`.`id`',
     '`f`.`image`',
@@ -25,9 +26,9 @@ $role = [
 
 $sql = "SELECT " . implode(",",$role) .", `ar`.`name` as `admin_name`, `ar`.`ph` ";
 $sql .= " FROM `forum` as `f` INNER JOIN `admin` as `ar` ";
-$sql .= " ON `f`.`admin_id`= `ar`.`id` LIMIT $offset, $no_of_records_per_page";
+$sql .= " ON `f`.`admin_id`= `ar`.`id` ORDER BY `f`.`id` DESC LIMIT $offset, $no_of_records_per_page ";
 
-
+// die($sql);
 
 if($res = mysqli_query($conn, $sql)) {
     // Mysql Work?
