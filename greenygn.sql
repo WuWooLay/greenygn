@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 20, 2019 at 10:24 PM
+-- Generation Time: Jan 22, 2019 at 08:05 PM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -103,6 +103,27 @@ INSERT INTO `admin_role` (`id`, `name`, `deleted_at`, `created_at`, `modified_at
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `category`
+--
+
+CREATE TABLE `category` (
+  `id` int(11) NOT NULL,
+  `name` varchar(100) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `modified_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `category`
+--
+
+INSERT INTO `category` (`id`, `name`, `created_at`, `modified_at`, `deleted_at`) VALUES
+(1, 'fruits', '2019-01-23 00:41:46', '2019-01-23 00:41:46', NULL);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `forum`
 --
 
@@ -122,8 +143,26 @@ CREATE TABLE `forum` (
 --
 
 INSERT INTO `forum` (`id`, `image`, `title`, `description`, `admin_id`, `deleted_at`, `created_at`, `modified_at`) VALUES
-(2, '/assets/images/forums/admin_id1_22_17_34_5c44e56ea1d82.jpg', '123333 333', '131313', 1, NULL, '2019-01-21 03:47:34', '2019-01-21 03:47:34'),
-(3, '/assets/images/forums/admin_id1_22_19_32_5c44e5e425236.jpg', '123333 333', '131313', 1, NULL, '2019-01-21 03:49:32', '2019-01-21 03:49:32');
+(2, '/assets/images/forums/admin_id1_22_17_34_5c44e56ea1d82.jpg', 'Ma Lar', '131313', 1, NULL, '2019-01-21 03:47:34', '2019-01-22 18:45:41'),
+(3, '/assets/images/forums/admin_id1_22_19_32_5c44e5e425236.jpg', 'Ohmar', 'No NO nO', 1, NULL, '2019-01-21 03:49:32', '2019-01-22 20:47:30');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `plants`
+--
+
+CREATE TABLE `plants` (
+  `id` int(11) NOT NULL,
+  `image` varchar(120) NOT NULL,
+  `name` varchar(120) DEFAULT NULL,
+  `price` int(11) NOT NULL,
+  `category_id` int(11) NOT NULL,
+  `admin_id` int(10) UNSIGNED NOT NULL,
+  `deleted_at` datetime DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `modified_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -179,11 +218,25 @@ ALTER TABLE `admin_role`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `category`
+--
+ALTER TABLE `category`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `forum`
 --
 ALTER TABLE `forum`
   ADD PRIMARY KEY (`id`),
   ADD KEY `forum_admin_id_foreign` (`admin_id`);
+
+--
+-- Indexes for table `plants`
+--
+ALTER TABLE `plants`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `plant_category_foreign` (`category_id`),
+  ADD KEY `plant_admin_foreign` (`admin_id`);
 
 --
 -- Indexes for table `users`
@@ -216,10 +269,22 @@ ALTER TABLE `admin_role`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `category`
+--
+ALTER TABLE `category`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `forum`
 --
 ALTER TABLE `forum`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `plants`
+--
+ALTER TABLE `plants`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -248,6 +313,13 @@ ALTER TABLE `admin`
 --
 ALTER TABLE `forum`
   ADD CONSTRAINT `forum_admin_id_foreign` FOREIGN KEY (`admin_id`) REFERENCES `admin` (`id`);
+
+--
+-- Constraints for table `plants`
+--
+ALTER TABLE `plants`
+  ADD CONSTRAINT `plant_admin_foreign` FOREIGN KEY (`admin_id`) REFERENCES `admin` (`id`),
+  ADD CONSTRAINT `plant_category_foreign` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
