@@ -50,7 +50,7 @@
 
                         <!-- Plants Card -->
                         <div class="col-md-3 mb-3">
-                            <div class="card border-info text-white bg-info text-center">
+                            <div class="card text-white text-center DashBoard_Card_1 ">
 
                                 <div class="card-header ">
                                     <i class="material-icons md-18 text-white">nature</i>
@@ -69,7 +69,7 @@
 
                         <!-- Order Card -->
                         <div class="col-md-3 mb-3">
-                            <div class="card border-primary text-white bg-primary text-center">
+                            <div class="card text-white text-center DashBoard_Card_2">
 
                                 <div class="card-header ">
                                     <i class="material-icons md-18 text-white">message</i>
@@ -87,7 +87,7 @@
 
                         <!-- Forum Card -->
                         <div class="col-md-3 mb-3">
-                            <div class="card border-info text-white bg-info text-center">
+                            <div class="card text-white text-center DashBoard_Card_3">
 
                                 <div class="card-header ">
                                     <i class="material-icons md-18 text-white">forum</i>
@@ -106,7 +106,7 @@
 
                         <!-- User Card -->
                         <div class="col-md-3 mb-3">
-                            <div class="card border-primary text-white bg-primary text-center">
+                            <div class="card text-white text-center DashBoard_Card_4">
 
                                 <div class="card-header ">
                                     <i class="material-icons md-18 text-white">person</i>
@@ -125,7 +125,7 @@
 
                         <!-- Admin Card -->
                         <div class="col-md-3 mb-3">
-                            <div class="card border-info text-white bg-info text-center">
+                            <div class="card text-white text-center DashBoard_Card_5">
 
                                 <div class="card-header ">
                                     <i class="material-icons md-18 text-white">security</i>
