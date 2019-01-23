@@ -38,7 +38,112 @@
 
             <!-- Normal Container -->
             <div class="col-md-9">
-            
+
+                <!-- Start DashBoard -->
+                <div class="container-fluid">
+
+                    <!-- Plants -->
+                    <div class="row">
+
+                        <!-- Plants Card -->
+                        <div class="col-md-3 mb-3">
+                            <div class="card border-info text-white bg-info text-center">
+
+                                <div class="card-header ">
+                                    <i class="material-icons md-18 text-white">nature</i>
+                                    Plants
+                                </div>
+
+                                <div class="card-body">
+                                    <h5 class="card-title">Total Plants <span id=""></span> </h5>
+                                    <a href="/gyadmin/superadmin/plants/" class="btn btn-outline-light"> View </a>
+                                    <a href="/gyadmin/superadmin/plants/add_plant.php" class="btn btn-outline-light"> Add </a>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!-- Plants Card End-->
+
+                        <!-- Order Card -->
+                        <div class="col-md-3 mb-3">
+                            <div class="card border-primary text-white bg-primary text-center">
+
+                                <div class="card-header ">
+                                    <i class="material-icons md-18 text-white">message</i>
+                                    Orders List
+                                </div>
+
+                                <div class="card-body">
+                                    <h5 class="card-title">Total Orders <span id=""></span> </h5>
+                                    <a href="#!" class="btn btn-outline-light"> Check </a>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!-- Order Card End-->
+
+                        <!-- Forum Card -->
+                        <div class="col-md-3 mb-3">
+                            <div class="card border-info text-white bg-info text-center">
+
+                                <div class="card-header ">
+                                    <i class="material-icons md-18 text-white">forum</i>
+                                    Forums List
+                                </div>
+
+                                <div class="card-body">
+                                    <h5 class="card-title">Total Forums <span id=""></span> </h5>
+                                    <a href="/gyadmin/superadmin/forum/" class="btn btn-outline-light"> View </a>
+                                    <a href="/gyadmin/superadmin/forum/add_forum.php" class="btn btn-outline-light"> Add </a>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!-- Forum Card End-->
+
+                        <!-- User Card -->
+                        <div class="col-md-3 mb-3">
+                            <div class="card border-primary text-white bg-primary text-center">
+
+                                <div class="card-header ">
+                                    <i class="material-icons md-18 text-white">person</i>
+                                    Users List
+                                </div>
+
+                                <div class="card-body">
+                                    <h5 class="card-title">Total Users <span id=""></span> </h5>
+                                    <a href="#!" class="btn btn-outline-light"> View </a>
+                                    <a href="#!" class="btn btn-outline-light"> Add </a>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!-- User Card End-->
+
+                        <!-- Admin Card -->
+                        <div class="col-md-3 mb-3">
+                            <div class="card border-info text-white bg-info text-center">
+
+                                <div class="card-header ">
+                                    <i class="material-icons md-18 text-white">security</i>
+                                    Admins List
+                                </div>
+
+                                <div class="card-body">
+                                    <h5 class="card-title">Total Admins <span id=""></span> </h5>
+                                    <a href="/gyadmin/superadmin/admins/" class="btn btn-outline-light"> View </a>
+                                    <a href="/gyadmin/superadmin/admins/add_admin.php" class="btn btn-outline-light"> Add </a>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!-- Admin Card End-->
+
+                    </div>
+                    <!-- Plants End-->
+                
+                </div>
+                <!-- Start DashBoard End -->
             </div>
             <!-- Normal Container End -->
 
