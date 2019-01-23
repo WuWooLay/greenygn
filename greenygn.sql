@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 23, 2019 at 01:05 AM
+-- Generation Time: Jan 23, 2019 at 01:33 AM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -144,8 +144,8 @@ CREATE TABLE `forum` (
 --
 
 INSERT INTO `forum` (`id`, `image`, `title`, `description`, `admin_id`, `deleted_at`, `created_at`, `modified_at`) VALUES
-(2, '/assets/images/forums/admin_id1_22_17_34_5c44e56ea1d82.jpg', 'Ma Lar', '131313', 1, NULL, '2019-01-21 03:47:34', '2019-01-22 18:45:41'),
-(3, '/assets/images/forums/admin_id1_22_19_32_5c44e5e425236.jpg', 'Ohmar', 'No NO nO', 1, NULL, '2019-01-21 03:49:32', '2019-01-22 20:47:30');
+(2, '/assets/images/forums/admin_id1_01_33_09_5c47b6453ef80.jpg', 'Ma Lar', '131313', 1, NULL, '2019-01-21 03:47:34', '2019-01-22 18:45:41'),
+(3, '/assets/images/forums/admin_id1_01_32_52_5c47b63463864.jpg', 'Ohmar', 'No NO nO', 1, NULL, '2019-01-21 03:49:32', '2019-01-22 20:47:30');
 
 -- --------------------------------------------------------
 

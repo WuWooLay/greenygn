@@ -238,7 +238,12 @@
                                             
                                             <!-- Delete -->
                                             <td>
-                                                <a class="btn btn-outline-danger btn-sm " href="/gyadmin/superadmin/plants/functions/delete/delete.php?id=<?= $v['id'] ?>&page=<?= $page ?>" role="button">
+                                                <a 
+                                                    class="btn btn-outline-danger btn-sm " 
+                                                    href="/gyadmin/superadmin/plants/functions/delete/delete.php?id=<?= $v['id'] ?>"
+                                                    role="button"
+                                                    onclick="if(!confirm('Are You Sure')) return false;"
+                                                >
                                                     Delete
                                                 </a>
                                             </td>

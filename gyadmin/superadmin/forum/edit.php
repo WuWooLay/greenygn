@@ -10,6 +10,7 @@
 
     // Functions
     require __DIR__. "/functions/edit/edit.php";
+    require __DIR__. "/functions/edit/upload_image.php";
     require __DIR__. "/functions/edit/getdata.php";
 
     $title = "Forum";
@@ -112,7 +113,9 @@
                 <!-- Form -->
                 <div class="container-fluid mt-3">
                     <div class="row">
-                        <div class="col-md-10">
+                        
+                        <!-- Edit Form -->
+                        <div class="col-md-6">
                         
                             <form method="post" enctype="multipart/form-data">
                                 
@@ -143,6 +146,23 @@
                             </form>
 
                         </div>
+                        <!-- Edit Form End -->
+
+                         <!-- Photo Change -->
+                         <div class="col-md-6">
+                            <!-- Change Image Button Call Modal -->
+                            <button type="button" class="mb-3 btn btn-outline-primary btn-block" data-toggle="modal" data-target="#UploadImage">
+                                                Change Image
+                            </button>
+                            <!-- Change Image Button Call Modal End -->
+                                
+                             <div class="PlantBackgroundChange">
+                                    <div style="background-image:url('<?= $result['image'] ?>')"></div>
+                             </div>
+
+                        </div>
+                        <!-- Photo Change -->
+
                     </div>
                 </div>
                 <!-- Form End -->
@@ -154,6 +174,40 @@
     
     </div>
     <!-- Container Start End -->
+
+    <!-- Model Image -->
+    <div class="modal fade" id="UploadImage" tabindex="-1" role="dialog" aria-labelledby="UploadImageTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="UploadImageTitle"> Image Upload </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    
+                    <!-- Image  Upload Form -->
+                    <form method="post" enctype="multipart/form-data">
+                            <!-- Id -->
+                            <input type="hidden" name="id" value="<?= $result['id'] ?>">
+                            <!-- Id End-->
+                            <div class="custom-file mb-3">
+                            <input required  name="file" type="file" class="custom-file-input" id="customFile">
+                            <label class="custom-file-label" for="customFile">Choose file</label>
+                        </div>
+
+                        <button type="submit" name="upload_image" class="btn btn-primary">Upload</button>
+
+                    </form>
+                    <!-- Image  Upload Form  End -->
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Model End-->
 
 
 <?php
