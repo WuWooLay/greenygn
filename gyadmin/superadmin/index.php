@@ -7,6 +7,9 @@
     
     // Middlewares
     require __DIR__ . "/middlewares/is_superadmin.php";
+
+    // Functions
+    require __DIR__ . "/functions/getdata.php";
     
     $title = "Home";
 
@@ -55,7 +58,7 @@
                                 </div>
 
                                 <div class="card-body">
-                                    <h5 class="card-title">Total Plants <span id=""></span> </h5>
+                                    <h5 class="card-title">Total Plants <span id=""><?= $plant_list ?></span> </h5>
                                     <a href="/gyadmin/superadmin/plants/" class="btn btn-outline-light"> View </a>
                                     <a href="/gyadmin/superadmin/plants/add_plant.php" class="btn btn-outline-light"> Add </a>
                                 </div>
@@ -74,7 +77,7 @@
                                 </div>
 
                                 <div class="card-body">
-                                    <h5 class="card-title">Total Orders <span id=""></span> </h5>
+                                    <h5 class="card-title">Total Orders <span id=""><?= $order_list ?></span> </h5>
                                     <a href="#!" class="btn btn-outline-light"> Check </a>
                                 </div>
 
@@ -92,7 +95,7 @@
                                 </div>
 
                                 <div class="card-body">
-                                    <h5 class="card-title">Total Forums <span id=""></span> </h5>
+                                    <h5 class="card-title">Total Forums <span id=""><?= $forum_list ?></span> </h5>
                                     <a href="/gyadmin/superadmin/forum/" class="btn btn-outline-light"> View </a>
                                     <a href="/gyadmin/superadmin/forum/add_forum.php" class="btn btn-outline-light"> Add </a>
                                 </div>
@@ -111,7 +114,7 @@
                                 </div>
 
                                 <div class="card-body">
-                                    <h5 class="card-title">Total Users <span id=""></span> </h5>
+                                    <h5 class="card-title">Total Users <span id=""><?= $user_list ?></span> </h5>
                                     <a href="#!" class="btn btn-outline-light"> View </a>
                                     <a href="#!" class="btn btn-outline-light"> Add </a>
                                 </div>
@@ -130,7 +133,7 @@
                                 </div>
 
                                 <div class="card-body">
-                                    <h5 class="card-title">Total Admins <span id=""></span> </h5>
+                                    <h5 class="card-title">Total Admins <span id=""><?= $admin_list ?></span> </h5>
                                     <a href="/gyadmin/superadmin/admins/" class="btn btn-outline-light"> View </a>
                                     <a href="/gyadmin/superadmin/admins/add_admin.php" class="btn btn-outline-light"> Add </a>
                                 </div>
