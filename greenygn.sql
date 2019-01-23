@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 23, 2019 at 01:33 AM
+-- Generation Time: Jan 23, 2019 at 08:15 AM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -183,6 +183,7 @@ CREATE TABLE `users` (
   `id` int(10) UNSIGNED NOT NULL,
   `name` varchar(80) NOT NULL,
   `email` varchar(150) NOT NULL,
+  `image` varchar(200) NOT NULL DEFAULT '/assets/images/logo/greenygn_animate.svg',
   `password` varchar(200) NOT NULL,
   `ph` varchar(20) DEFAULT NULL,
   `address` tinytext,
@@ -196,9 +197,9 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `password`, `ph`, `address`, `bio`, `deleted_at`, `created_at`, `modified_at`) VALUES
-(1, 'User 1', 'user1@gmail.com', '$2y$10$ylEA3AIe8Ad/unGPz.54CeBJVJazs6fN93z3riCY01n7iF2KRoUUm', NULL, NULL, NULL, NULL, '2019-01-18 16:15:54', '2019-01-18 16:15:54'),
-(2, 'User 2', 'user2@gmail.com', '$2y$10$AlC8LZUCnJtAenE4Nq/FZ.L.uSiSlKAdKXVK3MvqCdRBQXYZ7XeQW', NULL, NULL, NULL, NULL, '2019-01-18 16:16:14', '2019-01-18 16:16:14');
+INSERT INTO `users` (`id`, `name`, `email`, `image`, `password`, `ph`, `address`, `bio`, `deleted_at`, `created_at`, `modified_at`) VALUES
+(1, 'User 1', 'user1@gmail.com', '/assets/images/logo/greenygn_animate.svg', '$2y$10$ylEA3AIe8Ad/unGPz.54CeBJVJazs6fN93z3riCY01n7iF2KRoUUm', NULL, NULL, NULL, NULL, '2019-01-18 16:15:54', '2019-01-18 16:15:54'),
+(2, 'User 2', 'user2@gmail.com', '/assets/images/logo/greenygn_animate.svg', '$2y$10$AlC8LZUCnJtAenE4Nq/FZ.L.uSiSlKAdKXVK3MvqCdRBQXYZ7XeQW', NULL, NULL, NULL, NULL, '2019-01-18 16:16:14', '2019-01-18 16:16:14');
 
 --
 -- Indexes for dumped tables
