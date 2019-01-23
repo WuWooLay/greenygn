@@ -7,6 +7,8 @@ if (isset($_GET['page']) && is_numeric($_GET['page'])) {
     $page = 1;
 }
 
+$cat = (isset($_GET['cat_id']) && is_numeric($_GET['cat_id'])) ? "AND `p`.`category_id` = " . $_GET['cat_id'] : ""; 
+
 $no_of_records_per_page = 10;
 $offset = ($page-1) * $no_of_records_per_page; 
 
@@ -27,10 +29,9 @@ $role = [
 
 // Get Data List Of Plants
 $sql  = "SELECT " . implode(",",$role) . ", `cat`.`name` as `category_name`, `a`.`name` as `admin_name` FROM `plants` as `p`";
-$sql .= "INNER JOIN `category` as `cat` ON  `p`.`category_id` = `cat`.`id`";
-$sql .= "INNER JOIN `admin` as `a` ON `p`.`admin_id` = `a`.`id`";
-$sql .= "WHERE `p`.`deleted_at` IS NULL ORDER BY `p`.`id` DESC LIMIT $offset, $no_of_records_per_page ";
-
+$sql .= " INNER JOIN `category` as `cat` ON  `p`.`category_id` = `cat`.`id` ";
+$sql .= " INNER JOIN `admin` as `a` ON `p`.`admin_id` = `a`.`id` ";
+$sql .= " WHERE `p`.`deleted_at`  IS NULL  $cat ORDER BY `p`.`id` DESC LIMIT $offset, $no_of_records_per_page ";
 
 // die($sql);
 

@@ -7,7 +7,7 @@ if( isset ($_GET['title'] )) {
     $title = validation($_GET['title']);
 
     if(strlen($title) < 2 ) {
-        header("Location: " . "/gyadmin/superadmin/admins/");
+        header("Location: " . "/gyadmin/superadmin/forum/");
         die("");
     }
 

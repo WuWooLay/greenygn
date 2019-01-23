@@ -23,7 +23,8 @@
                 if(mysqli_query($conn, $sql)) {
 
                     $_SESSION['success'] = " Successfully Updated ";
-                    header("Location: " . "/gyadmin/superadmin/plants/" . ((isset($_GET['page'])) ? '?page=' . $_GET['page'] : '') );
+                    $del = (isset($_GET['deleted_page'])) ? "deleted_list.php" : "";
+                    header("Location: " . "/gyadmin/superadmin/plants/$del" . ((isset($_GET['page'])) ? '?page=' . $_GET['page'] : '') );
                     die();
                 }
 
@@ -51,6 +52,6 @@
         die();
 
     } else {
-        header('Location: ' . '/gyadmin/superadmin/forum/' . ((isset($_GET['page'])) ? '?page=' . $_GET['page'] : ''));
+        header('Location: ' . '/gyadmin/superadmin/plants/' . ((isset($_GET['page'])) ? '?page=' . $_GET['page'] : ''));
         die();
     }

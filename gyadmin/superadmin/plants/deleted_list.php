@@ -170,7 +170,7 @@
 
                                <div class="list-group">
                                     <a href="/gyadmin/superadmin/plants/" class="list-group-item list-group-item-action"> All List </a>
-                                    <a href="/gyadmin/superadmin/plants/deleted_list.php" class="list-group-item list-group-item-action"> Deleted List </a>
+                                    <a href="/gyadmin/superadmin/plants/deleted_list.php" class="list-group-item list-group-item-action list-group-item-primary"> Deleted List </a>
                                </div>
 
                             </div>
@@ -189,7 +189,7 @@
                                         <?php
                                                 foreach($category_list as $v) {
                                         ?>
-                                                <a href="#" class="list-group-item list-group-item-action"><?= $v['name'] ?></a>
+                                                <a href="/gyadmin/superadmin/plants/?cat_id=<?= $v['id'] ?>" class="list-group-item list-group-item-action"><?= $v['name'] ?></a>
                                         <?php
                                                 }
                                         ?>
@@ -251,7 +251,7 @@
                                             
                                             <!-- Delete -->
                                             <td>
-                                                <a class="btn btn-outline-danger btn-sm " href="/gyadmin/superadmin/plants/functions/delete/delete.php?id=<?= $v['id'] ?>&page=<?= $page ?>" role="button">
+                                                <a class="btn btn-outline-danger btn-sm " href="/gyadmin/superadmin/plants/functions/delete/delete.php?deleted_page=true&id=<?= $v['id'] ?>&page=<?= $page ?>" role="button">
                                                     Undo
                                                 </a>
                                             </td>

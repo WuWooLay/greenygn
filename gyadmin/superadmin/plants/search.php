@@ -9,7 +9,7 @@
     require __DIR__ . "/../middlewares/is_superadmin.php";
 
     // Functions
-    require __DIR__. "/functions/index/getdata.php";
+    require __DIR__. "/functions/search/search.php";
 
     $title = "Plants";
 
@@ -84,8 +84,8 @@
 
                         <!-- Add Plant -->
                         <div class="col-md-3 mb-2">
-                            <a href="add_plant.php" class="btn btn-outline-primary rounded btn-block" role="button"> 
-                                <i class="icon ion-md-add"></i> Add Plant 
+                            <a href="/gyadmin/superadmin/plants/" class="btn btn-danger rounded btn-block" role="button"> 
+                                <i class="icon ion-md-add"></i> Back
                             </a>
                         </div>
                         <!-- Add Plant End -->
@@ -123,44 +123,6 @@
                         </div>
                         <!-- Search Form End -->
 
-                      
-
-                        <!-- Pagination -->
-                        <div class="col-md-3">
-                            <form action="" method="get">
-                                <div class="input-group mb-3">
-
-                                        <input
-                                         name="page"
-                                         required type="number"
-                                         class="form-control"
-                                         min=1 
-                                         max="<?= (isset($total_pages)) ? $total_pages : '' ?>"
-                                         value="<?= (isset($page)) ? $page : '' ?>"
-                                        >
-
-                                        <?php  
-                                            if( isset($_GET['cat_id']) && is_numeric($_GET['cat_id'])) :
-                                        ?>
-                                            <input
-                                                name="cat_id"
-                                                type="hidden"
-                                                value="<?= $_GET['cat_id'] ?>"
-                                            >
-                                        <?php
-                                            endif;
-                                        ?>
-                                    
-                                        <div class="input-group-append">
-                                            <button class="btn btn-outline-primary" type="submit" id="button-addon2">
-                                                / <?= (isset($total_pages)) ? $total_pages : '' ?> Go
-                                            </button>
-                                        </div>
-                                </div>
-                            </form>
-                        </div>
-                        <!-- Pagination End -->
-                    
                     </div>
                 </div>
                 <!-- Add Admins && Search -->
