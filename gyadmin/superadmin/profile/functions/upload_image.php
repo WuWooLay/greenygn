@@ -86,7 +86,7 @@
                             if (
                                 imagejpeg($image, $path . $newName)
                             ) {
-                                if (save_image($newName)) {$req['success'][] = "Successfully Uploaded";}
+                                if (save_image($newName)) { $_SESSION['admin']['image'] = "/assets/images/admins/" . $newName;$req['success'][] = "Successfully Uploaded";}
                                 else {$req['errors'][] = "Errors: DB WRONG !";} 
                             }
                             break;
@@ -95,7 +95,7 @@
                             if (
                                 imagepng($image, $path . $newName)
                             ){
-                                if (save_image($newName)) {$req['success'][] = "Successfully Uploaded";}
+                                if (save_image($newName)) { $_SESSION['admin']['image'] = "/assets/images/admins/" . $newName; $req['success'][] = "Successfully Uploaded";}
                                 else {$req['errors'][] = "Errors: DB WRONG !";} 
                             }
                             break;
@@ -107,6 +107,7 @@
                             $sql .= "' WHERE `admin`.`id` = " . $_POST['id'];
                             // die($sql);
                             if(mysqli_query($conn, $sql))  {
+                                $_SESSION['admin']['image'] = "/assets/images/admins/" . $newName;
                                 $req['success'][] = "Successfully Uploaded With MoveUploaded";
                             } else {
                                 $req['errors'][] = "Errors: DB WRONG !";
