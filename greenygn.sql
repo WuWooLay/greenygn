@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 22, 2019 at 10:38 PM
+-- Generation Time: Jan 23, 2019 at 01:05 AM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -170,7 +170,7 @@ CREATE TABLE `plants` (
 --
 
 INSERT INTO `plants` (`id`, `image`, `name`, `price`, `category_id`, `admin_id`, `deleted_at`, `created_at`, `modified_at`) VALUES
-(1, '/assets/images/plants/admin_id1_20_37_56_5c47711429f25.png', 'adf', 1000, 1, 1, NULL, '2019-01-23 02:07:56', '2019-01-23 02:07:56'),
+(1, '/assets/images/plants/plant_id_23_55_46_5c479f725720a.jpg', 'Sun Flower', 2000, 1, 1, NULL, '2019-01-23 02:07:56', '2019-01-23 05:31:39'),
 (2, '/assets/images/plants/plant_id1_22_35_03_5c478c872d1f0.jpg', 'Rose', 3000, 2, 1, NULL, '2019-01-23 04:05:03', '2019-01-23 04:05:03');
 
 -- --------------------------------------------------------
