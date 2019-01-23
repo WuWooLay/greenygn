@@ -123,8 +123,6 @@
                         </div>
                         <!-- Search Form End -->
 
-                      
-
                         <!-- Pagination -->
                         <div class="col-md-3">
                             <form action="" method="get">

@@ -217,11 +217,9 @@
                                     
                                     <!-- Ban -->
                                     <td > 
-                                     
-                                            <a class="btn btn-danger btn-sm" href="functions/index/ban.php?id=<?= $v['id'] ?>" role="button">
+                                            <a class="btn btn-danger btn-sm" href="functions/index/ban.php?id=<?= $v['id'] ?>&page=<?= $page ?>" role="button">
                                                 Ban
                                             </a> 
-                                                                         
                                     </td>
                                     <!-- Ban End -->
                                 </tr>
