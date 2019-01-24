@@ -9,7 +9,7 @@
     require __DIR__ . "/../middlewares/is_superadmin.php";
 
     // Functions
-    // require __DIR__. "/functions/search/search.php";
+    require __DIR__. "/functions/search/search.php";
     // require __DIR__. "/functions/index/getadmins.php";
 
     $title = "Add";
@@ -43,8 +43,9 @@
 
             <!-- Normal Container -->
             <div class="col-md-9">
-                  <!-- Show Errors Messages -->
-                  <?php 
+                
+                <!-- Show Errors Messages -->
+                    <?php 
                         if (isset($_SESSION['errors'])) {
                     ?>           
                         <div class="alert alert-danger" role="alert">
@@ -54,43 +55,42 @@
                         unset($_SESSION['errors']);
                         }
                     ?>
-                    <!-- Show Errors Messages End-->
+                <!-- Show Errors Messages End-->
 
                 <!-- Show Success Messages -->
-                <?php 
-                    if (isset($_SESSION['success'])) {
-                ?>           
-                    <div class="alert alert-success" role="alert">
-                        <?= ($_SESSION['success']) ?>
-                    </div>
-                <?php
-                    unset($_SESSION['success']);
-                    }
-                ?>
+                    <?php 
+                        if (isset($_SESSION['success'])) {
+                    ?>           
+                        <div class="alert alert-success" role="alert">
+                            <?= ($_SESSION['success']) ?>
+                        </div>
+                    <?php
+                        unset($_SESSION['success']);
+                        }
+                    ?>
                 <!-- Show Success Messages End-->
-
-              
 
                 <!-- Breadcum Navigation -->
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="/gyadmin/superadmin/">DashBoard</a></li>
-                        <li class="breadcrumb-item active"> Admins </li>
+                        <li class="breadcrumb-item"><a href="/gyadmin/superadmin/"> DashBoard </a></li>
+                        <li class="breadcrumb-item"><a href="/gyadmin/superadmin/users/"> Users </a></li>
+                        <li class="breadcrumb-item active"> Search </li>
                     </ol>
                 </nav>
                 <!-- Breadcum Navigation End -->
 
-                <!-- Add Admins && Search -->
+                <!-- Add Users && Search -->
                 <div class="container-fluid">
                     <div class="row">
 
-                        <!-- Back To Admins -->
+                        <!-- Back To Users -->
                         <div class="col-md-3 mb-2">
                             <a href="/gyadmin/superadmin/users/" class="btn btn-danger rounded btn-block" role="button"> 
                                 <i class="icon ion-md-add"></i> Back 
                             </a>
                         </div>
-                        <!-- Back To Admins End -->
+                        <!-- Back To Users End -->
 
                         <!-- Search Form -->
                         <div class="col-md-6 mb-2">
@@ -121,10 +121,116 @@
                             <!-- Search Form Container End-->
                         </div>
                         <!-- Search Form End -->
+
+                        <!-- Pagination -->
+                        <div class="col-md-3">
+                            <form action="" method="get">
+                                <div class="input-group mb-3">
+
+                                        <input type="hidden" name="name" value="<?= (isset($_GET['name'])) ? $_GET['name'] : '' ?>">
+
+                                        <input
+                                         name="page"
+                                         required type="number"
+                                         class="form-control"
+                                         min=1 
+                                         max="<?= (isset($total_pages)) ? $total_pages : '' ?>"
+                                         value="<?= (isset($page)) ? $page : '' ?>"
+                                        >
+
+
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-primary" type="submit" id="button-addon2">
+                                                / <?= (isset($total_pages)) ? $total_pages : '' ?> Go
+                                            </button>
+                                        </div>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- Pagination End -->
                     
                     </div>
                 </div>
-                <!-- Add Admins && Search -->
+                <!-- Add Users && Search -->
+
+                <!-- Table Start -->
+                <div class="table-responsive">
+                    <table class="table">
+
+                            <thead>
+                                <tr>
+                                    <th scope="col">Photo</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Ph</th>
+                                    <th class="" scope="col">Edit</th>
+                                    <th class="" scope="col">Ban</th>
+                                </tr>
+                            </thead>
+
+                            <tbody class="mm_font" id="table_row">
+
+                            <?php 
+                                foreach($result as $k => $v) {
+                            ?>  
+                                <tr class="<?= $v['deleted_at'] ? 'table-danger' : '' ?>">
+                                    <!-- Image  -->
+                                    <td > 
+                                        <div class="AdminUserListTable" style="background-image: url('<?= $v['image'] ?>')">  </div> 
+                                    </td>
+                                    <!-- Image End -->
+
+                                    <td > <?= $v['name'] ?> </td>
+                                    <td > <?= $v['email'] ?> </td>
+                                    
+                                    <!-- Phone -->
+                                    <td > 
+                                        <?php 
+                                            if(strlen($v['ph']) > 0) {
+                                        ?>
+                                            <a  class="btn btn-primary btn-sm rounded-circle" href="tel:<?= $v['ph'] ?>">
+                                                <i class="material-icons md-18"> phone </i>
+                                            </a>
+                                            <?= $v['ph'] ?>
+                                        <?php       
+                                            } else {
+                                        ?>
+                                            <a  class="btn btn-outline-danger btn-sm rounded-circle" href="#!">
+                                                <i class="material-icons md-18"> phone </i>
+                                            </a>
+                                        <?php       
+                                            }
+                                        ?>
+                                    </td>
+                                    <!-- Phone End -->
+                                    
+                                    
+                                    <!-- Edit -->
+                                    <td >
+                                            <a class="btn btn-outline-success btn-sm " href="edit.php?id=<?= $v['id'] ?>" role="button">
+                                                <i class="material-icons md-18"> create </i>
+                                            </a>  
+                                      
+                                    </td>
+                                    <!-- Edit End-->
+                                    
+                                    <!-- Ban -->
+                                    <td > 
+                                            <a class="btn btn-danger btn-sm" href="functions/index/ban.php?id=<?= $v['id'] ?>&page=<?= $page ?>" role="button">
+                                                Ban
+                                            </a> 
+                                    </td>
+                                    <!-- Ban End -->
+                                </tr>
+                            <?php
+                                }
+                            ?>
+                            </tbody>
+
+                    </table>
+                </div>
+                <!-- Table End -->
+
 
                
             </div>

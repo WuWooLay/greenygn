@@ -115,8 +115,8 @@
 
                                 <div class="card-body">
                                     <h5 class="card-title">Total Users <span id=""><?= $user_list ?></span> </h5>
-                                    <a href="#!" class="btn btn-outline-light"> View </a>
-                                    <a href="#!" class="btn btn-outline-light"> Add </a>
+                                    <a href="/gyadmin/superadmin/users/" class="btn btn-outline-light"> View </a>
+                                    <a href="/gyadmin/superadmin/users/add_user.php" class="btn btn-outline-light"> Add </a>
                                 </div>
 
                             </div>

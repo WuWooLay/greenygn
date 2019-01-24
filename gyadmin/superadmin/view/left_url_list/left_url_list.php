@@ -6,7 +6,7 @@
         Dashboard
     </a>
 
-    <a href="/gyadmin/superadmin/plants/" class="list-group-item list-group-item-action ">
+    <a href="#!" class="list-group-item list-group-item-action ">
         <i class="material-icons md-18 text-success">message</i>
         Orders list
     </a>

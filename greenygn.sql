@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 23, 2019 at 08:19 AM
+-- Generation Time: Jan 24, 2019 at 08:20 AM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -198,8 +198,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `image`, `password`, `ph`, `address`, `bio`, `deleted_at`, `created_at`, `modified_at`) VALUES
-(1, 'User 1', 'user1@gmail.com', '/assets/images/logo/greenygn_animate.svg', '$2y$10$ylEA3AIe8Ad/unGPz.54CeBJVJazs6fN93z3riCY01n7iF2KRoUUm', NULL, NULL, NULL, NULL, '2019-01-18 16:15:54', '2019-01-18 16:15:54'),
-(2, 'User 2', 'user2@gmail.com', '/assets/images/logo/greenygn_animate.svg', '$2y$10$AlC8LZUCnJtAenE4Nq/FZ.L.uSiSlKAdKXVK3MvqCdRBQXYZ7XeQW', NULL, NULL, NULL, NULL, '2019-01-18 16:16:14', '2019-01-18 16:16:14');
+(1, 'User 1', 'user1@gmail.com', '/assets/images/users/id1_18_54_59_5c48aa73f2c0b.png', '$2y$10$ylEA3AIe8Ad/unGPz.54CeBJVJazs6fN93z3riCY01n7iF2KRoUUm', '09-456478541', '', '', NULL, '2019-01-18 16:15:54', '2019-01-24 00:25:11'),
+(2, 'Haoi', 'user2@gmail.com', '/assets/images/users/id2_18_36_22_5c48a616982b9.png', '$2y$10$AlC8LZUCnJtAenE4Nq/FZ.L.uSiSlKAdKXVK3MvqCdRBQXYZ7XeQW', '09-456878541', 'Address _ Bayar', 'Bio', NULL, '2019-01-18 16:16:14', '2019-01-23 23:42:52'),
+(3, 'Not A', 'nextuser@gmail.com', '/assets/images/users/id3_19_59_51_5c48b9a76b112.png', '$2y$10$Yp46/cKkyuTI.s1tNdhmOurkuoWY59m0bwq9ZrL8t/KEivZ8WcJQ.', '09-420059241', '', '', NULL, '2019-01-24 01:29:38', '2019-01-24 01:29:59');
 
 --
 -- Indexes for dumped tables
@@ -300,7 +301,7 @@ ALTER TABLE `plants`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
