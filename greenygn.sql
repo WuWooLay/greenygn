@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 24, 2019 at 08:20 AM
+-- Generation Time: Jan 24, 2019 at 11:53 PM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -150,6 +150,40 @@ INSERT INTO `forum` (`id`, `image`, `title`, `description`, `admin_id`, `deleted
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `orders`
+--
+
+CREATE TABLE `orders` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) UNSIGNED NOT NULL,
+  `user_name` varchar(120) NOT NULL,
+  `user_phone` varchar(20) NOT NULL,
+  `user_address` varchar(255) NOT NULL,
+  `status` tinyint(4) NOT NULL,
+  `order_date` date NOT NULL,
+  `send_date` date NOT NULL,
+  `deleted_at` datetime DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `modified_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `order_details`
+--
+
+CREATE TABLE `order_details` (
+  `order_id` int(11) NOT NULL,
+  `plant_id` int(11) NOT NULL,
+  `quantity` int(11) NOT NULL,
+  `plant_amount` int(11) NOT NULL,
+  `total_amount` double NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `plants`
 --
 
@@ -180,7 +214,7 @@ INSERT INTO `plants` (`id`, `image`, `name`, `price`, `category_id`, `admin_id`,
 --
 
 CREATE TABLE `users` (
-  `id` int(10) UNSIGNED NOT NULL,
+  `id` int(11) UNSIGNED NOT NULL,
   `name` varchar(80) NOT NULL,
   `email` varchar(150) NOT NULL,
   `image` varchar(200) NOT NULL DEFAULT '/assets/images/logo/greenygn_animate.svg',
@@ -242,6 +276,20 @@ ALTER TABLE `forum`
   ADD KEY `forum_admin_id_foreign` (`admin_id`);
 
 --
+-- Indexes for table `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `orders_user_foreign` (`user_id`);
+
+--
+-- Indexes for table `order_details`
+--
+ALTER TABLE `order_details`
+  ADD KEY `order_details_order_foreign` (`order_id`),
+  ADD KEY `order_details_plant_foreign` (`plant_id`);
+
+--
 -- Indexes for table `plants`
 --
 ALTER TABLE `plants`
@@ -292,6 +340,12 @@ ALTER TABLE `forum`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT for table `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `plants`
 --
 ALTER TABLE `plants`
@@ -301,7 +355,7 @@ ALTER TABLE `plants`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
@@ -324,6 +378,19 @@ ALTER TABLE `admin`
 --
 ALTER TABLE `forum`
   ADD CONSTRAINT `forum_admin_id_foreign` FOREIGN KEY (`admin_id`) REFERENCES `admin` (`id`);
+
+--
+-- Constraints for table `orders`
+--
+ALTER TABLE `orders`
+  ADD CONSTRAINT `orders_user_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
+
+--
+-- Constraints for table `order_details`
+--
+ALTER TABLE `order_details`
+  ADD CONSTRAINT `order_details_order_foreign` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`),
+  ADD CONSTRAINT `order_details_plant_foreign` FOREIGN KEY (`plant_id`) REFERENCES `plants` (`id`);
 
 --
 -- Constraints for table `plants`

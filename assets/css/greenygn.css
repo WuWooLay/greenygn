@@ -192,3 +192,11 @@ body {
 }
 
 /* DashBoard End */
+
+/* All Buttons */
+.btn , .form-control, .breadcrumb,
+.card, .list-group-item:first-child,
+.list-group-item:last-child {
+    border-radius: 2px;
+}
+/* All Buttons End*/

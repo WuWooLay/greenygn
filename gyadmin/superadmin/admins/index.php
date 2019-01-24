@@ -86,7 +86,7 @@
 
                         <!-- Add Admins -->
                         <div class="col-md-3 mb-2">
-                            <a href="add_admin.php" class="btn btn-outline-primary rounded btn-block" role="button"> 
+                            <a href="add_admin.php" class="btn btn-outline-primary  btn-block" role="button"> 
                                 <i class="icon ion-md-add"></i> Add Admins 
                             </a>
                         </div>
@@ -110,7 +110,7 @@
                                             
                                             <!-- Submit -->
                                             <div class="col-md-4">
-                                                <button href="add_admin.php" class="btn btn-outline-primary rounded btn-block" role="button"> 
+                                                <button href="add_admin.php" class="btn btn-outline-primary  btn-block" role="button"> 
                                                     <i class="icon ion-md-add"></i> Search 
                                                 </button>
                                             </div>

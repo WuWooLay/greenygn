@@ -45,7 +45,9 @@ function login () {
                     $_SESSION['user'] = [
                         'name' => $result['name'],
                         'role' => 'User',
-                        'email' => $email
+                        'email' => $email,
+                        'image' => $result['image'],
+                        'id' => $result['id']
                     ];
 
                     // If Login User

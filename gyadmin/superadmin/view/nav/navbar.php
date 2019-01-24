@@ -46,7 +46,7 @@
        </ul>
        <!-- Left Navbar End-->
 
-        <!-- Left Navbar -->
+        <!-- Right Navbar -->
         <ul class="navbar-nav mr-4">
 
             <li class="nav-item  mr-5 <?= (isset($title) ?  ($title == 'Setting')? 'active' : '' : '') ?> dropdown">
@@ -61,7 +61,7 @@
                   </div>
             </li>
 
-       </ul>
-       <!-- Left Navbar End-->
+        </ul>
+        <!-- Right Navbar End-->
    </div>
 </nav>

@@ -146,7 +146,7 @@
 
                                 <!-- RePassword -->
                                 <div class="form-group">
-                                    <label for="password">Confirm Password</label>
+                                    <label for="confirmpassword">Confirm Password</label>
                                     <input required="required" type="password" name="confirmpassword" class="form-control "  placeholder="Confirm Password" id="confirmpassword" value="">
                                 </div>
                                 <!-- RePassword End-->

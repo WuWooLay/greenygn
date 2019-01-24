@@ -84,7 +84,7 @@
 
                         <!-- Add Plant -->
                         <div class="col-md-3 mb-2">
-                            <a href="add_plant.php" class="btn btn-outline-primary rounded btn-block" role="button"> 
+                            <a href="add_plant.php" class="btn btn-outline-primary  btn-block" role="button"> 
                                 <i class="icon ion-md-add"></i> Add Plant 
                             </a>
                         </div>
@@ -109,7 +109,7 @@
                                             
                                             <!-- Submit -->
                                             <div class="col-md-4">
-                                                <button href="add_admin.php" class="btn btn-outline-primary rounded btn-block" role="button"> 
+                                                <button href="add_admin.php" class="btn btn-outline-primary  btn-block" role="button"> 
                                                     <i class="icon ion-md-add"></i> Search 
                                                 </button>
                                             </div>
@@ -195,6 +195,7 @@
                                 </div>
 
                                <div class="list-group">
+                                               
 
                                         <?php
                                                 foreach($category_list as $v) {
