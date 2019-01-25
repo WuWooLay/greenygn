@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 25, 2019 at 05:51 PM
+-- Generation Time: Jan 25, 2019 at 09:14 PM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -172,7 +172,7 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `user_id`, `user_name`, `user_phone`, `user_address`, `status`, `order_date`, `send_date`, `deleted_at`, `created_at`, `modified_at`) VALUES
-(1, 1, 'User 1', '09-456478541', '', 0, '2019-01-25', NULL, NULL, '2019-01-25 21:55:15', '2019-01-25 21:55:15');
+(1, 1, 'User 1', '09-456478541', 'Ygn', 0, '2019-01-25', NULL, NULL, '2019-01-25 21:55:15', '2019-01-25 21:55:15');
 
 -- --------------------------------------------------------
 
