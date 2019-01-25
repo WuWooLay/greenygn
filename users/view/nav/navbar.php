@@ -20,7 +20,7 @@
            </li>
 
            <li class="nav-item  <?= (isset($title) ?  ($title == 'Orders')? 'active' : '' : '') ?> ">
-               <a class="nav-link" href="/users/orders/"> Orders List</a>
+               <a class="nav-link" href="/users/orderlist/"> Orders List</a>
            </li>
 
            <li class="nav-item  <?= (isset($title) ?  ($title == 'Forum')? 'active' : '' : '') ?> ">

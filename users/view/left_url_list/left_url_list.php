@@ -6,11 +6,10 @@
         Plants
     </a>
 
-    <a href="#!" class="list-group-item list-group-item-action ">
+    <a href="/users/orderlist" class="list-group-item list-group-item-action ">
         <i class="material-icons md-18 text-success">message</i>
         Orders list
     </a>
-
 
     <a href="/users/cart/" class="list-group-item list-group-item-action ">
         <i class="material-icons md-18 text-success">shopping_cart</i>

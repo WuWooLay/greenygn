@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 24, 2019 at 11:53 PM
+-- Generation Time: Jan 25, 2019 at 05:51 PM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -161,11 +161,18 @@ CREATE TABLE `orders` (
   `user_address` varchar(255) NOT NULL,
   `status` tinyint(4) NOT NULL,
   `order_date` date NOT NULL,
-  `send_date` date NOT NULL,
+  `send_date` date DEFAULT NULL,
   `deleted_at` datetime DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `modified_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`id`, `user_id`, `user_name`, `user_phone`, `user_address`, `status`, `order_date`, `send_date`, `deleted_at`, `created_at`, `modified_at`) VALUES
+(1, 1, 'User 1', '09-456478541', '', 0, '2019-01-25', NULL, NULL, '2019-01-25 21:55:15', '2019-01-25 21:55:15');
 
 -- --------------------------------------------------------
 
@@ -176,10 +183,19 @@ CREATE TABLE `orders` (
 CREATE TABLE `order_details` (
   `order_id` int(11) NOT NULL,
   `plant_id` int(11) NOT NULL,
+  `image` varchar(150) NOT NULL DEFAULT '/assets/images/logo/greenygn_animate.svg',
   `quantity` int(11) NOT NULL,
   `plant_amount` int(11) NOT NULL,
   `total_amount` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `order_details`
+--
+
+INSERT INTO `order_details` (`order_id`, `plant_id`, `image`, `quantity`, `plant_amount`, `total_amount`) VALUES
+(1, 1, '/assets/images/plants/plant_id_23_55_46_5c479f725720a.jpg', 5, 2000, 10000),
+(1, 2, '/assets/images/plants/plant_id1_22_35_03_5c478c872d1f0.jpg', 1, 3000, 3000);
 
 -- --------------------------------------------------------
 
@@ -219,7 +235,7 @@ CREATE TABLE `users` (
   `email` varchar(150) NOT NULL,
   `image` varchar(200) NOT NULL DEFAULT '/assets/images/logo/greenygn_animate.svg',
   `password` varchar(200) NOT NULL,
-  `ph` varchar(20) DEFAULT NULL,
+  `ph` varchar(20) NOT NULL,
   `address` tinytext,
   `bio` varchar(150) DEFAULT NULL,
   `deleted_at` datetime DEFAULT NULL,
@@ -343,7 +359,7 @@ ALTER TABLE `forum`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `plants`
