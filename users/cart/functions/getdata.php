@@ -18,7 +18,8 @@
                         'image' => $row['image'],
                         'name' => $row['name'],
                         'price' => $row['price'],
-                        'quantity' => 1
+                        'quantity' => 1,
+                        'totalprice' => $row['price'],
                     ];
                     // print_r($row);
 

@@ -103,7 +103,7 @@
 
                                         foreach($_SESSION['cart'] as $v):
                                 ?>
-                                    <tr>
+                                    <tr id="Table_Row_Id_<?= $v['id'] ?>">
 
                                         <td>
                                             <div
@@ -125,11 +125,19 @@
                                         <!-- Add Remove And Input -->
                                         <td class="Add_Remove_Td">
 
-                                            <button class="btn btn-sm Remove_Count">
+                                            <button class="btn btn-sm Remove_Count" data-id="<?= $v['id'] ?>" data-value="<?= $v['price'] ?>">
                                                 <i class="material-icons md-18">remove</i>
                                             </button> 
-                                                          <input type="number" class="Plant_Shopping_Cart_Input" min="1" max="20" value="1">
-                                            <button class="btn btn-sm Add_Count">
+                                                        <input
+                                                            type="number"
+                                                            class="Plant_Shopping_Cart_Input"
+                                                            min="1"
+                                                            max="20"
+                                                            value="1"
+                                                            data-id="<?= $v['id'] ?>" data-value="<?= $v['price'] ?>"
+                                                         >
+                                           
+                                            <button class="btn btn-sm Add_Count" data-id="<?= $v['id'] ?>" data-value="<?= $v['price'] ?>">
                                                 <i class="material-icons md-18">add</i>
                                             </button> 
                                           
@@ -138,7 +146,7 @@
                                         
                                         <!-- Total Price -->
                                         <td class="text-right pr-5">
-                                            <span class="price">
+                                            <span class="price" id="Table_Row_Total_Price_<?= $v['id'] ?>">
                                                 <?= $v['price'] ?>
                                             </span>
                                             <span>Kyts</span>
@@ -165,7 +173,7 @@
                                         
                                         <!-- All Total Price -->
                                         <td class="text-right pr-5">
-                                            <span>5000</span>
+                                            <span id="All_Total_Price">5000</span>
                                             <span>Kyts</span>
                                         </td>
                                         <!-- All Total Price End-->
@@ -179,7 +187,7 @@
                                                 Check
                                             </a>  
                                         </td>
-                                        
+
                                     </tr>
                                 <?php
                                     else:
@@ -216,20 +224,139 @@
                                     
     // Require "Scroll Top"
     require __DIR__ . "/../../initial/view/footer/scrolltop.php";
+
+    if((isset($_SESSION['cart']))):
 ?>
 
     <script>
         
         $(document).ready( function () {
 
-            var obj = <?= (isset($_SESSION['cart'])) ? json_encode($_SESSION['cart']) : "" ?>;
+            var obj = <?= json_encode($_SESSION['cart']) ?>;
 
-            console.log(obj);
+            var total_add = function (objId) {
+                // console.log('Total Add',obj[objId]);
+
+                var all_total = 0;
+
+                obj[objId].totalprice = parseInt(obj[objId].price) * parseInt(obj[objId].quantity) ;
+
+                // console.log($('#Table_Row_Total_Price_'+objId));
+                $('#Table_Row_Total_Price_'+objId).html(obj[objId].totalprice);
+
+                Object.keys(obj).map(function(key, index) {
+                    // console.log('index=>',index);
+                    // console.log(obj[key]);
+                    all_total += parseInt(obj[key].totalprice);
+                });
+
+                $("#All_Total_Price").html(all_total);
+
+                
+            };
+
+            // Remove Count Function
+            $('.Remove_Count').click( function () {
+                
+                var thisData = {
+                    'id': $(this).data('id'),
+                    'value': parseInt($(this).data('value'))
+                };
+
+                var parent = $(this).parent();
+
+                // console.log(obj[thisData.id]); 
+                // console.log('Parent', parent);
+
+                if( obj[thisData.id].quantity > 1 && obj[thisData.id].quantity <= 20) {
+                    // if Okay 
+                    obj[thisData.id].quantity -= 1;
+                    $(parent)[0].children[1].value = obj[thisData.id].quantity ;
+                    
+                } else {
+                    // Else You Can Decrease
+                    alert("Must Be At Least 1");
+                }
+
+                // Total Add
+                total_add(thisData.id);
+                // console.log(thisData);
+            });
+
+            // Add Count Function
+            $('.Add_Count').click( function () {
+                
+                var thisData = {
+                    'id': $(this).data('id'),
+                    'value': parseInt($(this).data('value'))
+                };
+
+                var parent = $(this).parent();
+
+                // console.log(obj[thisData.id]); 
+                // console.log('Parent', $(parent));
+
+                if( obj[thisData.id].quantity > 0 && obj[thisData.id].quantity < 20) {
+                    // if Okay 
+                    obj[thisData.id].quantity = parseInt(obj[thisData.id].quantity) + 1;
+                    $(parent)[0].children[1].value = obj[thisData.id].quantity ;
+                    
+                } else {
+                    // Else You Can Add
+                    alert("You Can't Over 20 ");
+                }
+                // Total Add
+                total_add(thisData.id);
+                // console.log(thisData);
+            });
+
+            // Listener Function
+            $('.Plant_Shopping_Cart_Input').on('keyup', function (e) {
+                var thisData = {
+                    'id': $(this).data('id'),
+                    'value': parseInt($(this).data('value'))
+                };
+
+                if(this.value == "" || this.value == undefined ) {
+                    alert("Plz Only Input Number");
+                    // console.log('old Quantity=>', obj[thisData.id].quantity);
+                    $(this).val( obj[thisData.id].quantity);
+                    return false;
+                }
+
+                if(this.value > 20) {
+                    alert("You Can't Over 20 ");
+                    obj[thisData.id].quantity = 20;
+                    $(this).val( obj[thisData.id].quantity);
+                    total_add(thisData.id);
+                    return false;
+                } else if (this.value < 1) {
+                    alert("Can't Less Than 1 Must Be Atleast 1");
+                    $(this).val( obj[thisData.id].quantity); 
+                    total_add(thisData.id);
+                    return false;
+                } else {
+                    // console.log('old Quantity=>', obj[thisData.id].quantity);
+                    obj[thisData.id].quantity = this.value;
+                    $(this).val( obj[thisData.id].quantity);
+                    total_add(thisData.id);
+                    return false;
+                }
+
+                // Total Add
+                total_add(thisData.id);
+
+                // console.log(this.value);
+            })
+
+            // console.log(obj);
         });
     
     </script>
 
 <?php
+    endif;
+
     // Require "Footer"
     require __DIR__ . "/../view/finish_footer.php";
 ?>
