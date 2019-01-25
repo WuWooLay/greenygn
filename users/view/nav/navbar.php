@@ -23,10 +23,6 @@
                <a class="nav-link" href="/users/orderlist/"> Orders List</a>
            </li>
 
-           <li class="nav-item  <?= (isset($title) ?  ($title == 'Forum')? 'active' : '' : '') ?> ">
-               <a class="nav-link" href="/users/forum/"> Forum </a>
-           </li>
-
        </ul>
        <!-- Left Navbar End-->
 

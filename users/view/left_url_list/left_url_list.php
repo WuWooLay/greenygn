@@ -23,11 +23,6 @@
         ?>
     </a>
 
-    <a href="/users/forum/" class="list-group-item list-group-item-action disabled ">
-        <i class="material-icons md-18 text-success">forum</i>
-        Forum
-    </a>
-
 </div>
 
 
