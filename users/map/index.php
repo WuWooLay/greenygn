@@ -104,6 +104,11 @@
                                         <span id="state"> </span> State
                                     </h4>
 
+                                    <p class="card-text">
+                                                   With Our Datamining , We Believe We Can Develop Our Myanmar To Be 
+                                                   Green Land In Future .
+                                    </p>
+
                                     </div>
                                 </div>
                         </div>
