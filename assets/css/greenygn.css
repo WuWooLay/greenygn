@@ -260,4 +260,20 @@ body {
 .Quantity {
     min-width: 65px;
 }
+.Card_Svg_Container {
+    width: 100px;
+    margin: 15px auto;
+}
 /* Plant List Card Image End */
+
+/* Map Container */
+.mapContainer {
+    margin: 0 auto;
+    width: 240px;
+}
+@media screen and (max-width: 767px) {
+    .mapContainer {
+        width: 160px;
+    }
+}
+/* Map Container End */

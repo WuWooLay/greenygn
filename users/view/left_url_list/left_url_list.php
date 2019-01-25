@@ -23,6 +23,11 @@
         ?>
     </a>
 
+    <a href="/users/map" class="list-group-item list-group-item-action ">
+        <i class="material-icons md-18 text-success">location_on</i>
+        Search By Geological
+    </a>
+
 </div>
 
 

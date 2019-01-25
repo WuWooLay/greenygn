@@ -120,94 +120,93 @@
                 </div>
                 <!-- Order Pagination End -->
                 
+                
                 <!-- Table Start -->
                 <div class="table-responsive">
-                
-                <table class="table">
-                            
-                            <!-- Table Head -->
-                            <thead>
-                                <tr>
-                                    <th scope="col">Image</th>
-                                    <th scope="col">OrderId</th>
-                                    <th scope="col">Status</th>
-                                    <th scope="col">OrderDate</th>
-                                    <th class="" scope="col">Detail</th>
-                                </tr>
-                            </thead>
-                            <!-- Table Head End-->
+                    <table class="table">
+                                
+                                <!-- Table Head -->
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Image</th>
+                                        <th scope="col">OrderId</th>
+                                        <th scope="col">Status</th>
+                                        <th scope="col">OrderDate</th>
+                                        <th class="" scope="col">Detail</th>
+                                    </tr>
+                                </thead>
+                                <!-- Table Head End-->
 
-                            <!-- Table Body -->
-                            <tbody>
-                                <?php
-                                    foreach($result as $k => $v):
-                                ?>
-                                 <tr>
-                                        <td>
-                                            <div 
-                                                class="Plant_Shopping_Cart sm rounded" 
-                                                style="background-image:url('<?= $v['image'] ?>')"
-                                            >
-                                            </div>
-                                        </td>
-
-                                        <td> #<?= $v['order_date'] ?>_GreenYgn_<?= $v['id'] ?></td>
-                                        
-                                        <td> 
-                                            <?php 
-                                                if($v['status'] == 1):
-                                            ?>
-
-                                            <a class="btn btn-primary btn-sm rounded-circle" href="#!">
-                                                <i class="material-icons md-18">restore</i>
-                                            </a>
-                                            <span class="text-primary">
-                                                Pending
-                                            </span>
-                                            
-                                            <?php
-                                                elseif($v['status'] == 2):
-                                            ?>
-
-                                                <a class="btn btn-success btn-sm rounded-circle" href="#!">
-                                                    <i class="material-icons md-18">done</i>
-                                                </a>
-                                                <span class="text-success">
-                                                    Success Purchase
-                                                </span>
-                                            <?php
-                                                else:
-                                            ?>
-                                                <a class="btn btn-danger btn-sm rounded-circle" href="#!">
-                                                    <i class="material-icons md-18">close</i>
-                                                </a>
-                                                <span class="text-danger">
-                                                    Reject
-                                                </span>
-                                            <?php
-                                                endif;
-                                            ?>
-                                        </td>
-
-                                        <td> <?= $v['order_date'] ?></td>
-                                        <td> 
-                                                <a 
-                                                    class="btn btn-primary btn-sm " 
-                                                    href="detail.php?id=<?= $v['id'] ?>"
+                                <!-- Table Body -->
+                                <tbody>
+                                    <?php
+                                        foreach($result as $k => $v):
+                                    ?>
+                                    <tr>
+                                            <td>
+                                                <div 
+                                                    class="Plant_Shopping_Cart sm rounded" 
+                                                    style="background-image:url('<?= $v['image'] ?>')"
                                                 >
-                                                   Detail
-                                                </a>
+                                                </div>
+                                            </td>
+
+                                            <td> #<?= $v['order_date'] ?>_GreenYgn_<?= $v['id'] ?></td>
                                             
-                                        </td>
-                                 </tr>
-                                <?php
-                                    endforeach;
-                                ?>
-                               
-                            </tbody>
-                            <!-- Table Body End-->
-                </table>
-                
+                                            <td> 
+                                                <?php 
+                                                    if($v['status'] == 1):
+                                                ?>
+
+                                                <a class="btn btn-primary btn-sm rounded-circle" href="#!">
+                                                    <i class="material-icons md-18">restore</i>
+                                                </a>
+                                                <span class="text-primary">
+                                                    Pending
+                                                </span>
+                                                
+                                                <?php
+                                                    elseif($v['status'] == 2):
+                                                ?>
+
+                                                    <a class="btn btn-success btn-sm rounded-circle" href="#!">
+                                                        <i class="material-icons md-18">done</i>
+                                                    </a>
+                                                    <span class="text-success">
+                                                        Success Purchase
+                                                    </span>
+                                                <?php
+                                                    else:
+                                                ?>
+                                                    <a class="btn btn-danger btn-sm rounded-circle" href="#!">
+                                                        <i class="material-icons md-18">close</i>
+                                                    </a>
+                                                    <span class="text-danger">
+                                                        Reject
+                                                    </span>
+                                                <?php
+                                                    endif;
+                                                ?>
+                                            </td>
+
+                                            <td> <?= $v['order_date'] ?></td>
+                                            <td> 
+                                                    <a 
+                                                        class="btn btn-primary btn-sm " 
+                                                        href="detail.php?id=<?= $v['id'] ?>"
+                                                    >
+                                                    Detail
+                                                    </a>
+                                                
+                                            </td>
+                                    </tr>
+                                    <?php
+                                        endforeach;
+                                    ?>
+                                
+                                </tbody>
+                                <!-- Table Body End-->
+                    </table>
                 </div>
                 <!-- Table End -->
 
