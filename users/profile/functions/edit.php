@@ -13,13 +13,6 @@ function editSubmit() {
     // Remove White Space
     $req['name'] = preg_replace('/\s+/', ' ', $req['name']);
 
-    // Get Position
-    $req['position'] = validation($_POST['position']);
-    // Remove White Space
-    $req['position'] = preg_replace('/\s+/', ' ', $req['position']);
-   
-
-    $req['other_position'] = validation($_POST['other_position']);
     $req['address'] = validation($_POST['address']);
     $req['bio'] = validation($_POST['bio']);
     $req['ph'] = validation($_POST['ph']);
@@ -32,9 +25,14 @@ function editSubmit() {
         $req['errors'][] = 'Name Can\'t Update , Must be at leaset 3 words';
     }
 
-    // Position Validate
-    if(strlen($req['position']) == 0 ) {
-        $req['errors'][] = 'Position Field Empty';
+    // Name Validate
+    if(strlen($req['ph']) < 9 ) {
+        $req['errors'][] = 'Ph Required';
+    }
+
+    // Name Validate
+    if(strlen($req['address']) < 3 ) {
+        $req['errors'][] = 'Address Can\'t Update , Must be at leaset 3 words';
     }
 
     // Count errors
@@ -43,11 +41,12 @@ function editSubmit() {
 
     } else {
         // No Problem 
-        $sql = "UPDATE `admin` SET ";
-        $sql .= "`name` = '" . $req['name'] . "', `position` = '" . $req['position'] . "', ";
-        $sql .= "`other_position` = '" . $req['other_position'] . "', `ph` = '". $req['ph'] ."', ";
-        $sql .= "`address` = '" . $req['address'] . "', `bio` = '" . $req['bio'] ."' WHERE `admin`.`id` = " . $req['id'];
+        $sql = "UPDATE `users` SET ";
+        $sql .= " `name` = '" . $req['name'] . "' , " ;
+        $sql .= " `ph` = '". $req['ph'] ."', ";
+        $sql .= " `address` = '" . $req['address'] . "', `bio` = '" . $req['bio'] ."' WHERE `users`.`id` = " . $req['id'];
         
+        // die($sql);
         if ( $result = mysqli_query($conn, $sql) ) {
             // If Workd
             $req['success'][] = "Successfully Updated";

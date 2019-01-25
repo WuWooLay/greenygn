@@ -142,7 +142,7 @@
             var mapArray = [
                 "Sagaing",
                 "Kachin",
-                "Tanintharyi",
+                "TaNintharyi",
                 "Shan",
                 "Magwe",
                 "Ayeyarwady",
