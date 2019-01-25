@@ -230,6 +230,7 @@ body {
 .Plant_Shopping_Cart.sm {
     width: 40px;
     height: 40px;
+    margin: auto;
 }
 .Plant_Shopping_Cart_Input {
     width: 42px;
@@ -255,5 +256,8 @@ body {
 }
 .Remove_Count:hover, .Add_Count:hover {
     opacity: 0.5;
+}
+.Quantity {
+    min-width: 65px;
 }
 /* Plant List Card Image End */

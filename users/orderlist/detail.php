@@ -72,145 +72,85 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="/users/"> Plants </a></li>
-                        <li class="breadcrumb-item active"> OrderList </li>
+                        <li class="breadcrumb-item"> <a href="/users/orderlist"> OrderList </a> </li>
+                        <li class="breadcrumb-item active"> Detail </li>
                     </ol>
                 </nav>
                 <!-- Breadcum Navigation End -->
+                
+                <!-- Thank You -->
+                <div>
 
-                <!-- Order Pagination -->
-                <div class="row">
-                        
-                        <!-- Pagination -->
-                        <div class="col-md-3">
-                            <form action="" method="get">
-                                <div class="input-group mb-3">
-
-                                        <input
-                                         name="page"
-                                         required type="number"
-                                         class="form-control"
-                                         min=1 
-                                         max="<?= (isset($total_pages)) ? $total_pages : '' ?>"
-                                         value="<?= (isset($page)) ? $page : '' ?>"
-                                        >
-
-                                        <?php  
-                                            if( isset($_GET['cat_id']) && is_numeric($_GET['cat_id'])) :
-                                        ?>
-                                            <input
-                                                name="cat_id"
-                                                type="hidden"
-                                                value="<?= $_GET['cat_id'] ?>"
-                                            >
-                                        <?php
-                                            endif;
-                                        ?>
-                                    
-                                        <div class="input-group-append">
-                                            <button class="btn btn-outline-primary" type="submit" id="button-addon2">
-                                                / <?= (isset($total_pages)) ? $total_pages : '' ?> Go
-                                            </button>
-                                        </div>
-                                </div>
-                            </form>
-                        </div>
-                        <!-- Pagination End -->
-                    
                 </div>
-                <!-- Order Pagination End -->
-                
-                <!-- Table Start -->
-                <div class="table-responsive">
-                
-                <table class="table">
-                            
-                            <!-- Table Head -->
-                            <thead>
-                                <tr>
-                                    <th scope="col">Image</th>
-                                    <th scope="col">OrderId</th>
-                                    <th scope="col">Status</th>
-                                    <th scope="col">OrderDate</th>
-                                    <th class="" scope="col">Detail</th>
-                                </tr>
-                            </thead>
-                            <!-- Table Head End-->
+                <!-- Thank You End-->
 
-                            <!-- Table Body -->
-                            <tbody>
-                                <?php
-                                    foreach($result as $k => $v):
-                                ?>
-                                 <tr>
-                                        <td>
-                                            <div 
-                                                class="Plant_Shopping_Cart sm" 
-                                                style="background-image:url('<?= $v['image'] ?>')"
-                                            >
-                                            </div>
-                                        </td>
+                <!-- Details Container-->
+                <div class="contaienr-fluid">
+                        <div class="row">
 
-                                        <td> #<?= $v['order_date'] ?>_GreenYgn_<?= $v['id'] ?></td>
-                                        
-                                        <td> 
-                                            <?php 
-                                                if($v['status'] == 1):
-                                            ?>
+                           
 
-                                            <a class="btn btn-primary btn-sm rounded-circle" href="#!">
-                                                <i class="material-icons md-18">restore</i>
-                                            </a>
-                                            <span class="text-primary">
-                                                Pending
-                                            </span>
-                                            
-                                            <?php
-                                                elseif($v['status'] == 2):
-                                            ?>
+                            <!-- Order Information -->
+                            <div class="col-md-7">
+                                <div class="table-respoinsive">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                            <th scope="col">Image</th>
+                                            <th scope="col">Name</th>
+                                            <th class="text-right pr-4" scope="col">Price</th>
+                                            <th class="text-center Quantity" scope="col">Qty</th>
+                                            <th class="text-right pr-4" scope="col">Unit</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
 
-                                                <a class="btn btn-success btn-sm rounded-circle" href="#!">
-                                                    <i class="material-icons md-18">done</i>
-                                                </a>
-                                                <span class="text-success">
-                                                    Success Purchase
-                                                </span>
-                                            <?php
-                                                else:
-                                            ?>
-                                                <a class="btn btn-danger btn-sm rounded-circle" href="#!">
-                                                    <i class="material-icons md-18">close</i>
-                                                </a>
-                                                <span class="text-danger">
-                                                    Reject
-                                                </span>
-                                            <?php
-                                                endif;
-                                            ?>
-                                        </td>
-
-                                        <td> <?= $v['order_date'] ?></td>
-                                        <td> 
-                                                <a 
-                                                    class="btn btn-primary btn-sm " 
-                                                    href="detail.php?id=<?= $v['id'] ?>"
+                                        <!-- Order Details -->
+                                        <?php 
+                                            $all_total_amount = 0;
+                                            foreach($order_details as $v):
+                                                $all_total_amount += $v['total_amount'];
+                                        ?>
+                                        <tr>
+                                            <td>
+                                                <div 
+                                                    class="Plant_Shopping_Cart sm rounded" 
+                                                    style="background-image:url('<?= $v['image'] ?>')"
                                                 >
-                                                   Detail
-                                                </a>
+                                                </div>
+                                            </td>
+                                            <td><?= $v['plant_name']?></td>
+                                            <td class="text-right pr-4" ><?= $v['plant_amount']?> Kyats</td>
+                                            <td class="text-center"> ( <?= $v['quantity']?> ) </td>
+                                            <td class="text-right pr-4" ><?= $v['total_amount']?> Kyats</td>
+                                        </tr>
+                                        <?php
+                                            endforeach;
+                                        ?>
+                                        
+                                        <!-- Order Details End -->
                                             
-                                        </td>
-                                 </tr>
-                                <?php
-                                    endforeach;
-                                ?>
-                               
-                            </tbody>
-                            <!-- Table Body End-->
-                </table>
-                
-                </div>
-                <!-- Table End -->
+                                        <!-- Last Row -->
+                                            <tr>
+                                                <td class="text-right" colspan="4">Total Price</td>
+                                                <td class="text-right pr-4"> <?= $all_total_amount ?> Kyats</td>
+                                            </tr>
+                                        <!-- Last Row -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <!-- Order Information End -->
 
-               
+                            <!-- Customer Information -->
+                            <div class="col-md-5">
+
+                            </div>
+                            <!-- Customer Information End-->
+                        </div>
+                </div>
+                <!-- Details Container End-->
+
             </div>
             <!-- Normal Container End -->
 
@@ -218,15 +158,6 @@
     
     </div>
     <!-- Container Start End -->
-
-    <!-- Form -->
-    <form class="d-none" method="post" id="Form">
-            
-            <input type="hidden" name="formArray" id="formArray">
-            <input type="submit" name="submit" id="submit">
-    </form>
-    <!-- Form End-->
-
 
 <?php
 

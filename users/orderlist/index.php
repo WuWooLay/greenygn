@@ -145,7 +145,7 @@
                                  <tr>
                                         <td>
                                             <div 
-                                                class="Plant_Shopping_Cart sm" 
+                                                class="Plant_Shopping_Cart sm rounded" 
                                                 style="background-image:url('<?= $v['image'] ?>')"
                                             >
                                             </div>
