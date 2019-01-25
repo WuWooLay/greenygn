@@ -90,6 +90,23 @@
                                             <!-- Search Form -->
                                             <div class="col-md-8">
                                                 <div class="form-group">
+
+                                                    <?php 
+                                                        if(isset($_GET['cat_id']) && is_numeric($_GET['cat_id'])) :
+                                                    ?>
+                                                        <input type="hidden" name="cat_id" value="<?= $_GET['cat_id']?>">     
+                                                    <?php
+                                                        endif;
+                                                    ?>
+
+                                                    <?php 
+                                                        if(isset($_GET['page']) && is_numeric($_GET['page'])) :
+                                                    ?>
+                                                        <input type="hidden" name="page" value="<?= $_GET['page']?>">     
+                                                    <?php
+                                                        endif;
+                                                    ?>
+
                                                     <input name="name" class="form-control" type="text" placeholder="Search By Name">
                                                 </div>
                                             </div>

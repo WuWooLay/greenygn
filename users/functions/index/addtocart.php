@@ -5,7 +5,13 @@
 
     // Page Dir For Redirect
     if(isset($_GET['page_dir']) && $_GET['page_dir']!= "") {
-        $page_dir = $_GET['page_dir'] . ".php";
+
+        if($_GET['page_dir'] == 'cart') {
+            $page_dir = "cart";
+        } else {
+            $page_dir = $_GET['page_dir'] . ".php";
+        }
+
     } else {
         $page_dir = "index.php";
     }
@@ -19,9 +25,16 @@
 
     // If Cat Search 
     if(isset($_GET['cat_id']) && is_numeric($_GET['cat_id'])) {
-        $cat_id = "cat_id=". $_GET['cat_id'];
+        $cat_id = "&cat_id=". $_GET['cat_id'];
     } else {
         $cat_id = "";
+    }
+
+     // If Cat Search 
+     if(isset($_GET['name']) ) {
+        $name = "&name=". $_GET['name'];
+    } else {
+        $name = "";
     }
 
     // If Get Plants Id & Set Session
@@ -44,16 +57,20 @@
             ];
         }
 
-        header("Location: " . "/users/$page_dir?page=$page&" . (isset($_GET['cat_id']) ? $cat_id : ""));
-        die("/users/$page_dir?page=$page&". isset($_GET['cat_id']) ? $cat_id : "");
+        // echo "$cat_id";
+        // die("/users/$page_dir");
+        $page_dir =  "/users/$page_dir?page=$page&". $cat_id . $name ;
+        header("Location: " . $page_dir);
+        die("");
 
     } else {
-        header("Location: " . "/users/$page_dir?page=$page&". (isset($_GET['cat_id']) ? $cat_id : ""));
-        die("/users/$page_dir?page=$page&". isset($_GET['cat_id']) ? $cat_id : "");
+        $page_dir =  "/users/$page_dir?page=$page&". $cat_id . $name ;
+        header("Location: " . $page_dir);
+        die("");
     }
 
     
-    echo '<br>' . $page_dir;
-    die();
+    // echo '<br>' . $page_dir;
+    die("PBB");
 
 ?>
