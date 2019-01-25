@@ -7,7 +7,7 @@ function validation ($str) {
 
 // Register Function
 function register () {
-    global $email, $password, $name,
+    global $email, $password, $name, $ph,
     $confirmpassword, $errors, $db_errors,
     $conn;
 
@@ -20,17 +20,26 @@ function register () {
         $errors['email'] = 'Invalid Email';
     }
 
+    
+    // Validate Name
+    $name = isset($_POST['name']) ? validation($_POST['name']) : '' ;
+    if (strlen($name) < 3 ) {
+        $errors['name'] = 'Please enter a long Name AtLeast 3';
+    }
+
+    
+    // Validate ph
+    $ph = isset($_POST['ph']) ? validation($_POST['ph']) : '' ;
+    if (strlen($ph) < 9 ) {
+        $errors['ph'] = 'Please enter a long ph AtLeast 8';
+    }
+
     // Vlidate Password
     $password = isset($_POST['password']) ? validation($_POST['password']) : '' ;
     if (strlen($password) < 6) {
         $errors['password'] = 'Please enter a long password AtLeast 6';
     }
 
-    // Validate Name
-    $name = isset($_POST['name']) ? validation($_POST['name']) : '' ;
-    if (strlen($name) < 3 ) {
-        $errors['name'] = 'Please enter a long Name AtLeast 3';
-    }
     
     // Validate Confirm Password
     $confirmpassword = isset($_POST['confirmpassword']) ? validation($_POST['confirmpassword']) : '' ;
@@ -59,7 +68,7 @@ function register () {
                 // Insert New User
                 $sql = "INSERT INTO `users` (`id`, `name`, `email`, `password`, `ph`,";
                 $sql .= " `address`, `bio`, `deleted_at`, `created_at`, `modified_at`)";
-                $sql .= " VALUES (NULL, '$name', '$email', '". $arr['input_hash'] ."', NULL, NULL, NULL, NULL, NOW(), NOW())"; 
+                $sql .= " VALUES (NULL, '$name', '$email', '". $arr['input_hash'] ."', '$ph', NULL, NULL, NULL, NOW(), NOW())"; 
         
                 if (mysqli_query($conn, $sql)) {
         

@@ -42,20 +42,29 @@ function login () {
                 if(password_verify($password , $result['password'])) {
                     // Success Password
 
-                    $_SESSION['admin'] = [
-                        'name' => $result['name'],
-                        'admin_role_id' => $result['admin_role_id'],
-                        'email' => $email,
-                        'image' => $result['image'],
-                        'id' => $result['id']
-                    ];
-
-                    // If Login User
-                    if($result['admin_role_id']  == 1) {
-                        header('Location: ' . '/gyadmin/superadmin');
+                    if($result['deleted_at']) {
+                        
+                        $db_errors[] = "Your Acc Has Been Baned , You Can Contact Us.";
+                    
                     } else {
-                        header('Location: ' . '/gyadmin/admin');
+                        
+                        $_SESSION['admin'] = [
+                            'name' => $result['name'],
+                            'admin_role_id' => $result['admin_role_id'],
+                            'email' => $email,
+                            'image' => $result['image'],
+                            'id' => $result['id']
+                        ];
+    
+                        // If Login User
+                        if($result['admin_role_id']  == 1) {
+                            header('Location: ' . '/gyadmin/superadmin');
+                        } else {
+                            header('Location: ' . '/gyadmin/admin');
+                        }
                     }
+
+                   
 
                 } else {
                     // Wrong Password

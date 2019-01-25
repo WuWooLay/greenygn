@@ -44,7 +44,7 @@
                     ?>
 
                 
-                <!-- Email -->
+                <!-- Name -->
                 <div class="form-group">
                     
                     <label for="name">User Name</label>
@@ -69,7 +69,8 @@
                     ?>
               
                 </div>
-                <!-- Email End-->
+                <!-- Name End-->
+                
                 <!-- Email -->
                 <div class="form-group">
                     
@@ -96,6 +97,36 @@
               
                 </div>
                 <!-- Email End-->
+
+                <!-- Phone -->
+                <div class="form-group">
+                    
+                    <label for="ph">Phone Number</label>
+
+                    <input 
+                        value="<?= isset($ph) ? "$ph":"" ?>" 
+                        class="form-control <?= (isset($errors['ph']))? 'is-invalid' :'' ?>" 
+                        type="tel" 
+                        id="ph" 
+                        name="ph" 
+                        pattern="[0-9]{2}-[0-9]{6,9}" 
+                        placeholder="Example 09-420012345" 
+                        max="11" 
+                        required="required"
+                    >
+                   
+                    <?php 
+                        if (isset($errors['ph'])) {
+                    ?>
+                            <div class="invalid-feedback">
+                                <?= $errors['ph'] ?>
+                            </div>
+                    <?php
+                        }
+                    ?>
+              
+                </div>
+                <!-- Phone End-->
                 
                 <!-- Password -->
                 <div class="form-group">
@@ -136,6 +167,7 @@
                         name="confirmpassword"
                         class="form-control <?= (isset($errors['confirmpassword']))? 'is-invalid' :'' ?>"
                         id="confirmpassword"
+                        placeholder="Enter ConfirmPassword"
                         value="" 
                     >
                     <?php 
@@ -150,6 +182,8 @@
                  
                 </div>
                 <!-- RePassword End-->
+
+                
 
                 <button type="submit" name="submit" class="btn btn-outline-primary"> Register </button>
                 <a href="/login"> Already have ? </a>

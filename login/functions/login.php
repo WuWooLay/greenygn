@@ -42,18 +42,28 @@ function login () {
                 if(password_verify($password , $result['password'])) {
                     // Success Password
 
-                    $_SESSION['user'] = [
-                        'name' => $result['name'],
-                        'role' => 'User',
-                        'email' => $email,
-                        'image' => $result['image'],
-                        'id' => $result['id'],
-                        'ph' => $result['ph'],
-                        'address' => $result['address']
-                    ];
+                    // echo "<pre>";
+                    // print_r($result);
+                    // die();
+
+                    if($result['deleted_at']) {
+                        $db_errors[] = "Your Acc Has Been Baned , You Can Contact Us.";
+                    } else {
+                        $_SESSION['user'] = [
+                            'name' => $result['name'],
+                            'role' => 'User',
+                            'email' => $email,
+                            'image' => $result['image'],
+                            'id' => $result['id'],
+                            'ph' => $result['ph'],
+                            'address' => $result['address']
+                        ];
+                        header('Location: ' . '/users');
+
+                    }
+                    
 
                     // If Login User
-                    header('Location: ' . '/users');
 
                 } else {
                     // Wrong Password
