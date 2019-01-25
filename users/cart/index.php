@@ -9,6 +9,7 @@
     require __DIR__ . "/../middlewares/is_user.php";
 
     // Functions
+    require __DIR__. "/functions/order.php";
     require __DIR__. "/functions/getdata.php";
 
     $title = "Cart";
@@ -169,7 +170,16 @@
                                         endforeach;
                                 ?>
                                     <tr class="Total_Row" id="Total_Row">
-                                        <td colspan="4"></td>
+                                    
+                                    <!-- Clear Cart -->
+                                    <td colspan="1">
+                                            <a href="/users/functions/index/clearcart.php" class="btn btn-outline-danger">
+                                                Clear Cart
+                                            </a>
+                                    </td>
+                                    <!-- Clear Cart End-->
+
+                                    <td colspan="3"></td>
                                         
                                         <!-- All Total Price -->
                                         <td class="text-right pr-5">
@@ -182,9 +192,9 @@
                                             <a 
                                                 href="#!" 
                                                 class="btn btn-primary"
-                                                id="Check"
+                                                id="Submit"
                                             >
-                                                Check
+                                                Submit
                                             </a>  
                                         </td>
 
@@ -216,6 +226,14 @@
     </div>
     <!-- Container Start End -->
 
+    <!-- Form -->
+    <form class="d-none" method="post" id="Form">
+            
+            <input type="hidden" name="formArray" id="formArray">
+            <input type="submit" name="submit" id="submit">
+    </form>
+    <!-- Form End-->
+
 
 <?php
 
@@ -224,7 +242,7 @@
                                     
     // Require "Scroll Top"
     require __DIR__ . "/../../initial/view/footer/scrolltop.php";
-
+    
     if((isset($_SESSION['cart']))):
 ?>
 
@@ -234,6 +252,7 @@
 
             var obj = <?= json_encode($_SESSION['cart']) ?>;
 
+            // Total Price Adding Function
             var total_add = function (objId) {
                 // console.log('Total Add',obj[objId]);
 
@@ -348,6 +367,15 @@
 
                 // console.log(this.value);
             })
+
+            // Submit
+            $("#Submit").click( function () {
+
+                // alert("Lwin");
+
+                $('#formArray').val(JSON.stringify(obj));
+                $("#submit").click();
+            });
 
             // console.log(obj);
         });
