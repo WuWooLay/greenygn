@@ -48,7 +48,7 @@
                     href="/users/"
                     class="list-group-item list-group-item-action"
                     >
-                        Defalut
+                        Default All
                     </a>
 
                     <?php
@@ -74,7 +74,8 @@
 
                 <!-- User Index -->
                 <div class="container-fluid">
-                   
+                    
+                    <!-- User Search And Pagination -->
                     <div class="row">
                         
                         <!-- Search Form -->
@@ -147,7 +148,65 @@
                         <!-- Pagination End -->
                     
                     </div>
+                    <!-- User Search And Pagination End -->
 
+                    <!-- Show Plants List -->
+                    <div class="row">
+                        <!-- 
+                            [id] => 1
+                            [image] => /assets/images/plants/plant_id_23_55_46_5c479f725720a.jpg
+                            [name] => Sun Flower
+                            [price] => 2000
+                            [admin_id] => 1
+                            [category_name] => Fruits
+                            [admin_name] => Lwin Moe Paing 
+                        -->
+                        
+                        <?php 
+                            foreach($result as $v):
+                        ?>  
+                        <!-- Foreach Plants -->
+                        <div class="col-sm-6 col-md-4 col-lg-3 mb-2">
+                                    <div class="card">
+                                        <div class="Plant_Card_Bg_Image" style="background-image:url('<?= $v['image'] ?>')">
+
+                                        </div>
+                                        <div class="card-body text-center">
+                                           
+                                            <h5 class="card-title">
+                                                <?= $v['name'] ?> 
+                                                <a href="?cat_id=<?= $v['cat_id'] ?>" class="badge badge-pill badge-primary Plant_Card_Badge">
+                                                    <?= $v['category_name'] ?>
+                                                </a>
+                                            </h5>
+
+                                            <p class="card-text">
+                                                    Price : <?= $v['price'] ?> Kyats
+                                            </p>
+
+                                            <?php 
+                                                if(isset($_SESSION['cart'][$v['id']])) :
+                                            ?>
+                                                <a href="/users/functions/index/addtocart.php?id=<?= $v['id'] ?><?= (isset($_GET['cat_id'])? "&cat_id=" . $_GET['cat_id'] :"") ?>&page_dir=" class="btn btn-danger btn-sm">Undo</a>
+                                            <?php
+                                                else:
+                                            ?>
+                                                <a href="/users/functions/index/addtocart.php?id=<?= $v['id'] ?><?= (isset($_GET['cat_id'])? "&cat_id=" . $_GET['cat_id'] :"") ?>&page_dir=" class="btn btn-primary btn-sm">Add Cart</a>
+                                            <?php
+                                                endif;
+                                            ?>
+
+                                        </div>
+                                    </div>
+                        </div>
+                        <!-- Foreach Plants End-->
+                        <?php
+                            endforeach;
+                        ?>
+                       
+
+                    </div>
+                    <!-- Show Plants List End -->
                 </div>
                 <!-- User Index End -->
             </div>

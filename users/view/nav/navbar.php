@@ -37,7 +37,14 @@
                <a class="nav-link" href="/users/cart/">
 
                 <i class="material-icons md-18">shopping_cart</i>
-                <span class="badge badge-dark">9</span>
+
+                <?php 
+                    if(isset($_SESSION['cart'])):
+                ?>
+                    <span class="badge badge-dark"><?= count($_SESSION['cart']) ?></span>
+                <?php
+                    endif;
+                ?>
                 
                </a>
             </li>

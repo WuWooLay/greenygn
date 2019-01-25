@@ -196,7 +196,26 @@ body {
 /* All Buttons */
 .btn , .form-control, .breadcrumb,
 .card, .list-group-item:first-child,
-.list-group-item:last-child {
+.list-group-item:last-child,
+.dropdown-menu {
     border-radius: 2px;
 }
 /* All Buttons End*/
+
+/* Plant List Card Image */
+.Plant_Card_Bg_Image {
+    width: 100%;
+    height: 150px;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.Plant_Card_Badge {
+    position: relative;
+    font-size: 0.8rem;
+    bottom: 1px;
+}
+/* Plant List Card Image End */

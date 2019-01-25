@@ -2,8 +2,8 @@
 <div class="list-group d-none d-md-block mb-3">
 
     <a href="/users/" class="list-group-item list-group-item-action ">
-        <i class="material-icons md-18 text-success">dashboard</i>
-        Dashboard
+        <i class="material-icons md-18 text-success">nature</i>
+        Plants
     </a>
 
     <a href="#!" class="list-group-item list-group-item-action ">
@@ -15,7 +15,13 @@
     <a href="/users/cart/" class="list-group-item list-group-item-action ">
         <i class="material-icons md-18 text-success">shopping_cart</i>
         Cart
-        <span class="badge badge-primary">9</span>
+        <?php 
+            if(isset($_SESSION['cart'])):
+        ?>
+            <span class="badge badge-primary"><?= count($_SESSION['cart']) ?></span>
+        <?php
+            endif;
+        ?>
     </a>
 
     <a href="/users/forum/" class="list-group-item list-group-item-action disabled ">
