@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 25, 2019 at 09:27 PM
+-- Generation Time: Jan 27, 2019 at 10:14 PM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -221,7 +221,7 @@ CREATE TABLE `plants` (
 
 INSERT INTO `plants` (`id`, `image`, `name`, `price`, `category_id`, `admin_id`, `deleted_at`, `created_at`, `modified_at`) VALUES
 (1, '/assets/images/plants/plant_id_23_55_46_5c479f725720a.jpg', 'Sun Flower', 2000, 1, 1, NULL, '2019-01-23 02:07:56', '2019-01-23 05:31:39'),
-(2, '/assets/images/plants/plant_id1_22_35_03_5c478c872d1f0.jpg', 'Rose', 3000, 2, 1, NULL, '2019-01-23 04:05:03', '2019-01-23 04:05:03');
+(2, '/assets/images/plants/plant_id1_22_35_03_5c478c872d1f0.jpg', 'Rose', 3000, 2, 1, NULL, '2019-01-23 04:05:03', '2019-01-28 01:57:42');
 
 -- --------------------------------------------------------
 
@@ -250,7 +250,7 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `name`, `email`, `image`, `password`, `ph`, `address`, `bio`, `deleted_at`, `created_at`, `modified_at`) VALUES
 (1, 'Not User 1', 'user1@gmail.com', '/assets/images/users/id1_21_17_26_5c4b6ed64df90.jpg', '$2y$10$ylEA3AIe8Ad/unGPz.54CeBJVJazs6fN93z3riCY01n7iF2KRoUUm', '09-420059241', 'Ygn', '', NULL, '2019-01-18 16:15:54', '2019-01-24 00:25:11'),
 (2, 'Haoi', 'user2@gmail.com', '/assets/images/users/id2_21_25_14_5c4b70aa45174.png', '$2y$10$AlC8LZUCnJtAenE4Nq/FZ.L.uSiSlKAdKXVK3MvqCdRBQXYZ7XeQW', '09-456878541', 'Address _ Bayar', 'Bio', NULL, '2019-01-18 16:16:14', '2019-01-23 23:42:52'),
-(3, 'Not A', 'nextuser@gmail.com', '/assets/images/users/id3_19_59_51_5c48b9a76b112.png', '$2y$10$Yp46/cKkyuTI.s1tNdhmOurkuoWY59m0bwq9ZrL8t/KEivZ8WcJQ.', '09-420059241', '', '', NULL, '2019-01-24 01:29:38', '2019-01-24 01:29:59');
+(3, 'Not A', 'nextuser@gmail.com', '/assets/images/users/id3_19_59_51_5c48b9a76b112.png', '$2y$10$Yp46/cKkyuTI.s1tNdhmOurkuoWY59m0bwq9ZrL8t/KEivZ8WcJQ.', '09-420059241', 'Bay', '', NULL, '2019-01-24 01:29:38', '2019-01-24 01:29:59');
 
 --
 -- Indexes for dumped tables
