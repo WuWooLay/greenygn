@@ -230,7 +230,7 @@
                                             
                                             <!-- Edit -->
                                             <td>
-                                                <a class="btn btn-outline-success btn-sm " href="/gyadmin/superadmin/plants/edit.php?id=<?= $v['id'] ?>&page=<?= $page ?>" role="button">
+                                                <a class="btn btn-outline-success btn-sm " href="/gyadmin/superadmin/plants/edit.php?id=<?= $v['id'] ?>&page=<?= (isset($page))?$page:'1' ?>" role="button">
                                                     <i class="material-icons md-18"> create </i>
                                                 </a>  
                                             </td>

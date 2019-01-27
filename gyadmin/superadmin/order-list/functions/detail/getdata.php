@@ -1,28 +1,27 @@
 <?php
 
-    $sql = "SELECT * FROM `orders` WHERE `id` = " . $_GET['id'];
+    $sql = "SELECT `orders`.* , `users`.`image` AS `user_image` FROM `orders` ";
+    $sql .= " INNER JOIN `users` ON `orders`.`user_id`  = `users`.`id` ";
+    $sql .= " WHERE `orders`.`id` = " . $_GET['id'];
+
+    // echo $sql;
+    // die("");
 
     if($row = mysqli_query($conn, $sql)) {
         
-        // If Row Count == 0
         if($row->num_rows == 0) {
-            header("Location: " . "/users/orderlist");
+            header("Location: " . "/gyadmin/superadmin/order-list/");
             die("");
         }
         
         $result = mysqli_fetch_assoc($row);
 
-        // Not Self Data Details
-        if ($result["user_id"] != $_SESSION['user']['id']) {
-
-            $_SESSION['errors'] = "Not your Data";
-            header("Location: " . "/users/orderlist");
-            die("");
-        }
-
-        $sql = "SELECT  `order_details`.*, `plants`.`name` AS `plant_name`  FROM `order_details` ";
+        $sql = "SELECT  `order_details`.*, `plants`.`name` AS `plant_name` FROM `order_details` ";
         $sql .= " INNER JOIN `plants` ON `order_details`.`plant_id`  = `plants`.`id` ";
         $sql .= " WHERE `order_id` = " . $_GET['id'];
+
+        // echo $sql;
+        // die("");
 
         $order_details = array();
         if($row = mysqli_query($conn, $sql)) {

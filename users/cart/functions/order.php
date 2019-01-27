@@ -24,8 +24,10 @@
             }
 
             $_SESSION['success'] = "Successfully Pending";
-
             unset($_SESSION['cart']);
+            // Redirect to Detail Cart
+            header("Location:". "/users/orderlist/detail.php?id=" . $id );
+            die();
         } else {
             $_SESSION['error'] = "ERROR : " . mysqli_error($conn);
         }

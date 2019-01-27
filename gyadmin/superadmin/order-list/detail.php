@@ -3,12 +3,14 @@
     // Super Admin  superadmin/admins
     
     // Connect Mysql 
-    require __DIR__ . "/../../initial/conn/index.php";
+    require __DIR__ . "/../../../initial/conn/index.php";
     
     // Middlewares
-    require __DIR__ . "/../middlewares/is_user.php";
+    require __DIR__ . "/../middlewares/is_superadmin.php";
 
     // Functions
+    require __DIR__. "/functions/detail/confirm.php";
+    require __DIR__. "/functions/detail/reject.php";
     require __DIR__. "/functions/detail/getdata.php";
 
     $title = "Orders";
@@ -36,92 +38,118 @@
                     require __DIR__ . "/../view/left_url_list/left_url_list.php";
                 ?>
 
+        
             </div>
             <!-- Url List Container -->
 
             <!-- Normal Container -->
             <div class="col-md-9">
-                
+                 
                 <!-- Show Errors Messages -->
-                    <?php 
+                <?php 
                         if (isset($_SESSION['errors'])) {
-                    ?>           
+                ?>           
                         <div class="alert alert-danger" role="alert">
                             <?= ($_SESSION['errors']) ?>
                         </div>
-                    <?php
+                <?php
                         unset($_SESSION['errors']);
                         }
-                    ?>
+                ?>
                 <!-- Show Errors Messages End-->
 
                 <!-- Show Success Messages -->
-                    <?php 
-                        if (isset($_SESSION['success'])) {
-                    ?>           
-                        <div class="alert alert-success" role="alert">
-                            <?= ($_SESSION['success']) ?>
-                        </div>
-                    <?php
-                        unset($_SESSION['success']);
-                        }
-                    ?>
+                <?php 
+                    if (isset($_SESSION['success'])) {
+                ?>           
+                    <div class="alert alert-success" role="alert">
+                        <?= ($_SESSION['success']) ?>
+                    </div>
+                <?php
+                    unset($_SESSION['success']);
+                    }
+                ?>
                 <!-- Show Success Messages End-->
 
                 <!-- Breadcum Navigation -->
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="/users/"> Plants </a></li>
-                        <li class="breadcrumb-item"> <a href="/users/orderlist"> OrderList </a> </li>
-                        <li class="breadcrumb-item active"> Detail </li>
+                        <li class="breadcrumb-item"><a href="/gyadmin/superadmin/">DashBoard</a></li>
+                        <li class="breadcrumb-item active"> Orders </li>
                     </ol>
                 </nav>
                 <!-- Breadcum Navigation End -->
-              
-                <!-- Details Container-->
-                <div class="contaienr-fluid">
-                        <div class="row">
+
+                <!-- Detail COntainer -->
+                <div class="container-fluid">
+                    <div class="row">
 
                             <!-- Order Information -->
                             <div class="col-md-7">
 
-                            <!-- 3 Thank You -->
-                                <?php 
-                                    if($result['status'] == 1):
-                                ?>
-                                    <!-- Thank You -->
-                                    <div class="alert alert-primary"> 
-                                        
-                                        <strong>Thank you !  </strong>For you Purchase , For now Pending <i class="material-icons md-18">restore</i> Your Order.
-                                        <i class="material-icons"></i>
-                                    </div>
-                                    <!-- Thank You End -->                                           
-                                <?php
-                                    elseif($result['status'] == 2):
-                                ?>
-                                    <!-- Thank You -->
-                                    <div class="alert alert-success"> 
-                                            <strong> Successfully Done <i class="material-icons md-18">check</i> </strong>, Thank You For Your Purchase
-                                            <i class="material-icons"></i>
-                                        </div>
-                                    <!-- Thank You End -->
-                                <?php
-                                    else:
-                                ?>
-                                    <!-- Thank You -->
-                                    <div class="alert alert-danger"> 
-                                    
-                                            <strong> Rejected Order 
-                                                            <i class="material-icons md-18">backspace</i>
-                                            </strong>, If U Think SomethingWrong U Can Contact Us.
+                                <!-- 3 Thank You -->
+                                    <?php 
+                                        if($result['status'] == 1):
+                                    ?>
+                                        <div class="container-fluid mb-3">
+                                            <div class="row">
 
-                                            <i class="material-icons"></i>
-                                    </div>
-                                    <!-- Thank You End -->
-                                <?php 
-                                    endif;
-                                ?>
-                            <!-- 3 Thank You End -->
+                                                <!-- Confirm -->
+                                                <div class="col-6">
+                                                    <form  method="post" action="">
+                                                    <input type="hidden" name="id" value="<?= $result['id'] ?>">
+                                                            <button name="confirm_submit" class="btn btn-success  btn-block" type="submit"> 
+                                                                <i class="icon ion-md-add"></i> Confirm 
+                                                            </button>  
+                                                    </form>
+                                                </div>
+                                                <!-- Confirm End -->
+
+                                                <!-- Reject -->
+                                                <div class="col-6">
+                                                    <form  method="post" action="">
+                                                    <input type="hidden" name="id" value="<?= $result['id'] ?>">
+                                                            <button name="reject_submit" class="btn btn-danger btn-block" type="submit"> 
+                                                                <i class="icon ion-md-add"></i> Reject 
+                                                            </button>  
+                                                    </form>
+                                                </div>
+                                                <!-- Reject End -->
+
+                                            </div>
+                                        </div>
+                                        <!-- Thank You -->
+                                       
+                                        <form  method="post" action="">
+                                            
+                                        </form>
+                                        <!-- Thank You End -->                                           
+                                    <?php
+                                        elseif($result['status'] == 2):
+                                    ?>
+                                        <!-- Success Confirm You -->
+                                        <div class="alert alert-success"> 
+                                                <strong> Successfully Purchase Confirm <i class="material-icons md-18">check</i> </strong>
+                                                <i class="material-icons"></i>
+                                            </div>
+                                        <!-- Success Confirm You End -->
+                                    <?php
+                                        else:
+                                    ?>
+                                        <!-- Reject Order -->
+                                        <div class="alert alert-danger"> 
+                                        
+                                                <strong> Rejected Order 
+                                                                <i class="material-icons md-18">backspace</i>
+                                                </strong>
+
+                                                <i class="material-icons"></i>
+                                        </div>
+                                        <!-- Reject Order End -->
+                                    <?php 
+                                        endif;
+                                    ?>
+                                <!-- 3 Thank You End -->
                                 <!-- Table Start -->
                                 <div class="table-responsive">
                                     <table class="table table-bordered">
@@ -181,7 +209,7 @@
                                     
                                 <div class="border-bottom">
                                     <div class="Card_Svg_Container">
-                                        <img class="img-fluid" src="/assets/images/logo/greenygn_animate.svg" alt="">
+                                        <img class="img-fluid rounded-circle" src="<?= $result['user_image'] ?>" alt="">
                                     </div>
                                 </div>
                                     
@@ -208,10 +236,11 @@
                                 </div>            
                             </div>
                             <!-- Customer Information End-->
-                        </div>
+                    </div>                  
                 </div>
-                <!-- Details Container End-->
+                <!-- Detail COntainer End-->
 
+               
             </div>
             <!-- Normal Container End -->
 
@@ -220,14 +249,14 @@
     </div>
     <!-- Container Start End -->
 
+
 <?php
 
     // Require "Preloading"
-    require __DIR__ . "/../../initial/view/preloading/preloading.php";
+    require __DIR__ . "/../../../initial/view/preloading/preloading.php";
                                     
     // Require "Scroll Top"
-    require __DIR__ . "/../../initial/view/footer/scrolltop.php";
-    
+    require __DIR__ . "/../../../initial/view/footer/scrolltop.php";
 
     // Require "Footer"
     require __DIR__ . "/../view/finish_footer.php";

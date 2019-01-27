@@ -16,12 +16,12 @@
 
 
     // Get Orders List
-    $sql = "SELECT COUNT(id) as `count` FROM `plants`";
+    $sql = "SELECT COUNT(id) as `count` FROM `orders`";
     $order_list = 0;
   
-    // if($result = mysqli_query($conn, $sql)) {
-    //       $order_list = mysqli_fetch_assoc($result)["count"];
-    // }
+    if($result = mysqli_query($conn, $sql)) {
+          $order_list = mysqli_fetch_assoc($result)["count"];
+    }
   
     // echo"<pre>";
     // print_r($order_list);

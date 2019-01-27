@@ -78,7 +78,7 @@
 
                                 <div class="card-body">
                                     <h5 class="card-title">Total Orders <span id=""><?= $order_list ?></span> </h5>
-                                    <a href="#!" class="btn btn-outline-light"> Check </a>
+                                    <a href="/gyadmin/superadmin/order-list" class="btn btn-outline-light"> Check </a>
                                 </div>
 
                             </div>
