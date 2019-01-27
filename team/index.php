@@ -1,5 +1,11 @@
 <?php
 
+    // Connect to DB
+    require __DIR__ . "/..//initial/conn/index.php";
+
+    // Functions
+    require __DIR__ . "/functions/getdata.php";
+
     $title = "Team";
 
     // Require "Start Header"
@@ -20,27 +26,15 @@
     <div class="row">
 
     <?php
-        for( $i = 0 ; $i < 8 ; $i++) {
+        foreach($result as $k => $v) {
     ?>
     
         <div class="col-md-3 justify-content-center">
             <div class="text-center mb-3">
                 <div class="TeamImage">
-                    <img src="/assets/images/logo/greenygn_animate.svg" alt="Lwin Moe Paing" class="">
-                    <div class="mt-2"> <h6> Co-Founder @ Readmal </h6> </div>
-                    
-                    <?php 
-                    
-                        $arr = ['Ui/Ux Designer', 'Wit-2018 Design Winner', 'UniHack3-Champion'];
-                        
-                        foreach($arr as $v) {
-                    ?>
-                        <div> <a href="#!"> <?= $v ?> </a> </div>
-
-                    <?php
-                        }
-                    ?>
-                    
+                    <img src="<?= $v['image'] ?>" alt="<?= $v['name'] ?>" class="rounded-circle">
+                    <div class="mt-2"> <h6> <?= $v['name'] ?> </h6> </div>
+                    <div class="mt-2"> <h6> <?= $v['position'] ?> </h6> </div>
                 </div>
             </div>
         </div>
