@@ -23,7 +23,7 @@
 
         <form action="" method="get">
         <div class="row justify-content-end">
-                <div class="col-md-2">
+                <div class="col-md-3">
                     <div class="input-group mb-3">
                             <input name="page" type="text" class="form-control" value="<?= $page ?>">
                         

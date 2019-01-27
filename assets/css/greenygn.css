@@ -266,14 +266,30 @@ body {
 }
 /* Plant List Card Image End */
 
+.More_Image_Container {
+    height: 280px;
+    background-attachment: fixed;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 /* Map Container */
 .mapContainer {
     margin: 0 auto;
     width: 240px;
 }
+
+
 @media screen and (max-width: 767px) {
     .mapContainer {
         width: 160px;
+    }
+
+    .More_Image_Container {
+        height: 220px;
+        background-position: center center;
+        background-attachment: scroll;
     }
 }
 /* Map Container End */
