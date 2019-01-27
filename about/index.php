@@ -1,5 +1,11 @@
 <?php
 
+    // Connect to DB
+    require __DIR__ . "/..//initial/conn/index.php";
+
+    // Function Call
+    require __DIR__ . "/functions/getdata.php";
+
     $title = "About";
 
     // Require "Start Header"
@@ -17,7 +23,13 @@
 
     <h4 class="text-center mb-4"> About Of Us  </h4>
 
-    <h5 class="text-center"> We are going  to save tree for Future .</h5>
+    <?php 
+        foreach($result as $k => $v) {
+    ?>
+        <h5 class="text-center"><?= $v['description'] ?></h5>
+    <?php
+        }
+    ?>
 
 </div>
 <!-- Team Container End -->
