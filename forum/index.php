@@ -4,7 +4,7 @@
     require __DIR__ . "/..//initial/conn/index.php";
 
     // Function Call
-    require __DIR__ . "/functions/getdata.php";
+    require __DIR__ . "/functions/index/getdata.php";
 
     $title = "Forum";
 
@@ -59,14 +59,26 @@
                 <h5 class="card-title"><?= $v['title'] ?></h5>
                 <p class="card-text">
                     <?php 
-                        if(strlen($v['description']) > 20) {
-                            // If Greater Than 20
+                        // Limited Word COunt
+                        $limit = 20 ;
+
+                        if(strlen($v['description']) > $limit) {
+                            for($i = 0; $i < $limit ; $i++) {
+                                echo str_split($v['description'], 1)[$i] ;
+                            }
+                    ?> .......
+                    <?php
+                        } else {
+
+                    ?>
+                        <?= $v['description'] ?>
+                    <?php       
                         }
                     ?>
 
+                </p>
 
-                    <?= $v['description'] ?>
-
+                <p class="card-text">
                     <a class="btn btn-outline-primary" href="more.php?id=<?= $v['id'] ?>" role="button"> More </a>
                 </p>
                 </div>
