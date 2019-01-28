@@ -280,6 +280,21 @@ body {
     width: 240px;
 }
 
+/* WatchAndLogin */
+.WatchAndLogin {
+    height: 60vh;
+    background: #000;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url('/assets/images/logo/background.svg');
+    transition: all 0.2s linear;
+    filter: grayscale(65%);
+}
+
+.WatchAndLogin:hover {
+    filter: grayscale(20%);
+}
 
 @media screen and (max-width: 767px) {
     .mapContainer {
