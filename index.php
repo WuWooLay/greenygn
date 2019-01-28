@@ -21,11 +21,17 @@
 <!-- Icon And Watch And Login -->
 <div class="WatchAndLogin">
 
+    <!-- GetStart COntainer -->
+    <div class="GetStartContainer">
+        <?php require __DIR__ . "/initial/view/getstart_button/getstart.php" ;?>
+    </div>
+    <!-- GetStart COntainer End-->
+
 </div>
 <!-- Icon And Watch And Login End-->
 
 <!-- About Of Us -->
-<div class="container mt-3">
+<div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-12">
             <h2 class="text-center"> What We Are Doing?</h2>
@@ -38,7 +44,7 @@
 <!-- About Of Us End-->
 
 <!-- Some Plant Show -->
-<div class="container-fluid mt-3">
+<div class="container-fluid mt-5">
     <div class="row">
   
     <?php 
@@ -82,7 +88,23 @@
 
     // Require "Footer"
     require __DIR__ . "/initial/view/footer/footer.php";
+?>
+<script>
 
+        $(document).ready( function () {
+            $("#Getstart_Middle").on("mouseenter", function () {
+                $("#GetStart_Boy_And_Girl").css('transform', 'scale(0.9)');
+                $(this).css('transform', 'scale(0.96)');
+            });
+
+            $("#Getstart_Middle").on("mouseleave", function () {
+                $("#GetStart_Boy_And_Girl").css('transform', 'scale(0)');
+                $(this).css('transform', 'scale(1)');
+            });
+        });
+
+</script>
+<?php
     // Require "End Footer"
     require __DIR__ . "/initial/view/finish_footer.php";
 

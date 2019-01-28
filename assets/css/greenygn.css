@@ -290,10 +290,31 @@ body {
     background-image: url('/assets/images/logo/background.svg');
     transition: all 0.2s linear;
     filter: grayscale(65%);
+    position: relative;
 }
 
 .WatchAndLogin:hover {
     filter: grayscale(20%);
+}
+
+.GetStartContainer {
+    width: 250px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+}
+
+#GetStart_Boy_And_Girl {
+    transition: all 0.5s cubic-bezier(.75,-0.5,0,1.75);
+    transform-origin: 50% 70%;
+}
+#Getstart_Middle {
+    transform-origin: 50% 50%;
+    transition: all 0.3s cubic-bezier(.75,-0.5,0,1.75);
+}
+.get_start_cls-7, .get_start_cls-23 {
+    cursor: pointer;
 }
 
 @media screen and (max-width: 767px) {
