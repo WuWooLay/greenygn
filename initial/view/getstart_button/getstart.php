@@ -26,7 +26,7 @@
       }
 
       .get_start_cls-7 {
-        fill: #688f4a;
+        fill: #28a745;
       }
 
       .get_start_cls-8 {
