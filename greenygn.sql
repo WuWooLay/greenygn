@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 27, 2019 at 10:14 PM
+-- Generation Time: Jan 28, 2019 at 09:26 AM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -72,11 +72,9 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `name`, `email`, `password`, `admin_role_id`, `position`, `other_position`, `image`, `ph`, `address`, `bio`, `deleted_at`, `created_at`, `modified_at`) VALUES
-(1, 'Lwin Moe Paing', 'lwinmoepaing007@gmail.com', '$2y$10$ylEA3AIe8Ad/unGPz.54CeBJVJazs6fN93z3riCY01n7iF2KRoUUm', 1, 'Co-Founder @ Readmal.com', 'Ui/Ux Designer,UniHack3-Champion,Wit-2018 Design Winner', '/assets/images/admins/id1_08_19_05_5c48156976705.jpg', '09-420059241', '', '', NULL, '2019-01-18 17:33:54', '2019-01-18 17:33:54'),
-(2, 'Htet Naing Linn', 'htetnainglinn@gmail.com', '$2y$10$ylEA3AIe8Ad/unGPz.54CeBJVJazs6fN93z3riCY01n7iF2KRoUUm', 1, 'Co-Founder @ Readmal', '', '/assets/images/admins/id2_00_52_20_5c43b83402230.jpg', '09-449949494', 'Nothing', 'Ma shi', NULL, '2019-01-18 23:45:12', '2019-01-18 23:45:12'),
-(3, 'Ko Htet Ko', 'admin@gmail.com', '$2y$10$ylEA3AIe8Ad/unGPz.54CeBJVJazs6fN93z3riCY01n7iF2KRoUUm', 1, 'admin', '', '/assets/images/admins/id3_08_22_09_5c4421a116ef4.jpg', '09-455874454', '', '', NULL, '2019-01-20 04:03:04', '2019-01-20 04:03:04'),
-(4, 'Next Admin', '123@cc.sa', '$2y$10$JiwiSrp42aN1QkRg/bOCnenslzUdQ7sVkBCNjZ3MYmUsvmhRMQW1W', 1, 'admin', '', '/assets/images/admins/id4_09_15_08_5c442e0cc2f4a.png', '09-777777777', '', '', NULL, '2019-01-20 14:37:09', '2019-01-20 14:37:09'),
-(5, 'L w', 'admin2@gmail.com', '$2y$10$iM9WZ3R9jFdcghUpEp2.4OrtjhidnmsY6priZ55jyiFIihod.uzru', 2, 'admin', '', '/assets/images/logo/greenygn_animate.svg', NULL, NULL, NULL, NULL, '2019-01-20 15:00:16', '2019-01-20 15:00:16');
+(1, 'Lwin Moe Paing', 'lwinmoepaing007@gmail.com', '$2y$10$ylEA3AIe8Ad/unGPz.54CeBJVJazs6fN93z3riCY01n7iF2KRoUUm', 1, 'Co-Founder@Readmal', 'UniHack3-Champion,Wit-2018 Design Winner', '/assets/images/admins/id1_08_19_05_5c48156976705.jpg', '09-420059241', '', '', NULL, '2019-01-18 17:33:54', '2019-01-18 17:33:54'),
+(2, 'Htet Naing Linn', 'htetnainglinn@gmail.com', '$2y$10$ylEA3AIe8Ad/unGPz.54CeBJVJazs6fN93z3riCY01n7iF2KRoUUm', 1, 'Co-Founder@Readmal', '', '/assets/images/admins/id2_00_52_20_5c43b83402230.jpg', '09-449949494', 'Nothing', 'Ma shi', NULL, '2019-01-18 23:45:12', '2019-01-18 23:45:12'),
+(3, 'Ko Htet Ko', 'admin@gmail.com', '$2y$10$ylEA3AIe8Ad/unGPz.54CeBJVJazs6fN93z3riCY01n7iF2KRoUUm', 1, 'Admin', '', '/assets/images/admins/id3_08_22_09_5c4421a116ef4.jpg', '09-455874454', '', '', NULL, '2019-01-20 04:03:04', '2019-01-20 04:03:04');
 
 -- --------------------------------------------------------
 
@@ -144,8 +142,8 @@ CREATE TABLE `forum` (
 --
 
 INSERT INTO `forum` (`id`, `image`, `title`, `description`, `admin_id`, `deleted_at`, `created_at`, `modified_at`) VALUES
-(2, '/assets/images/forums/admin_id1_01_33_09_5c47b6453ef80.jpg', 'Ma Lar', '131313', 1, NULL, '2019-01-21 03:47:34', '2019-01-22 18:45:41'),
-(3, '/assets/images/forums/admin_id1_01_32_52_5c47b63463864.jpg', 'Ohmar', 'No NO nO', 1, NULL, '2019-01-21 03:49:32', '2019-01-22 20:47:30');
+(1, '/assets/images/forums/admin_id1_01_33_09_5c47b6453ef80.jpg', 'Ma Lar', '131313', 1, NULL, '2019-01-21 03:47:34', '2019-01-22 18:45:41'),
+(2, '/assets/images/forums/admin_id1_01_32_52_5c47b63463864.jpg', 'Ohmar', 'No NO nO', 1, NULL, '2019-01-21 03:49:32', '2019-01-22 20:47:30');
 
 -- --------------------------------------------------------
 
@@ -335,7 +333,7 @@ ALTER TABLE `about_page`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `admin_role`
@@ -353,7 +351,7 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `forum`
 --
 ALTER TABLE `forum`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `orders`
