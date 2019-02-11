@@ -183,7 +183,7 @@
                                         
                                         <!-- All Total Price -->
                                         <td class="text-right pr-5">
-                                            <span id="All_Total_Price">5000</span>
+                                            <span id="All_Total_Price"><?= $total_price ?></span>
                                             <span>Kyts</span>
                                         </td>
                                         <!-- All Total Price End-->

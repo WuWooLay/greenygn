@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 28, 2019 at 09:26 AM
+-- Generation Time: Feb 11, 2019 at 04:28 PM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -74,7 +74,8 @@ CREATE TABLE `admin` (
 INSERT INTO `admin` (`id`, `name`, `email`, `password`, `admin_role_id`, `position`, `other_position`, `image`, `ph`, `address`, `bio`, `deleted_at`, `created_at`, `modified_at`) VALUES
 (1, 'Lwin Moe Paing', 'lwinmoepaing007@gmail.com', '$2y$10$ylEA3AIe8Ad/unGPz.54CeBJVJazs6fN93z3riCY01n7iF2KRoUUm', 1, 'Co-Founder@Readmal', 'UniHack3-Champion,Wit-2018 Design Winner', '/assets/images/admins/id1_08_19_05_5c48156976705.jpg', '09-420059241', '', '', NULL, '2019-01-18 17:33:54', '2019-01-18 17:33:54'),
 (2, 'Htet Naing Linn', 'htetnainglinn@gmail.com', '$2y$10$ylEA3AIe8Ad/unGPz.54CeBJVJazs6fN93z3riCY01n7iF2KRoUUm', 1, 'Co-Founder@Readmal', '', '/assets/images/admins/id2_00_52_20_5c43b83402230.jpg', '09-449949494', 'Nothing', 'Ma shi', NULL, '2019-01-18 23:45:12', '2019-01-18 23:45:12'),
-(3, 'Ko Htet Ko', 'admin@gmail.com', '$2y$10$ylEA3AIe8Ad/unGPz.54CeBJVJazs6fN93z3riCY01n7iF2KRoUUm', 1, 'Admin', '', '/assets/images/admins/id3_08_22_09_5c4421a116ef4.jpg', '09-455874454', '', '', NULL, '2019-01-20 04:03:04', '2019-01-20 04:03:04');
+(3, 'Ko Htet Ko', 'htetko@gmail.com', '$2y$10$ylEA3AIe8Ad/unGPz.54CeBJVJazs6fN93z3riCY01n7iF2KRoUUm', 1, 'Admin', '', '/assets/images/admins/id3_08_22_09_5c4421a116ef4.jpg', '09-455874454', '', '', NULL, '2019-01-20 04:03:04', '2019-01-20 04:03:04'),
+(4, 'Aung Thuyein Oo', 'aungthuyeinoo@gmail.com', '$2y$10$2/caWXryJYaRJ6EMADQsv.zdiTwlXJ5lLWJxv3IslSpidqwuZuL3.', 1, 'admin', '', '/assets/images/logo/greenygn_animate.svg', NULL, NULL, NULL, NULL, '2019-02-11 21:04:30', '2019-02-11 21:04:30');
 
 -- --------------------------------------------------------
 
@@ -118,7 +119,8 @@ CREATE TABLE `category` (
 
 INSERT INTO `category` (`id`, `name`, `created_at`, `modified_at`, `deleted_at`) VALUES
 (1, 'Fruits', '2019-01-23 00:41:46', '2019-01-23 00:41:46', NULL),
-(2, 'Flowers', '2019-01-23 03:57:45', '2019-01-23 03:57:45', NULL);
+(2, 'Flowers', '2019-01-23 03:57:45', '2019-01-23 03:57:45', NULL),
+(3, 'Vegetables', '2019-02-11 14:35:48', '2019-02-11 14:35:48', NULL);
 
 -- --------------------------------------------------------
 
@@ -170,7 +172,11 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `user_id`, `user_name`, `user_phone`, `user_address`, `status`, `order_date`, `send_date`, `deleted_at`, `created_at`, `modified_at`) VALUES
-(1, 1, 'User 1', '09-456478541', 'Ygn', 0, '2019-01-25', NULL, NULL, '2019-01-25 21:55:15', '2019-01-25 21:55:15');
+(1, 1, 'User 1', '09-456478541', 'Ygn', 0, '2019-01-25', NULL, NULL, '2019-01-25 21:55:15', '2019-01-25 21:55:15'),
+(2, 3, 'Aung Lay', '09-420059241', 'Bay', 2, '2019-02-11', NULL, NULL, '2019-02-11 14:49:40', '2019-02-11 14:49:40'),
+(3, 2, 'Haoi', '09-456878541', 'Address _ Bayar', 1, '2019-02-11', NULL, NULL, '2019-02-11 14:57:04', '2019-02-11 14:57:04'),
+(4, 2, 'Haoi', '09-456878541', 'Address _ Bayar', 2, '2019-02-11', NULL, NULL, '2019-02-11 14:57:19', '2019-02-11 14:57:19'),
+(5, 2, 'Haoi', '09-456878541', 'Address _ Bayar', 2, '2019-02-11', NULL, NULL, '2019-02-11 15:09:18', '2019-02-11 15:09:18');
 
 -- --------------------------------------------------------
 
@@ -193,7 +199,17 @@ CREATE TABLE `order_details` (
 
 INSERT INTO `order_details` (`order_id`, `plant_id`, `image`, `quantity`, `plant_amount`, `total_amount`) VALUES
 (1, 1, '/assets/images/plants/plant_id_23_55_46_5c479f725720a.jpg', 5, 2000, 10000),
-(1, 2, '/assets/images/plants/plant_id1_22_35_03_5c478c872d1f0.jpg', 1, 3000, 3000);
+(1, 2, '/assets/images/plants/plant_id1_22_35_03_5c478c872d1f0.jpg', 1, 3000, 3000),
+(2, 1, '/assets/images/plants/plant_id_23_55_46_5c479f725720a.jpg', 1, 2000, 2000),
+(2, 3, '/assets/images/plants/plant_id_09_06_39_5c612d0f3e48f.jpg', 2, 800, 1600),
+(2, 4, '/assets/images/plants/plant_id_09_09_37_5c612dc1806de.jpg', 3, 1000, 3000),
+(2, 5, '/assets/images/plants/plant_id_09_14_33_5c612ee931e55.jpg', 2, 1500, 3000),
+(3, 2, '/assets/images/plants/plant_id1_22_35_03_5c478c872d1f0.jpg', 2, 3000, 6000),
+(3, 3, '/assets/images/plants/plant_id_09_06_39_5c612d0f3e48f.jpg', 3, 800, 2400),
+(4, 4, '/assets/images/plants/plant_id_09_09_37_5c612dc1806de.jpg', 2, 1000, 2000),
+(4, 5, '/assets/images/plants/plant_id_09_14_33_5c612ee931e55.jpg', 2, 1500, 3000),
+(5, 1, '/assets/images/plants/plant_id_23_55_46_5c479f725720a.jpg', 1, 2000, 2000),
+(5, 3, '/assets/images/plants/plant_id_09_06_39_5c612d0f3e48f.jpg', 2, 800, 1600);
 
 -- --------------------------------------------------------
 
@@ -218,8 +234,11 @@ CREATE TABLE `plants` (
 --
 
 INSERT INTO `plants` (`id`, `image`, `name`, `price`, `category_id`, `admin_id`, `deleted_at`, `created_at`, `modified_at`) VALUES
-(1, '/assets/images/plants/plant_id_23_55_46_5c479f725720a.jpg', 'Sun Flower', 2000, 1, 1, NULL, '2019-01-23 02:07:56', '2019-01-23 05:31:39'),
-(2, '/assets/images/plants/plant_id1_22_35_03_5c478c872d1f0.jpg', 'Rose', 3000, 2, 1, NULL, '2019-01-23 04:05:03', '2019-01-28 01:57:42');
+(1, '/assets/images/plants/plant_id_23_55_46_5c479f725720a.jpg', 'Sun Flower', 2000, 2, 3, NULL, '2019-01-23 02:07:56', '2019-02-11 14:39:46'),
+(2, '/assets/images/plants/plant_id1_22_35_03_5c478c872d1f0.jpg', 'Rose', 3000, 2, 1, NULL, '2019-01-23 04:05:03', '2019-01-28 01:57:42'),
+(3, '/assets/images/plants/plant_id_09_06_39_5c612d0f3e48f.jpg', 'Tomato', 800, 3, 2, NULL, '2019-02-11 14:36:39', '2019-02-11 14:36:39'),
+(4, '/assets/images/plants/plant_id_09_09_37_5c612dc1806de.jpg', 'Mango Plant', 1000, 1, 4, NULL, '2019-02-11 14:39:37', '2019-02-11 14:39:37'),
+(5, '/assets/images/plants/plant_id_09_14_33_5c612ee931e55.jpg', 'Orchid Plants', 1500, 2, 1, NULL, '2019-02-11 14:44:33', '2019-02-11 14:44:33');
 
 -- --------------------------------------------------------
 
@@ -246,9 +265,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `image`, `password`, `ph`, `address`, `bio`, `deleted_at`, `created_at`, `modified_at`) VALUES
-(1, 'Not User 1', 'user1@gmail.com', '/assets/images/users/id1_21_17_26_5c4b6ed64df90.jpg', '$2y$10$ylEA3AIe8Ad/unGPz.54CeBJVJazs6fN93z3riCY01n7iF2KRoUUm', '09-420059241', 'Ygn', '', NULL, '2019-01-18 16:15:54', '2019-01-24 00:25:11'),
-(2, 'Haoi', 'user2@gmail.com', '/assets/images/users/id2_21_25_14_5c4b70aa45174.png', '$2y$10$AlC8LZUCnJtAenE4Nq/FZ.L.uSiSlKAdKXVK3MvqCdRBQXYZ7XeQW', '09-456878541', 'Address _ Bayar', 'Bio', NULL, '2019-01-18 16:16:14', '2019-01-23 23:42:52'),
-(3, 'Not A', 'nextuser@gmail.com', '/assets/images/users/id3_19_59_51_5c48b9a76b112.png', '$2y$10$Yp46/cKkyuTI.s1tNdhmOurkuoWY59m0bwq9ZrL8t/KEivZ8WcJQ.', '09-420059241', 'Bay', '', NULL, '2019-01-24 01:29:38', '2019-01-24 01:29:59');
+(1, 'Htet Aung', 'user1@gmail.com', '/assets/images/users/id1_21_17_26_5c4b6ed64df90.jpg', '$2y$10$ylEA3AIe8Ad/unGPz.54CeBJVJazs6fN93z3riCY01n7iF2KRoUUm', '09-420059241', 'Ygn', '', NULL, '2019-01-18 16:15:54', '2019-02-11 14:42:22'),
+(2, 'Haoi', 'user2@gmail.com', '/assets/images/users/id2_21_25_14_5c4b70aa45174.png', '$2y$10$AlC8LZUCnJtAenE4Nq/FZ.L.uSiSlKAdKXVK3MvqCdRBQXYZ7XeQW', '09-456878541', 'Address _ Bayar', 'Bio', NULL, '2019-01-18 16:16:14', '2019-02-11 14:42:29'),
+(3, 'Aung Lay', 'nextuser@gmail.com', '/assets/images/users/id3_19_59_51_5c48b9a76b112.png', '$2y$10$Yp46/cKkyuTI.s1tNdhmOurkuoWY59m0bwq9ZrL8t/KEivZ8WcJQ.', '09-420059241', 'Bay', '', NULL, '2019-01-24 01:29:38', '2019-02-11 14:42:39'),
+(4, 'San Htut', 'user3@gmail.com', '/assets/images/users/id4_09_18_41_5c612fe1b6599.png', '$2y$10$madH.HnrYcA4lmCuUiioOOeZa82/fNazBLlKiv8/ZJOvTtDJgP6bW', '09-554441145', NULL, NULL, NULL, '2019-02-11 14:48:27', '2019-02-11 14:48:27');
 
 --
 -- Indexes for dumped tables
@@ -333,7 +353,7 @@ ALTER TABLE `about_page`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `admin_role`
@@ -345,7 +365,7 @@ ALTER TABLE `admin_role`
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `forum`
@@ -357,19 +377,19 @@ ALTER TABLE `forum`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `plants`
 --
 ALTER TABLE `plants`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables

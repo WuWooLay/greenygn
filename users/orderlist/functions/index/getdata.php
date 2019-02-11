@@ -21,9 +21,10 @@ $role = [
 ];
 
 // Get Data List Of Plants
-$sql = "SELECT * FROM `orders` WHERE `id` = " . $_SESSION['user']['id'];
+$sql = "SELECT * FROM `orders` WHERE `user_id` = " . $_SESSION['user']['id'];
 $sql .= " ORDER BY `orders`.`id` DESC LIMIT $offset, $no_of_records_per_page ";
 
+// echo $sql;
 
 if($res = mysqli_query($conn, $sql)) {
     // Mysql Work?

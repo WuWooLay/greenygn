@@ -75,7 +75,8 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="/gyadmin/superadmin/">DashBoard</a></li>
-                        <li class="breadcrumb-item active"> Orders </li>
+                        <li class="breadcrumb-item"><a href="/gyadmin/superadmin/order-list">Orders</a></li>
+                        <li class="breadcrumb-item active"> Details </li>
                     </ol>
                 </nav>
                 <!-- Breadcum Navigation End -->
