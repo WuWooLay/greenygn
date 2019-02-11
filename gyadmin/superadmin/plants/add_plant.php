@@ -165,7 +165,7 @@
                                 </div>
                                 <!-- Image Upload End -->
                                 
-                                <button type="submit" name="submit" class="btn btn-outline-primary"> Add Forum </button>
+                                <button type="submit" name="submit" class="btn btn-outline-primary"> Add Plant </button>
                             
                             </form>
 
